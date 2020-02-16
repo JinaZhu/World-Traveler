@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <title>Country Result</title>
+    
+</head>
+<body>
+  
+    <br>
+    <p>
+        <section id="display-country">
+            <h3>Country Info</h3>
+      
+            <dl>
+              <dt>Name</dt>
+              <dd id="name"></dd>
+      
+              <dt>Currency</dt>
+              <dd id="currency"></dd>
+      
+              <dt>lanuage</dt>
+              <dd id="language"></dd>
+            </dl>
+          </section>
+    </p>
+
+    <script>
+        $.get('/displayCountry', (res) => {
+             $('#name')[0].innerHTML = res.countryName
+             $('#currency')[0].innerHTML = res.currency
+             $('#language')[0].innerHTML = res.language
+            }
+        });
+        
+    </script>
+
+</body>
+</html>

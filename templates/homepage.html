@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <script
+            async defer 
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw&callback=initMap">
+        </script>
+
+        <title>World Traveler</title>
+        <style>
+            #map {
+                height: 100%;
+            }
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            #submit {
+                height: 100%;
+                text-align: center; 
+            }
+            #display-country {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+
+            function initMap() {
+                const unitedStates = {
+                    lat: 37.0902,
+                    lng: -95.7129
+                };
+                
+                const basicMap = new google.maps.Map(
+                    document.querySelector('#map'),
+                    {
+                        center: unitedStates,
+                        zoom: 3
+                    }
+                );
+                $('#submit').on('submit', (evt) => {
+                    evt.preventDefault();
+
+                $.get('/api/countriesInfo', (res) => {
+                    const randomCountry = res.countryName
+                    console.log(randomCountry)
+                    const geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({ address: randomCountry }, (results, status) => {
+                    if (status === 'OK') {
+                    // Get the coordinates of the user's location
+                        const userLocation = results[0].place_id;
+                        const country = results[0]
+                        console.log(userLocation, status)
+                        console.log(results[0].geometry.location.lat())
+                    }
+                    });
+                        });
+                    });
+            } 
+
+        </script>
+    <form action="displayCountry" id="submit">
+        <input type="submit">
+    </form>
+
+    <section id="display-country">
+        <h3>Country Info</h3>
+  
+        <dl>
+          <dt>Name: </dt>
+          <dd id="name"></dd>
+  
+          <dt>Currency: </dt>
+          <dd id="currency"></dd>
+  
+          <dt>lanuage: </dt>
+          <dd id="language"></dd>
+        </dl>
+      </section>
+</p>
+
+<script>
+    $('#submit').on('submit', (evt) => {
+        evt.preventDefault(); 
+
+    $.get('/api/countriesInfo', (res) => {
+         $('#name')[0].innerHTML = res.countryName
+         $('#currency')[0].innerHTML = res.currency
+         $('#language')[0].innerHTML = res.language
+
+    });
+    });
+
+
+    </script>
+    </body>
+</html>
+
