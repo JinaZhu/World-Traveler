@@ -94,16 +94,20 @@ def display_countries():
     place_photos_list = []
 
     for photo in photos:
-        photo_ref = photo['photo_reference']
-        place_photos_list.append(gmaps.places_photo(
-            photo_ref, max_width=100))
+        place_photos_list.append(photo['photo_reference'])
 
-    photo_response_generator = gmaps.places_photo(
-        'CmRaAAAAM5cJN_u8dAuQRoZ8LQke2r3F6p33gFH4R2WlZNYXkMaTaRSaIoAkgx9abC_rpgMJGMZ8LoRqY4Mp1UgYncfQrqxWq1uW6hJ9u1kOK9oyl1Ukug0Sn2IIKOLKuz6BBnU-EhDSRKZPknwpVW2iIhsUJp7QGhSLq8T6frABgIJerPskhGV-1Dwi9g', max_width=100)
+    # for photo in photos:
+    #     photo_ref = photo['photo_reference']
+    #     place_photos_list.append(gmaps.places_photo(
+    #         photo_ref, max_width=100))
 
-    print(list(photo_response_generator))
+    print(place_photos_list)
 
-    return jsonify(country)
+    # photo_response_generator = gmaps.places_photo(
+    #     'CmRaAAAAM5cJN_u8dAuQRoZ8LQke2r3F6p33gFH4R2WlZNYXkMaTaRSaIoAkgx9abC_rpgMJGMZ8LoRqY4Mp1UgYncfQrqxWq1uW6hJ9u1kOK9oyl1Ukug0Sn2IIKOLKuz6BBnU-EhDSRKZPknwpVW2iIhsUJp7QGhSLq8T6frABgIJerPskhGV-1Dwi9g', max_width=100)
+
+    # return jsonify(country)
+    return jsonify(place_photos_list)
 
 
 @app.route('/signin')
