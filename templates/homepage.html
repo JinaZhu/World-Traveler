@@ -66,20 +66,41 @@
             $('#submit').on('submit', (evt) => {
                 evt.preventDefault();
 
-                $.get('/api/countriesInfo', (countriesRes) => countriesRes).then(countriesRes => {
-                    console.log(countriesRes)
-                    return batchedPhotoCalls = countriesRes.map(countriesRes => {
-                        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${countriesRes}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`
-                        // return $.get(url)
-                        return url;
+                // Refactoring 
+                // a map have to return something or it will be empty
+                //getting the data from the endpoint
+                $.get('/api/countriesInfo', (countryRes) => {
+                    // with every item in the array, put the item inside the url
+                    countryPhotoRes = countryRes['place_photos']
+                    const photoUrls = countryPhotoRes.map(reference => {
+                        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`
+                        // return the url
+                        return url
                     })
-                    // return Promise.all(batchedPhotoCalls)
-                }).then(finalResponse => {
-                    console.log(finalResponse)
-                    finalResponse.forEach(url => {
+                    //for each url, add inside the junk tag an image tag with all the urls
+                    photoUrls.forEach(url => {
                         $('#junk').append(`<img src="${url}" />`)
                     })
+
                 })
+
+
+                // Mustasche implementation
+                // $.get('/api/countriesInfo', (countriesRes) => countriesRes).then(countriesRes => {
+                //     console.log(countriesRes)
+                //     return batchedPhotoCalls = countriesRes.map(countriesRes => {
+                //         const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${countriesRes}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`
+                //         // return $.get(url)
+                //         return url;
+                //     })
+                //     // return Promise.all(batchedPhotoCalls)
+                // }).then(finalResponse => {
+                //     console.log(finalResponse)
+                //     finalResponse.forEach(url => {
+                //         $('#junk').append(`<img src="${url}" />`)
+                //     })
+                // })
+                // Not by mustache
                 // $.get('/api/countriesInfo', (res) => {
                 //     const randomCountry = res.countryName
                 //     console.log(randomCountry)

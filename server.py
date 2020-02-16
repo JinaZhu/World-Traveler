@@ -5,6 +5,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
 from model import connect_to_db, db, Country
 import googlemaps
+import json
 
 
 gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
@@ -82,32 +83,42 @@ def display_countries():
     ]
 
     country = choice(countries)  # select a random country
-
     country_name = country['countryName']  # get random country name from db
 
     geocode_result = gmaps.geocode(country_name)  # get place_id from geocode
-    country_id = geocode_result[0]['place_id']  # store geocode
-    place_detail = gmaps.place(country_id)  # get
+    # from geocode store the place id
+    country_id = geocode_result[0]['place_id']
 
-    photos = (place_detail['result']['photos'])  # get photos from place
+    # from the place detail api, store the country_id
+    place_detail = gmaps.place(country_id)
+
+    # get reference photo from place details
+    photos = (place_detail['result']['photos'])
+    short_name = (place_detail['result']['address_components'])
 
     place_photos_list = []
 
+    # use the short name to fetch info from travel-advisory api
+    # from the api, need score and source
+
+    short_name_list = []
+
+    # loop through all the photos and take get the photo_reference and append all the ref to place_photos_list
     for photo in photos:
         place_photos_list.append(photo['photo_reference'])
+        short_name_list.append(short_name[0]['short_name'])
 
-    # for photo in photos:
-    #     photo_ref = photo['photo_reference']
-    #     place_photos_list.append(gmaps.places_photo(
-    #         photo_ref, max_width=100))
+    # travel_advisor_response = request.data(
+    #     "https://www.travel-advisory.info/api")
 
-    print(place_photos_list)
+    country_information = {
+        'country_info': country,
+        'place_photos': place_photos_list,
+    }
 
-    # photo_response_generator = gmaps.places_photo(
-    #     'CmRaAAAAM5cJN_u8dAuQRoZ8LQke2r3F6p33gFH4R2WlZNYXkMaTaRSaIoAkgx9abC_rpgMJGMZ8LoRqY4Mp1UgYncfQrqxWq1uW6hJ9u1kOK9oyl1Ukug0Sn2IIKOLKuz6BBnU-EhDSRKZPknwpVW2iIhsUJp7QGhSLq8T6frABgIJerPskhGV-1Dwi9g', max_width=100)
-
-    # return jsonify(country)
-    return jsonify(place_photos_list)
+    print(country_information)
+    return jsonify(country_information)
+    # return jsonify(place_photos_list)
 
 
 @app.route('/signin')
