@@ -9,11 +9,12 @@ import googlemaps
 
 gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
 
-app =  Flask(__name__)
+app = Flask(__name__)
 
 app.secret_key = "ABC"
 
 app.jinja_env.undefined = StrictUndefined
+
 
 @app.route('/')
 def homepage():
@@ -22,7 +23,7 @@ def homepage():
     return render_template("homepage.html")
 
 
-@app.route('/api/countryList') 
+@app.route('/api/countryList')
 def display_country():
 
     # all_country = Country.query.all()
@@ -31,17 +32,16 @@ def display_country():
     # return render_template("country.html",
     #                         all_country=all_country)
 
-
     country = choice(Country.query.limit(10))
 
     country = {
-            "id": country.country_id,
-            "countryName": country.country_name,
-            "visa": country.visa,
-            "vaccination": country.vaccination,
-            "language": country.language,
-            "currency": country.currency
-        }
+        "id": country.country_id,
+        "countryName": country.country_name,
+        "visa": country.visa,
+        "vaccination": country.vaccination,
+        "language": country.language,
+        "currency": country.currency
+    }
     # countries = [
     #     {
     #         "id": country.country_id,
@@ -66,9 +66,8 @@ def display_countries():
     # return render_template("country.html",
     #                         all_country=all_country)
 
-    # get country id with geocoder with name of country 
-        # pass id to photo api to get photos
-
+    # get country id with geocoder with name of country
+    # pass id to photo api to get photos
 
     countries = [
         {
@@ -82,13 +81,29 @@ def display_countries():
         for country in Country.query.limit(10)
     ]
 
-    country = choice(countries) # select a random country
-    print(country)
-    geocode_result = gmaps.geocode(country.countryName)
-    print(geocode_result)
-    return jsonify(country)
+    country = choice(countries)  # select a random country
 
-    
+    country_name = country['countryName']  # get random country name from db
+
+    geocode_result = gmaps.geocode(country_name)  # get place_id from geocode
+    country_id = geocode_result[0]['place_id']  # store geocode
+    place_detail = gmaps.place(country_id)  # get
+
+    photos = (place_detail['result']['photos'])  # get photos from place
+
+    place_photos_list = []
+
+    for photo in photos:
+        photo_ref = photo['photo_reference']
+        place_photos_list.append(gmaps.places_photo(
+            photo_ref, max_width=100))
+
+    photo_response_generator = gmaps.places_photo(
+        'CmRaAAAAM5cJN_u8dAuQRoZ8LQke2r3F6p33gFH4R2WlZNYXkMaTaRSaIoAkgx9abC_rpgMJGMZ8LoRqY4Mp1UgYncfQrqxWq1uW6hJ9u1kOK9oyl1Ukug0Sn2IIKOLKuz6BBnU-EhDSRKZPknwpVW2iIhsUJp7QGhSLq8T6frABgIJerPskhGV-1Dwi9g', max_width=100)
+
+    print(list(photo_response_generator))
+
+    return jsonify(country)
 
 
 @app.route('/signin')
