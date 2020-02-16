@@ -4,9 +4,10 @@ from flask import Flask, render_template, request, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
 from model import connect_to_db, db, Country
+import googlemaps
 
 
-COUNTRIES = ['united states', 'japan', 'germany']
+gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
 
 app =  Flask(__name__)
 
@@ -33,7 +34,7 @@ def display_country():
 
     country = choice(Country.query.limit(10))
 
-    country_d = {
+    country = {
             "id": country.country_id,
             "countryName": country.country_name,
             "visa": country.visa,
@@ -53,7 +54,7 @@ def display_country():
     #     for country in Country.query.limit(10)
     # ]
 
-    return jsonify(country_d)
+    return jsonify(country)
 
 
 @app.route('/api/countriesInfo')
@@ -64,6 +65,10 @@ def display_countries():
 
     # return render_template("country.html",
     #                         all_country=all_country)
+
+    # get country id with geocoder with name of country 
+        # pass id to photo api to get photos
+
 
     countries = [
         {
@@ -77,7 +82,11 @@ def display_countries():
         for country in Country.query.limit(10)
     ]
 
-    return jsonify(choice(countries))
+    country = choice(countries) # select a random country
+    print(country)
+    geocode_result = gmaps.geocode(country.countryName)
+    print(geocode_result)
+    return jsonify(country)
 
     
 

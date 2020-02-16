@@ -48,6 +48,18 @@
                         zoom: 3
                     }
                 );
+                // Response Object
+                const response = {
+                    "id": '12345', // db
+                    "countryName": 'Japan', // db
+                    "visa": 'N', // db
+                    "vaccination": ['Typhoid', 'Malaria'], // db
+                    "language": 'Japanese', // db
+                    "currency": 'Yen', // db,
+                    'photos':['photo.url.sdfasdf.com', 'photo.url.sdfasdf.com', 'photo.url.sdfasdf.com'], // Google Photos Api
+                    'safety': 9 // Travel Api 
+                }
+           
                 $('#submit').on('submit', (evt) => {
                     evt.preventDefault();
 
@@ -93,12 +105,12 @@
     $('#submit').on('submit', (evt) => {
         evt.preventDefault(); 
 
-    $.get('/api/countriesInfo', (res) => {
-         $('#name')[0].innerHTML = res.countryName
-         $('#currency')[0].innerHTML = res.currency
-         $('#language')[0].innerHTML = res.language
+    // $.get('/api/countriesInfo', (res) => {
+    //      $('#name')[0].innerHTML = res.countryName
+    //      $('#currency')[0].innerHTML = res.currency
+    //      $('#language')[0].innerHTML = res.language
 
-    });
+    // });
     });
 
 
