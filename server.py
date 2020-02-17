@@ -1,3 +1,4 @@
+import os
 from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, request, jsonify
@@ -8,7 +9,8 @@ import googlemaps
 import json
 import requests
 
-
+google_map_api_key = os.getenv("GOOGLE_API")
+print('**************', google_map_api_key)
 gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
 
 app = Flask(__name__)
@@ -113,6 +115,18 @@ def display_countries():
     travel_advisor_json = travel_advisor_response.json()
     country_safety_score = travel_advisor_json['data'][short_name]['advisory']['score']
     learn_more_advisory = travel_advisor_json['data'][short_name]['advisory']['source']
+
+    # popular cities api
+    cities_url = f'https://countries-cities.p.rapidapi.com/location/country/{short_name}/city/list'
+    querystring = {"page": "1", "per_page": "7", "format": "json"}
+    headers = {
+        'x-rapidapi-host': "countries-cities.p.rapidapi.com",
+        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+    }
+    response = requests.request(
+        "GET", cities_url, headers=headers, params=querystring)
+
+    # print(response.text)
 
     country_information = {
         'country_info': country,
