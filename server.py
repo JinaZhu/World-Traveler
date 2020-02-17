@@ -6,6 +6,7 @@ from random import choice
 from model import connect_to_db, db, Country
 import googlemaps
 import json
+import requests
 
 
 gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
@@ -94,31 +95,33 @@ def display_countries():
 
     # get reference photo from place details
     photos = (place_detail['result']['photos'])
-    short_name = (place_detail['result']['address_components'])
+    short_name = (place_detail['result']
+                  ['address_components'][0]['short_name'])
 
     place_photos_list = []
 
     # use the short name to fetch info from travel-advisory api
     # from the api, need score and source
 
-    short_name_list = []
-
     # loop through all the photos and take get the photo_reference and append all the ref to place_photos_list
     for photo in photos:
         place_photos_list.append(photo['photo_reference'])
-        short_name_list.append(short_name[0]['short_name'])
 
-    # travel_advisor_response = request.data(
-    #     "https://www.travel-advisory.info/api")
+    # api file from travel advisory
+    travel_advisor_response = requests.get(
+        "https://www.travel-advisory.info/api")
+    travel_advisor_json = travel_advisor_response.json()
+    country_safety_score = travel_advisor_json['data'][short_name]['advisory']['score']
+    learn_more_advisory = travel_advisor_json['data'][short_name]['advisory']['source']
 
     country_information = {
         'country_info': country,
         'place_photos': place_photos_list,
+        'advisor_score': country_safety_score,
+        'learn_more_advisory': learn_more_advisory
     }
 
-    print(country_information)
     return jsonify(country_information)
-    # return jsonify(place_photos_list)
 
 
 @app.route('/signin')

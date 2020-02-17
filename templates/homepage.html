@@ -35,6 +35,37 @@
 
 <body>
     <div id="map"></div>
+    <div>
+        <form action="displayCountry" id="submit">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <section id="display-country">
+            <h3>Country Info</h3>
+
+            <dl>
+                <dt>Name: </dt>
+                <dd id="name"></dd>
+
+                <dt>Currency: </dt>
+                <dd id="currency"></dd>
+
+                <dt>Lanuage: </dt>
+                <dd id="language"></dd>
+
+                <dt>Visa: </dt>
+                <dd id="visa"></dd>
+
+                <dt>Vaccination/s: </dt>
+                <dd id="vaccination"></dd>
+
+                <dt>Advisor Score: </dt>
+                <dd id="advisor_score"></dd>
+                <dd id="learn_more"></dd>
+            </dl>
+        </section>
+    </div>
     <div id="junk"></div>
     <script>
 
@@ -81,76 +112,19 @@
                     photoUrls.forEach(url => {
                         $('#junk').append(`<img src="${url}" />`)
                     })
+                    $('#name')[0].innerHTML = countryRes.country_info.countryName
+                    $('#currency')[0].innerHTML = countryRes.country_info.currency
+                    $('#language')[0].innerHTML = countryRes.country_info.language
+                    $('#visa')[0].innerHTML = countryRes.country_info.visa
+                    $('#vaccination')[0].innerHTML = countryRes.country_info.vaccination
+                    $('#advisor_score')[0].innerHTML = countryRes.advisor_score
+                    $('#learn_more')[0].innerHTML = countryRes.learn_more_advisory
+
 
                 })
 
-
-                // Mustasche implementation
-                // $.get('/api/countriesInfo', (countriesRes) => countriesRes).then(countriesRes => {
-                //     console.log(countriesRes)
-                //     return batchedPhotoCalls = countriesRes.map(countriesRes => {
-                //         const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${countriesRes}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`
-                //         // return $.get(url)
-                //         return url;
-                //     })
-                //     // return Promise.all(batchedPhotoCalls)
-                // }).then(finalResponse => {
-                //     console.log(finalResponse)
-                //     finalResponse.forEach(url => {
-                //         $('#junk').append(`<img src="${url}" />`)
-                //     })
-                // })
-                // Not by mustache
-                // $.get('/api/countriesInfo', (res) => {
-                //     const randomCountry = res.countryName
-                //     console.log(randomCountry)
-                //     const geocoder = new google.maps.Geocoder();
-                //     geocoder.geocode({ address: randomCountry }, (results, status) => {
-                //     if (status === 'OK') {
-                //     // Get the coordinates of the user's location
-                //         const userLocation = results[0].place_id;
-                //         const country = results[0]
-                //         console.log(userLocation, status)
-                //         console.log(results[0].geometry.location.lat())
-                //     }
-                //     });
-                //         });
             });
         }
-
-    </script>
-    <form action="displayCountry" id="submit">
-        <input type="submit">
-    </form>
-
-    <section id="display-country">
-        <h3>Country Info</h3>
-
-        <dl>
-            <dt>Name: </dt>
-            <dd id="name"></dd>
-
-            <dt>Currency: </dt>
-            <dd id="currency"></dd>
-
-            <dt>lanuage: </dt>
-            <dd id="language"></dd>
-        </dl>
-    </section>
-    </p>
-
-    <script>
-        $('#submit').on('submit', (evt) => {
-            evt.preventDefault();
-
-            // $.get('/api/countriesInfo', (res) => {
-            //      $('#name')[0].innerHTML = res.countryName
-            //      $('#currency')[0].innerHTML = res.currency
-            //      $('#language')[0].innerHTML = res.language
-
-            // });
-        });
-
 
     </script>
 </body>

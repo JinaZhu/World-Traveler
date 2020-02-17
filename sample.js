@@ -39,7 +39,8 @@ const sample2 = {
             },
             {
                 'height': 887,
-                'html_attributions': ['<a href="https://maps.google.com/maps/contrib/107821843767731127658">Richard Harrison</a>'], 'photo_reference': 'CmRaAAAAmrOYNkYknejGFlKbtmj-_8iVGGfCossqdlwbvEORuA6TUQ6RQSZ6x9uAy_e0JWMLYX-q0SQ4sJ2mLaQnnaUUhI2me6j1yD9MUia0M0qTvVbpgJRBG2b8qNil-Yf1KvBKEhBw7PQGqPO5K_G8r74wrfneGhRPJ-EnU9Qa29Dx8pBSP2TjpGxDwA',
+                'html_attributions': ['<a href="https://maps.google.com/maps/contrib/107821843767731127658">Richard Harrison</a>'],
+                'photo_reference': 'CmRaAAAAmrOYNkYknejGFlKbtmj-_8iVGGfCossqdlwbvEORuA6TUQ6RQSZ6x9uAy_e0JWMLYX-q0SQ4sJ2mLaQnnaUUhI2me6j1yD9MUia0M0qTvVbpgJRBG2b8qNil-Yf1KvBKEhBw7PQGqPO5K_G8r74wrfneGhRPJ-EnU9Qa29Dx8pBSP2TjpGxDwA',
                 'width': 1286
             },
             {
