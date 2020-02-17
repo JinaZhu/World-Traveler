@@ -1,120 +1,132 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-        <meta name="viewpoint" content="width=device-width, initial-scale=1">
-        <script
-            async defer 
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw&callback=initMap">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw&callback=initMap">
         </script>
 
-        <title>World Traveler</title>
-        <style>
-            #map {
-                height: 100%;
-            }
+    <title>World Traveler</title>
+    <style>
+        #map {
+            height: 100%;
+        }
 
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            #submit {
-                height: 100%;
-                text-align: center; 
-            }
-            #display-country {
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="map"></div>
-        <script>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-            function initMap() {
-                const unitedStates = {
-                    lat: 37.0902,
-                    lng: -95.7129
-                };
-                
-                const basicMap = new google.maps.Map(
-                    document.querySelector('#map'),
-                    {
-                        center: unitedStates,
-                        zoom: 3
-                    }
-                );
-                // Response Object
-                const response = {
-                    "id": '12345', // db
-                    "countryName": 'Japan', // db
-                    "visa": 'N', // db
-                    "vaccination": ['Typhoid', 'Malaria'], // db
-                    "language": 'Japanese', // db
-                    "currency": 'Yen', // db,
-                    'photos':['photo.url.sdfasdf.com', 'photo.url.sdfasdf.com', 'photo.url.sdfasdf.com'], // Google Photos Api
-                    'safety': 9 // Travel Api 
+        #submit {
+            height: 100%;
+            text-align: center;
+        }
+
+        #display-country {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div>
+        <form action="displayCountry" id="submit">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <section id="display-country">
+            <h3>Country Info</h3>
+
+            <dl>
+                <dt>Name: </dt>
+                <dd id="name"></dd>
+
+                <dt>Currency: </dt>
+                <dd id="currency"></dd>
+
+                <dt>Lanuage: </dt>
+                <dd id="language"></dd>
+
+                <dt>Visa: </dt>
+                <dd id="visa"></dd>
+
+                <dt>Vaccination/s: </dt>
+                <dd id="vaccination"></dd>
+
+                <dt>Advisor Score: </dt>
+                <dd id="advisor_score"></dd>
+                <dd id="learn_more"></dd>
+            </dl>
+        </section>
+    </div>
+    <div id="junk"></div>
+    <script>
+
+        function initMap() {
+            const unitedStates = {
+                lat: 37.0902,
+                lng: -95.7129
+            };
+
+            const basicMap = new google.maps.Map(
+                document.querySelector('#map'),
+                {
+                    center: unitedStates,
+                    zoom: 3
                 }
-           
-                $('#submit').on('submit', (evt) => {
-                    evt.preventDefault();
+            );
+            // Response Object
+            const response = {
+                "id": '12345', // db
+                "countryName": 'Japan', // db
+                "visa": 'N', // db
+                "vaccination": ['Typhoid', 'Malaria'], // db
+                "language": 'Japanese', // db
+                "currency": 'Yen', // db,
+                'photos': ['photo.url.sdfasdf.com', 'photo.url.sdfasdf.com', 'photo.url.sdfasdf.com'], // Google Photos Api
+                'safety': 9 // Travel Api 
+            }
 
-                $.get('/api/countriesInfo', (res) => {
-                    const randomCountry = res.countryName
-                    console.log(randomCountry)
-                    const geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({ address: randomCountry }, (results, status) => {
-                    if (status === 'OK') {
-                    // Get the coordinates of the user's location
-                        const userLocation = results[0].place_id;
-                        const country = results[0]
-                        console.log(userLocation, status)
-                        console.log(results[0].geometry.location.lat())
-                    }
-                    });
-                        });
-                    });
-            } 
+            $('#submit').on('submit', (evt) => {
+                evt.preventDefault();
 
-        </script>
-    <form action="displayCountry" id="submit">
-        <input type="submit">
-    </form>
+                // Refactoring 
+                // a map have to return something or it will be empty
+                //getting the data from the endpoint
+                $.get('/api/countriesInfo', (countryRes) => {
+                    // with every item in the array, put the item inside the url
+                    countryPhotoRes = countryRes['place_photos']
+                    const photoUrls = countryPhotoRes.map(reference => {
+                        const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`
+                        // return the url
+                        return url
+                    })
+                    //for each url, add inside the junk tag an image tag with all the urls
+                    photoUrls.forEach(url => {
+                        $('#junk').append(`<img src="${url}" />`)
+                    })
+                    $('#name')[0].innerHTML = countryRes.country_info.countryName
+                    $('#currency')[0].innerHTML = countryRes.country_info.currency
+                    $('#language')[0].innerHTML = countryRes.country_info.language
+                    $('#visa')[0].innerHTML = countryRes.country_info.visa
+                    $('#vaccination')[0].innerHTML = countryRes.country_info.vaccination
+                    $('#advisor_score')[0].innerHTML = countryRes.advisor_score
+                    $('#learn_more')[0].innerHTML = countryRes.learn_more_advisory
 
-    <section id="display-country">
-        <h3>Country Info</h3>
-  
-        <dl>
-          <dt>Name: </dt>
-          <dd id="name"></dd>
-  
-          <dt>Currency: </dt>
-          <dd id="currency"></dd>
-  
-          <dt>lanuage: </dt>
-          <dd id="language"></dd>
-        </dl>
-      </section>
-</p>
 
-<script>
-    $('#submit').on('submit', (evt) => {
-        evt.preventDefault(); 
+                })
 
-    // $.get('/api/countriesInfo', (res) => {
-    //      $('#name')[0].innerHTML = res.countryName
-    //      $('#currency')[0].innerHTML = res.currency
-    //      $('#language')[0].innerHTML = res.language
-
-    // });
-    });
-
+            });
+        }
 
     </script>
-    </body>
-</html>
+</body>
 
+</html>
