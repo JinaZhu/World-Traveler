@@ -129,9 +129,17 @@ def display_countries():
     }
     response = requests.request(
         "GET", cities_url, headers=headers, params=querystring)
+    text_response = response.text
+    # city_information = text_response['cities']
+    covert_text_to_dict = json.loads(text_response)
+    cities_information = covert_text_to_dict['cities']
+    popular_cities = []
+    for city in cities_information:
+        popular_cities.append({'city_name': city['name'],
+                               'lat': city['latitude'],
+                               'long': city['longitude']})
 
-    # print(response.text)
-
+    print(popular_cities)
     country_information = {
         'country_info': country,
         'place_photos': place_photos_list,
