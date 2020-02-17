@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, request, jsonify
@@ -9,9 +11,11 @@ import googlemaps
 import json
 import requests
 
+env_path = Path(".") / '.env'
+load_dotenv(dotenv_path=env_path)
 google_map_api_key = os.getenv("GOOGLE_API")
-print('**************', google_map_api_key)
-gmaps = googlemaps.Client(key='AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
+cities_rapid_api = os.getenv("CITY_RAPID_API")
+gmaps = googlemaps.Client(key=google_map_api_key)
 
 app = Flask(__name__)
 
@@ -121,7 +125,7 @@ def display_countries():
     querystring = {"page": "1", "per_page": "7", "format": "json"}
     headers = {
         'x-rapidapi-host': "countries-cities.p.rapidapi.com",
-        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+        'x-rapidapi-key': cities_rapid_api
     }
     response = requests.request(
         "GET", cities_url, headers=headers, params=querystring)
