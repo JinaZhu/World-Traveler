@@ -162,13 +162,12 @@ def display_countries():
         popular_cities_with_airports.append({'city_name': city_and_airport['city_name'],
                                              'nearest_airport': city_and_airport['airport']['code']})
 
-    print(popular_cities_with_airports)
-
     country_information = {
         'country_info': country,
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
-        'learn_more_advisory': learn_more_advisory
+        'learn_more_advisory': learn_more_advisory,
+        'popular_cities_and_airport': popular_cities_with_airports
     }
 
     return jsonify(country_information)

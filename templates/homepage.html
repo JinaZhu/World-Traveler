@@ -63,6 +63,9 @@
                 <dt>Advisor Score: </dt>
                 <dd id="advisor_score"></dd>
                 <dd id="learn_more"></dd>
+
+                <dt>Popular Cities: </dt>
+                <ul id="cities"></ul>
             </dl>
         </section>
     </div>
@@ -119,6 +122,12 @@
                     $('#vaccination')[0].innerHTML = countryRes.country_info.vaccination
                     $('#advisor_score')[0].innerHTML = countryRes.advisor_score
                     $('#learn_more')[0].innerHTML = countryRes.learn_more_advisory
+
+                    const popular_cities = countryRes.popular_cities_and_airport
+                    popular_cities.forEach(city => {
+                        $('#cities').append(`<li>${city['city_name']}</li>
+                                             <dd> nearest aiport: ${city['nearest_airport']}</dd>`)
+                    })
 
 
                 })
