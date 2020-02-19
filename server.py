@@ -98,6 +98,7 @@ def display_countries():
 
     # from the place detail api, store the country_id
     place_detail = gmaps.place(country_id)
+    print(place_detail)
 
     # get reference photo from place details
     photos = (place_detail['result']['photos'])
@@ -139,6 +140,14 @@ def display_countries():
                                'lat': city['latitude'],
                                'long': city['longitude']})
 
+    place_search = gmaps.places_nearby(lat_lng={
+        'lat': 52.0737017,
+        'lng': 5.0944107999999915
+    },
+        radius=100,
+        types=[types]
+    )
+
     # with popular cities, find the nearest airport
     popular_city_airport = []
     for each_city in popular_cities:
@@ -173,14 +182,42 @@ def display_countries():
     return jsonify(country_information)
 
 
-@app.route('/signin')
-def sign_in():
-    pass
+@app.route('/login', methods=['GET'])
+def login_form():
+    """Show form for user login"""
+
+    return render_template("login_form.html")
 
 
-@app.route('/register')
-def register_page():
-    pass
+@app.route('/login', methods=['POST'])
+def login_process():
+    """Process login"""
+
+    email.request.form["email"]
+    password = request.form["password"]
+
+    # look at rating server.py after dealing with db to complete
+
+    return redirect(f"/users/{user.user_id}")
+
+
+@app.route('/register', methods=['GET'])
+def register_form():
+    """show form for user signup"""
+
+    return render_template("register_form.html")
+
+
+@app.route('/register', methods=['POST'])
+def register_process():
+    """Process registration."""
+
+    first_name = request.form["first_name"]
+    last_name = request.form["last_name"]
+    email = request.form["email"]
+    password = request.form["password"]
+
+    # look at db first
 
 
 @app.route('/user/<int:user_id>')
