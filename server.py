@@ -122,21 +122,52 @@ def display_countries():
 
     # popular cities api
     cities_url = f'https://countries-cities.p.rapidapi.com/location/country/{short_name}/city/list'
-    querystring = {"page": "1", "per_page": "7", "format": "json"}
-    headers = {
+    cities_querystring = {"page": "1", "per_page": "7", "format": "json"}
+    cities_headers = {
         'x-rapidapi-host': "countries-cities.p.rapidapi.com",
         'x-rapidapi-key': cities_rapid_api
     }
-    response = requests.request(
-        "GET", cities_url, headers=headers, params=querystring)
+    cities_response = requests.request(
+        "GET", cities_url, headers=cities_headers, params=cities_querystring)
+    cities_text_response = cities_response.text
+    # city_information = text_response['cities']
+    covert_text_to_dict = json.loads(cities_text_response)
+    cities_information = covert_text_to_dict['cities']
+    popular_cities = []
+    for city in cities_information:
+        popular_cities.append({'city_name': city['name'],
+                               'lat': city['latitude'],
+                               'long': city['longitude']})
 
-    # print(response.text)
+    # with popular cities, find the nearest airport
+    popular_city_airport = []
+    for each_city in popular_cities:
+        airport_url = "https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/nearest"
+        airport_querystring = {
+            "lng": f"{each_city['long']}", "lat": f"{each_city['lat']}"}
+        airport_headers = {
+            'x-rapidapi-host': "cometari-airportsfinder-v1.p.rapidapi.com",
+            'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+        }
+        airport_response = requests.request(
+            "GET", airport_url, headers=airport_headers, params=airport_querystring)
+        airport_text_response = airport_response.text
+        convert_airport_dict = json.loads(airport_text_response)
+        popular_city_airport.append({'city_name': each_city['city_name'],
+                                     'airport': convert_airport_dict
+                                     })
+
+    popular_cities_with_airports = []
+    for city_and_airport in popular_city_airport:
+        popular_cities_with_airports.append({'city_name': city_and_airport['city_name'],
+                                             'nearest_airport': city_and_airport['airport']['code']})
 
     country_information = {
         'country_info': country,
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
-        'learn_more_advisory': learn_more_advisory
+        'learn_more_advisory': learn_more_advisory,
+        'popular_cities_and_airport': popular_cities_with_airports
     }
 
     return jsonify(country_information)
