@@ -44,7 +44,7 @@ class Country(db.Model):
     currency = db.Column(db.String(50))
 
     def __repr__(self):
-        repr_str = "<Country country_id = {country_id}>"
+        repr_str = "<Country country_name = {country_name}>"
 
         return repr_str.format(country_id=self.country_id)
         # return f"""<Country country_id={self.country_id} country_name={self.country_name}>"""
@@ -62,8 +62,8 @@ class Rating(db.Model):
 
     user_id = db.Column(db.Integer,
                         db.ForeignKey('users.user_id'))
-    country_id = db.Column(db.Integer,
-                           db.ForeignKey('countries.country_id'))
+    country_name = db.Column(db.String,
+                             db.ForeignKey('countries.country_name'))
     rating = db.Column(db.String(10))
 
     user = db.relationship("User",

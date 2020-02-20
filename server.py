@@ -6,7 +6,7 @@ from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
-from model import connect_to_db, db, Country, User
+from model import connect_to_db, db, Country, User, Rating
 import googlemaps
 import json
 import requests
@@ -238,11 +238,39 @@ def register_process():
     return redirect("/")
 
 
-@app.route('/user')
-def user_save(user_id):
+@app.route('/user', methods=["GET"])
+def user_likes():
     """display user's saved countries"""
 
-    save_countries = []
+    return render_template("user_likes.html")
+
+
+@app.route('/user', methods=["POST"])
+def user_likes_page():
+    """display user's saved countries"""
+
+    country = request.form["country"]
+    user_id = session.get("user_id")
+
+    print(user_id)
+    print('******************', country)
+
+    current_user = User.query.filter_by(user_id=user_id).first()
+
+    if not user_id:
+        raise Exception("No user logged in.")
+
+    if not current_user:
+        flash("No user logged in.")
+        return redirect("/")
+
+    save_countries = Rating(user_id=user_id, country_name=country)
+    flash("Country added")
+
+    db.session.add(save_countries)
+    db.session.commit()
+
+    return render_template("user_likes.html")
 
 
 if __name__ == "__main__":
