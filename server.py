@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 from pathlib import Path
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
-from model import connect_to_db, db, Country
+from model import connect_to_db, db, Country, User
 import googlemaps
 import json
 import requests
@@ -98,7 +98,6 @@ def display_countries():
 
     # from the place detail api, store the country_id
     place_detail = gmaps.place(country_id)
-    print(place_detail)
 
     # get reference photo from place details
     photos = (place_detail['result']['photos'])
@@ -139,14 +138,11 @@ def display_countries():
         popular_cities.append({'city_name': city['name'],
                                'lat': city['latitude'],
                                'long': city['longitude']})
+    # print(popular_cities)
 
-    place_search = gmaps.places_nearby(lat_lng={
-        'lat': 52.0737017,
-        'lng': 5.0944107999999915
-    },
-        radius=100,
-        types=[types]
-    )
+    # place_search = gmaps.places_nearby(location=(27.70169, 85.3206),
+    #                                    radius=1000,
+    #                                    type='airport')
 
     # with popular cities, find the nearest airport
     popular_city_airport = []
@@ -193,12 +189,27 @@ def login_form():
 def login_process():
     """Process login"""
 
-    email.request.form["email"]
+    email = request.form["email"]
     password = request.form["password"]
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        flash("No such user")
+        return redirect("/login")
+
+    if user.password != password:
+        flash("Incorrect password")
+        return redirect("/login")
+
+    session["user_id"] = user.user_id
+
+    flash("logged in")
+    return redirect(f"/")
 
     # look at rating server.py after dealing with db to complete
 
-    return redirect(f"/users/{user.user_id}")
+    # return redirect(f"/users/{user.user_id}")
 
 
 @app.route('/register', methods=['GET'])
@@ -217,12 +228,21 @@ def register_process():
     email = request.form["email"]
     password = request.form["password"]
 
-    # look at db first
+    new_user = User(fname=first_name, lname=last_name,
+                    email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    flash(f"User {email} added.")
+    return redirect("/")
 
 
-@app.route('/user/<int:user_id>')
+@app.route('/user')
 def user_save(user_id):
-    pass
+    """display user's saved countries"""
+
+    save_countries = []
 
 
 if __name__ == "__main__":
