@@ -72,6 +72,10 @@
                 <dt>Vaccination/s: </dt>
                 <dd id="vaccination"></dd>
 
+                <dt>Monthly Average temperature: </dt>
+                <dd id="temperature"></dd>
+                <dd id="temp_city"></dd>
+
                 <dt>Advisor Score: </dt>
                 <dd id="advisor_score"></dd>
                 <dd id="learn_more"></dd>
@@ -97,24 +101,10 @@
                     zoom: 3
                 }
             );
-            // Response Object
-            const response = {
-                "id": '12345', // db
-                "countryName": 'Japan', // db
-                "visa": 'N', // db
-                "vaccination": ['Typhoid', 'Malaria'], // db
-                "language": 'Japanese', // db
-                "currency": 'Yen', // db,
-                'photos': ['photo.url.sdfasdf.com', 'photo.url.sdfasdf.com', 'photo.url.sdfasdf.com'], // Google Photos Api
-                'safety': 9 // Travel Api 
-            }
 
             $('#submit').on('submit', (evt) => {
                 evt.preventDefault();
 
-
-                // Refactoring 
-                // a map have to return something or it will be empty
                 //getting the data from the endpoint
                 $.get('/api/countriesInfo', (countryRes) => {
                     // with every item in the array, put the item inside the url
@@ -131,17 +121,18 @@
 
                     $('#like').append(`<form action="/user" id="like" method="POST"><input type="submit" name= "country" value="${countryRes.country_info.countryName}"></form>`)
                     $('#name')[0].innerHTML = countryRes.country_info.countryName
-                    $('#currency')[0].innerHTML = countryRes.country_info.currency
-                    $('#language')[0].innerHTML = countryRes.country_info.language
+                    $('#currency')[0].innerHTML = countryRes.currency
+                    $('#language')[0].innerHTML = countryRes.language
                     $('#visa')[0].innerHTML = countryRes.country_info.visa
                     $('#vaccination')[0].innerHTML = countryRes.country_info.vaccination
                     $('#advisor_score')[0].innerHTML = countryRes.advisor_score
                     $('#learn_more')[0].innerHTML = countryRes.learn_more_advisory
+                    $('#temperature')[0].innerHTML = countryRes.country_info.temperatures
+                    $('#temp_city')[0].innerHTML = countryRes.country_info.city_temp
 
-                    const popular_cities = countryRes.popular_cities_and_airport
+                    const popular_cities = countryRes.popular_cities
                     popular_cities.forEach(city => {
-                        $('#cities').append(`<li>${city['city_name']}</li>
-                                             <dd> nearest aiport: ${city['nearest_airport']}</dd>`)
+                        $('#cities').append(`<li>${city}</li>`)
 
                     })
 

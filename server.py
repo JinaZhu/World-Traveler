@@ -6,7 +6,7 @@ from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
-from model import connect_to_db, db, Country, User, Rating
+from model import connect_to_db, db, Country, User, Save
 import googlemaps
 import json
 import requests
@@ -31,69 +31,30 @@ def homepage():
     return render_template("homepage.html")
 
 
-@app.route('/api/countryList')
-def display_country():
-
-    # all_country = Country.query.all()
-    # random_country = choice(all_country)
-
-    # return render_template("country.html",
-    #                         all_country=all_country)
-
-    country = choice(Country.query.limit(10))
-
-    country = {
-        "id": country.country_id,
-        "countryName": country.country_name,
-        "visa": country.visa,
-        "vaccination": country.vaccination,
-        "language": country.language,
-        "currency": country.currency
-    }
-    # countries = [
-    #     {
-    #         "id": country.country_id,
-    #         "countryName": country.country_name,
-    #         "visa": country.visa,
-    #         "vaccination": country.vaccination,
-    #         "language": country.language,
-    #         "currency": country.currency
-    #     }
-    #     for country in Country.query.limit(10)
-    # ]
-
-    return jsonify(country)
-
-
 @app.route('/api/countriesInfo')
 def display_countries():
+    """select random country and get country info from APIs and datatbases"""
 
-    # all_country = Country.query.all()
-    # random_country = choice(all_country)
-
-    # return render_template("country.html",
-    #                         all_country=all_country)
-
-    # get country id with geocoder with name of country
-    # pass id to photo api to get photos
-
+    # get info from database
     countries = [
         {
             "id": country.country_id,
             "countryName": country.country_name,
             "visa": country.visa,
             "vaccination": country.vaccination,
-            "language": country.language,
-            "currency": country.currency
+            "temperatures": country.avg_temp,
+            "city_temp": country.temp_city
         }
         for country in Country.query.limit(10)
     ]
 
+    # get info from APIs
     country = choice(countries)  # select a random country
-    country_name = country['countryName']  # get random country name from db
+    country_name = country['countryName']  # get random the country name
 
-    geocode_result = gmaps.geocode(country_name)  # get place_id from geocode
-    # from geocode store the place id
+    # get country place_id from geocode
+    geocode_result = gmaps.geocode(country_name)
+    # from geocode store the place_id
     country_id = geocode_result[0]['place_id']
 
     # from the place detail api, store the country_id
@@ -103,12 +64,7 @@ def display_countries():
     photos = (place_detail['result']['photos'])
     short_name = (place_detail['result']
                   ['address_components'][0]['short_name'])
-
     place_photos_list = []
-
-    # use the short name to fetch info from travel-advisory api
-    # from the api, need score and source
-
     # loop through all the photos and take get the photo_reference and append all the ref to place_photos_list
     for photo in photos:
         place_photos_list.append(photo['photo_reference'])
@@ -137,43 +93,13 @@ def display_countries():
     cities_response = requests.request(
         "GET", cities_url, headers=cities_headers, params=cities_querystring)
     cities_text_response = cities_response.text
-    # city_information = text_response['cities']
     covert_text_to_dict = json.loads(cities_text_response)
     cities_information = covert_text_to_dict['cities']
     popular_cities = []
     for city in cities_information:
-        popular_cities.append({'city_name': city['name'],
-                               'lat': city['latitude'],
-                               'long': city['longitude']})
-    # print(popular_cities)
+        popular_cities.append(city['name'])
 
-    # place_search = gmaps.places_nearby(location=(27.70169, 85.3206),
-    #                                    radius=1000,
-    #                                    type='airport')
-
-    # with popular cities, find the nearest airport
-    popular_city_airport = []
-    for each_city in popular_cities:
-        airport_url = "https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/nearest"
-        airport_querystring = {
-            "lng": f"{each_city['long']}", "lat": f"{each_city['lat']}"}
-        airport_headers = {
-            'x-rapidapi-host': "cometari-airportsfinder-v1.p.rapidapi.com",
-            'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
-        }
-        airport_response = requests.request(
-            "GET", airport_url, headers=airport_headers, params=airport_querystring)
-        airport_text_response = airport_response.text
-        convert_airport_dict = json.loads(airport_text_response)
-        popular_city_airport.append({'city_name': each_city['city_name'],
-                                     'airport': convert_airport_dict
-                                     })
-
-    popular_cities_with_airports = []
-    for city_and_airport in popular_city_airport:
-        popular_cities_with_airports.append({'city_name': city_and_airport['city_name'],
-                                             'nearest_airport': city_and_airport['airport']['code']})
-
+    # store all the data info
     country_information = {
         'country_info': country,
         'currency': get_currency,
@@ -181,7 +107,7 @@ def display_countries():
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
         'learn_more_advisory': learn_more_advisory,
-        'popular_cities_and_airport': popular_cities_with_airports
+        'popular_cities': popular_cities
     }
 
     return jsonify(country_information)
@@ -258,7 +184,7 @@ def logout():
 def user_likes():
     """display user's saved countries"""
     current_user = session.get("user_id")
-    display_countries = Rating.query.filter_by(user_id=current_user).all()
+    display_countries = Save.query.filter_by(user_id=current_user).all()
 
     countries_list = []
 
@@ -288,7 +214,7 @@ def user_likes_page():
         flash("No user logged in.")
         return redirect("/")
 
-    save_countries = Rating(user_id=user_id, country_name=country)
+    save_countries = Save(user_id=user_id, country_name=country)
     flash("Country added")
 
     db.session.add(save_countries)

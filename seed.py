@@ -1,27 +1,28 @@
 from sqlalchemy import func
 
 from model import User
-from model import Rating 
+from model import Save
 from model import Country
 
 from model import connect_to_db, db
 from server import app
 
+
 def load_countries():
-    """Load movies from u.country into database"""
+    """Load country from u.country into database"""
 
     for row in open("seed_data/u.country"):
         row = row.rstrip()
-        print(row)
-        country_name, visa, vaccinations, language, currency = row.split("|")
+        country_name, visa, vaccinations, temperature, city_temp = row.split(
+            "|")
         country = Country(country_name=country_name,
-                        visa=visa,
-                        vaccination=vaccinations, 
-                        language=language, 
-                        currency=currency)
+                          visa=visa,
+                          vaccination=vaccinations,
+                          avg_temp=temperature,
+                          temp_city=city_temp)
 
         db.session.add(country)
-     
+
     db.session.commit()
 
 
