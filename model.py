@@ -38,43 +38,42 @@ class Country(db.Model):
                              nullable=False,
                              unique=True)
 
-    visa = db.Column(db.String(20))
+    visa = db.Column(db.String(100))
     vaccination = db.Column(db.String(100))
-    language = db.Column(db.String(50))
-    currency = db.Column(db.String(50))
+    avg_temp = db.Column(db.String(200))
+    temp_city = db.Column(db.String(200))
 
     def __repr__(self):
-        repr_str = "<Country country_name = {country_name}>"
+        """Provide helpful representation when printed."""
 
-        return repr_str.format(country_id=self.country_id)
-        # return f"""<Country country_id={self.country_id} country_name={self.country_name}>"""
+        return f"<Country country_id={self.country_id} country_name={self.country_name}>"
 
 
-class Rating(db.Model):
-    """Like or dislike of a country by a user."""
+class Save(db.Model):
+    """countries user saved"""
 
-    __tablename__ = "ratings"
+    __tablename__ = "saves"
 
-    rating_id = db.Column(db.Integer,
-                          autoincrement=True,
-                          primary_key=True,
-                          unique=True)
+    save_id = db.Column(db.Integer,
+                        autoincrement=True,
+                        primary_key=True,
+                        unique=True)
 
     user_id = db.Column(db.Integer,
                         db.ForeignKey('users.user_id'))
     country_name = db.Column(db.String,
                              db.ForeignKey('countries.country_name'))
-    rating = db.Column(db.String(10))
 
     user = db.relationship("User",
-                           backref=db.backref("ratings", order_by=rating_id))
+                           backref=db.backref("saves", order_by=save_id))
 
     country = db.relationship("Country",
-                              backref=db.backref("ratings", order_by=rating_id))
+                              backref=db.backref("saves", order_by=save_id))
 
     def __repr__(self):
+        """Provide helpful representation when printed."""
 
-        return f"""<Rating user_id={self.user_id} country_name={self.country_name}>"""
+        return f"<Save user_id={self.user_id} country_name={self.country_name}>"
 
 
 def connect_to_db(app):

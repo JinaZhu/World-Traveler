@@ -1,10 +1,10 @@
-United States | NR || English | United States Dollar
-Vietnam | R | [Routine, Hepatitis A, Typhoid, Malaria] | Vietnamese | Vietnamese Dong
-France | NR | Routine| French | Euro
-Japan | NR | Routine | Japanese | Japanese Yen
-Australia | R | Routine | English | Australian Dollar
-Egypt | R | [Routine, Typhoid] | Arabic | Egyptian Pound
-Italy | NR | Routine | Italian | Euro
-Nepal | R | [Routine, Hepatitis A, Typhoid] | Nepali | Nepalese Rupee
-Peru | NR | [Routine, Hepatitis A, Typhoid] | Spanish | Peruvian Nuevo Sol
-United Arab Emirates | R | [Routine, Typhoid] | Arabric | Arab Emirates Dirham
+United States|Not Required|None|33.0,35.7,42.9,53.4,62.8,71.8,76.9,75.7,68.4,57.3,48.1,37.9|New York City 
+Vietnam|eVisa|Routine, Hepatitis A, Typhoid, Malaria|78.8,80.2,82.4,84.6,83.8,82.0,81.5,81.3,81.0,80.6,80.1,78.8|Ho Chi Minh City
+France|Not Required|Routine|40.8,42.1,47.8,52.5,59.2,64.8,68.7,68.4,62.4,55.2,46.6,41.7|Paris
+Japan|Not Required|Routine|41.4,42.3,47.7,57.0,64.8,70.5,77.0,79.5,73.0,63.5,53.8,45.7|Tokyo
+Australia|Electronic Travel Authority|Routine|72.1,72.1,70.2,65.3,59.9,55.6,54.0,56.1,59.9,64.0,67.3,70.3|Sydney
+Egypt|eVisa / Visa on arrival|Routine, Typhoid|56.1,57.0,60.3,65.3,70.2,75.7,78.6,79.3,77.2,71.6,65.7,58.8|Alexandria
+Italy|Not Required|Routine|45.5,46.8,50.4,54.7,63.0,70.0,75.4,76.1,69.4,61.5,52.5,47.1|Rome
+Nepal|Visa on arrival|Routine, Hepatitis A, Typhoid|50.0,53.4,61.0,66.6,71.2,74.8,75.4,75.4,73.9,66.4,58.6,52.3|Kathmandu
+Peru|Not Required|Routine, Hepatitis A, Typhoid|71.8,72.9,72.0,69.1,65.8,63.5,62.1,61.2,61.5,63.1,65.7,69.3|Lima
+United Arab Emirates|Free visa on arrival|Routine, Typhoid|65.7,66.7,72.1,79.0,85.8,90.0,93.9,93.9,89.8,83.7,75.7,69.1|Dubai
