@@ -113,6 +113,13 @@ def display_countries():
     for photo in photos:
         place_photos_list.append(photo['photo_reference'])
 
+    # get currency and language from restcountries
+    get_currency_language = requests.get(
+        f'https://restcountries.eu/rest/v2/alpha/{short_name}')
+    get_currency_language_json = get_currency_language.json()
+    get_currency = get_currency_language_json['currencies'][0]['name']
+    get_language = get_currency_language_json['languages'][0]['name']
+
     # api file from travel advisory
     travel_advisor_response = requests.get(
         "https://www.travel-advisory.info/api")
@@ -169,6 +176,8 @@ def display_countries():
 
     country_information = {
         'country_info': country,
+        'currency': get_currency,
+        'language': get_language,
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
         'learn_more_advisory': learn_more_advisory,

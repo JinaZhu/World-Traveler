@@ -98,7 +98,35 @@ const sample2 = {
 
 sample3 = { "cities": [{ "geonameid": 1283240, "latitude": "27.70169", "longitude": "85.3206", "name": "Kathmandu", "population": 1442271, "timezone": "Asia/Kathmandu" }, { "geonameid": 1282898, "latitude": "28.26689", "longitude": "83.96851", "name": "Pokhara", "population": 200000, "timezone": "Asia/Kathmandu" }, { "geonameid": 1282931, "latitude": "27.67658", "longitude": "85.31417", "name": "Patan", "population": 183310, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283582, "latitude": "26.45505", "longitude": "87.27007", "name": "Biratnagar", "population": 182324, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283581, "latitude": "27.01709", "longitude": "84.8808", "name": "Birga\u00f1j", "population": 133238, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283460, "latitude": "26.81436", "longitude": "87.27972", "name": "Dhar\u0101n", "population": 108600, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283613, "latitude": "27.6768", "longitude": "84.43589", "name": "Bharatpur", "population": 107157, "timezone": "Asia/Kathmandu" }], "links": { "first": "/country/NP/city/list?page=1&per_page=7&population=15000", "last": "/country/NP/city/list?page=7&per_page=7&population=15000", "next": "/country/NP/city/list?page=2&per_page=7&population=15000", "previous": "" }, "page": 1, "per_page": 7, "status": "success", "total_cities": 44, "total_pages": 7 }
 
-sample3 = {
-    'html_attributions': [],
-    'results': [{ 'geometry': { 'location': { 'lat': -33.8677825, 'lng': 151.2077247 }, 'viewport': { 'northeast': { 'lat': -33.8662884197085, 'lng': 151.2094367802915 }, 'southwest': { 'lat': -33.8689863802915, 'lng': 151.2067388197085 } } }, 'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png', 'id': '9328c8170a783e92d1d7a25b759902a7151cb644', 'name': 'Wentworth Gallery, Martin Place', 'opening_hours': { 'open_now': False }, 'photos': [{ 'height': 3810, 'html_attributions': ['<a href="https://maps.google.com/maps/contrib/101356210972910103747">Jason Ma</a>'], 'photo_reference': 'CmRaAAAANm1RhAQFGF6aqmdeYDjvJw9lFK057q4_BQ05f4e8AbJzIA22ImDrmh850C2xzItf7q9ywynFy1mrcJndg2pmhBGSKMJyKUlgXZjjllXZs-h6FTnCtS07kvsJo6UkcXGYEhCNLvPPCqXn1buNEM6kf8dHGhRtoAtUvjOU9CQ7TZdAj-YB4MOK1Q', 'width': 3000 }], 'place_id': 'ChIJobPydGquEmsR06vy3sykKlA', 'plus_code': { 'compound_code': '46J5+V3 Sydney, New South Wales, Australia', 'global_code': '4RRH46J5+V3' }, 'rating': 4.5, 'reference': 'ChIJobPydGquEmsR06vy3sykKlA', 'scope': 'GOOGLE', 'types': ['art_gallery', 'tourist_attraction', 'museum', 'point_of_interest', 'establishment'], 'user_ratings_total': 13, 'vicinity': '1 Martin Place, Sydney' }, { 'geometry': { 'location': { 'lat': -33.8671294, 'lng': 151.2078696 }, 'viewport': { 'northeast': { 'lat': -33.8657821197085, 'lng': 151.2093411802915 }, 'southwest': { 'lat': -33.8684800802915, 'lng': 151.2066432197085 } } }, 'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png', 'id': 'd96dd2daaf0c3e4c5a0d0be85864642698f086a0', 'name': 'Angel Place Birdcages', 'photos': [{ 'height': 1365, 'html_attributions': ['<a href="https://maps.google.com/maps/contrib/105749349518015125347">Smruti M</a>'], 'photo_reference': 'CmRaAAAAGoEx3f6EGr6C--UHLyMj3h0TUFszhSTBzlhEagAxHV7bc8vjEtbcH-91ZNbwLodUmTxicSP8OWN-yZsbaAfSImcEJVbsWB23Lko_2nLHSS8-2WJPomF0q5wnOYEZl4CTEhD4aND6MTwiCRJk5mC5-_kgGhR-iGnxUeqLlK5dXYvJ1y7JZUBkvg', 'width': 2048 }], 'place_id': 'ChIJ6YKnHn6vEmsRBdce8OUw2FE', 'plus_code': { 'compound_code': '46M5+44 Sydney, New South Wales, Australia', 'global_code': '4RRH46M5+44' }, 'rating': 4, 'reference': 'ChIJ6YKnHn6vEmsRBdce8OUw2FE', 'scope': 'GOOGLE', 'types': ['tourist_attraction', 'point_of_interest', 'establishment'], 'user_ratings_total': 23, 'vicinity': 'Angel Place, Sydney' }], 'status': 'OK'
+sample4 = {
+    'name': 'Egypt',
+    'topLevelDomain': ['.eg'],
+    'alpha2Code': 'EG',
+    'alpha3Code': 'EGY',
+    'callingCodes': ['20'],
+    'capital': 'Cairo',
+    'altSpellings': ['EG', 'Arab Republic of Egypt'],
+    'region': 'Africa',
+    'subregion': 'Northern Africa',
+    'population': 91290000,
+    'latlng': [27.0, 30.0],
+    'demonym': 'Egyptian',
+    'area': 1002450.0,
+    'gini': 30.8,
+    'timezones': ['UTC+02:00'],
+    'borders': ['ISR', 'LBY', 'SDN'],
+    'nativeName': 'مصر\u200e',
+    'numericCode': '818',
+    'currencies': [
+        { 'code': 'EGP', 'name': 'Egyptian pound', 'symbol': '£' }
+    ],
+    'languages': [
+        { 'iso639_1': 'ar', 'iso639_2': 'ara', 'name': 'Arabic', 'nativeName': 'العربية' }
+    ],
+    'translations': { 'de': 'Ägypten', 'es': 'Egipto', 'fr': 'Égypte', 'ja': 'エジプト', 'it': 'Egitto', 'br': 'Egito', 'pt': 'Egipto', 'nl': 'Egypte', 'hr': 'Egipat', 'fa': 'مصر' },
+    'flag': 'https://restcountries.eu/data/egy.svg',
+    'regionalBlocs': [{
+        'acronym': 'AU', 'name': 'African Union', 'otherAcronyms': [],
+        'otherNames': ['الاتحاد الأفريقي', 'Union africaine', 'União Africana', 'Unión Africana', 'Umoja wa Afrika']
+    }, { 'acronym': 'AL', 'name': 'Arab League', 'otherAcronyms': [], 'otherNames': ['جامعة الدول العربية', 'Jāmiʻat ad-Duwal al-ʻArabīyah', 'League of Arab States'] }], 'cioc': 'EGY'
 }
