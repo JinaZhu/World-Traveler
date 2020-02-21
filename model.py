@@ -74,7 +74,7 @@ class Rating(db.Model):
 
     def __repr__(self):
 
-        return f"""<Rating user_id={self.user_id} country_id={self.country_id} rating={self.rating}>"""
+        return f"""<Rating user_id={self.user_id} country_name={self.country_name}>"""
 
 
 def connect_to_db(app):

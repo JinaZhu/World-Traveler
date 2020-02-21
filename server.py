@@ -238,11 +238,26 @@ def register_process():
     return redirect("/")
 
 
+@app.route('/logout')
+def logout():
+    """log out"""
+    del session["user_id"]
+    return redirect("/")
+
+
 @app.route('/user', methods=["GET"])
 def user_likes():
     """display user's saved countries"""
+    current_user = session.get("user_id")
+    display_countries = Rating.query.filter_by(user_id=current_user).all()
 
-    return render_template("user_likes.html")
+    countries_list = []
+
+    for country in display_countries:
+        countries_list.append(country.country_name)
+
+    return render_template("user_likes.html",
+                           countries=countries_list)
 
 
 @app.route('/user', methods=["POST"])
@@ -270,7 +285,7 @@ def user_likes_page():
     db.session.add(save_countries)
     db.session.commit()
 
-    return render_template("user_likes.html")
+    return redirect("/")
 
 
 if __name__ == "__main__":
