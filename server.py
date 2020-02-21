@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 from pathlib import Path
 from jinja2 import StrictUndefined
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
-from model import connect_to_db, db, Country
+from model import connect_to_db, db, Country, User, Rating
 import googlemaps
 import json
 import requests
@@ -113,6 +113,13 @@ def display_countries():
     for photo in photos:
         place_photos_list.append(photo['photo_reference'])
 
+    # get currency and language from restcountries
+    get_currency_language = requests.get(
+        f'https://restcountries.eu/rest/v2/alpha/{short_name}')
+    get_currency_language_json = get_currency_language.json()
+    get_currency = get_currency_language_json['currencies'][0]['name']
+    get_language = get_currency_language_json['languages'][0]['name']
+
     # api file from travel advisory
     travel_advisor_response = requests.get(
         "https://www.travel-advisory.info/api")
@@ -138,6 +145,11 @@ def display_countries():
         popular_cities.append({'city_name': city['name'],
                                'lat': city['latitude'],
                                'long': city['longitude']})
+    # print(popular_cities)
+
+    # place_search = gmaps.places_nearby(location=(27.70169, 85.3206),
+    #                                    radius=1000,
+    #                                    type='airport')
 
     # with popular cities, find the nearest airport
     popular_city_airport = []
@@ -164,6 +176,8 @@ def display_countries():
 
     country_information = {
         'country_info': country,
+        'currency': get_currency,
+        'language': get_language,
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
         'learn_more_advisory': learn_more_advisory,
@@ -173,19 +187,114 @@ def display_countries():
     return jsonify(country_information)
 
 
-@app.route('/signin')
-def sign_in():
-    pass
+@app.route('/login', methods=['GET'])
+def login_form():
+    """Show form for user login"""
+
+    return render_template("login_form.html")
 
 
-@app.route('/register')
-def register_page():
-    pass
+@app.route('/login', methods=['POST'])
+def login_process():
+    """Process login"""
+
+    email = request.form["email"]
+    password = request.form["password"]
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        flash("No such user")
+        return redirect("/login")
+
+    if user.password != password:
+        flash("Incorrect password")
+        return redirect("/login")
+
+    session["user_id"] = user.user_id
+
+    flash("logged in")
+    return redirect(f"/")
+
+    # look at rating server.py after dealing with db to complete
+
+    # return redirect(f"/users/{user.user_id}")
 
 
-@app.route('/user/<int:user_id>')
-def user_save(user_id):
-    pass
+@app.route('/register', methods=['GET'])
+def register_form():
+    """show form for user signup"""
+
+    return render_template("register_form.html")
+
+
+@app.route('/register', methods=['POST'])
+def register_process():
+    """Process registration."""
+
+    first_name = request.form["first_name"]
+    last_name = request.form["last_name"]
+    email = request.form["email"]
+    password = request.form["password"]
+
+    new_user = User(fname=first_name, lname=last_name,
+                    email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    flash(f"User {email} added.")
+    return redirect("/")
+
+
+@app.route('/logout')
+def logout():
+    """log out"""
+    del session["user_id"]
+    return redirect("/")
+
+
+@app.route('/user', methods=["GET"])
+def user_likes():
+    """display user's saved countries"""
+    current_user = session.get("user_id")
+    display_countries = Rating.query.filter_by(user_id=current_user).all()
+
+    countries_list = []
+
+    for country in display_countries:
+        countries_list.append(country.country_name)
+
+    return render_template("user_likes.html",
+                           countries=countries_list)
+
+
+@app.route('/user', methods=["POST"])
+def user_likes_page():
+    """display user's saved countries"""
+
+    country = request.form["country"]
+    user_id = session.get("user_id")
+
+    print(user_id)
+    print('******************', country)
+
+    current_user = User.query.filter_by(user_id=user_id).first()
+
+    if not user_id:
+        raise Exception("No user logged in.")
+
+    if not current_user:
+        flash("No user logged in.")
+        return redirect("/")
+
+    save_countries = Rating(user_id=user_id, country_name=country)
+    flash("Country added")
+
+    db.session.add(save_countries)
+    db.session.commit()
+
+    return redirect("/")
 
 
 if __name__ == "__main__":

@@ -7,36 +7,36 @@ db = SQLAlchemy()
 class User(db.Model):
     """User account"""
 
-    __tablename__= "users"
+    __tablename__ = "users"
 
-    user_id = db.Column(db.Integer, 
-              autoincrement=True, 
-              primary_key=True)
+    user_id = db.Column(db.Integer,
+                        autoincrement=True,
+                        primary_key=True)
 
     fname = db.Column(db.String(50), nullable=False)
-    name = db.Column(db.String(50))
+    lname = db.Column(db.String(50))
     email = db.Column(db.String(100), unique=True, nullable=False)
-
+    password = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         """provide helpful representation when printed."""
-        
+
         return f"<User fname={self.fname} email = {self.email}>"
 
 
 class Country(db.Model):
-    """Country table""" 
+    """Country table"""
 
     __tablename__ = "countries"
 
-    country_id = db.Column(db.Integer, 
-                           autoincrement=True, 
-                           primary_key=True, 
+    country_id = db.Column(db.Integer,
+                           autoincrement=True,
+                           primary_key=True,
                            unique=True)
 
-    country_name = db.Column(db.String(50), 
-                            nullable=False, 
-                            unique=True)
+    country_name = db.Column(db.String(50),
+                             nullable=False,
+                             unique=True)
 
     visa = db.Column(db.String(20))
     vaccination = db.Column(db.String(100))
@@ -44,10 +44,11 @@ class Country(db.Model):
     currency = db.Column(db.String(50))
 
     def __repr__(self):
-        repr_str = "<Country country_id = {country_id}>"
+        repr_str = "<Country country_name = {country_name}>"
 
-        return repr_str.format(country_id = self.country_id)
+        return repr_str.format(country_id=self.country_id)
         # return f"""<Country country_id={self.country_id} country_name={self.country_name}>"""
+
 
 class Rating(db.Model):
     """Like or dislike of a country by a user."""
@@ -61,20 +62,19 @@ class Rating(db.Model):
 
     user_id = db.Column(db.Integer,
                         db.ForeignKey('users.user_id'))
-    country_id = db.Column(db.Integer,
-                           db.ForeignKey('countries.country_id'))
+    country_name = db.Column(db.String,
+                             db.ForeignKey('countries.country_name'))
     rating = db.Column(db.String(10))
 
+    user = db.relationship("User",
+                           backref=db.backref("ratings", order_by=rating_id))
 
-    user = db.relationship("User", 
-                            backref=db.backref("ratings", order_by=rating_id))
-
-    country = db.relationship("Country", 
-                            backref=db.backref("ratings",order_by=rating_id))
+    country = db.relationship("Country",
+                              backref=db.backref("ratings", order_by=rating_id))
 
     def __repr__(self):
 
-        return f"""<Rating user_id={self.user_id} country_id={self.country_id} rating={self.rating}>"""
+        return f"""<Rating user_id={self.user_id} country_name={self.country_name}>"""
 
 
 def connect_to_db(app):
@@ -88,9 +88,7 @@ def connect_to_db(app):
     db.app = app
     db.init_app(app)
 
+
 if __name__ == "__main__":
     from server import app
     connect_to_db(app)
-
-
-

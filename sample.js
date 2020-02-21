@@ -97,3 +97,36 @@ const sample2 = {
 }
 
 sample3 = { "cities": [{ "geonameid": 1283240, "latitude": "27.70169", "longitude": "85.3206", "name": "Kathmandu", "population": 1442271, "timezone": "Asia/Kathmandu" }, { "geonameid": 1282898, "latitude": "28.26689", "longitude": "83.96851", "name": "Pokhara", "population": 200000, "timezone": "Asia/Kathmandu" }, { "geonameid": 1282931, "latitude": "27.67658", "longitude": "85.31417", "name": "Patan", "population": 183310, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283582, "latitude": "26.45505", "longitude": "87.27007", "name": "Biratnagar", "population": 182324, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283581, "latitude": "27.01709", "longitude": "84.8808", "name": "Birga\u00f1j", "population": 133238, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283460, "latitude": "26.81436", "longitude": "87.27972", "name": "Dhar\u0101n", "population": 108600, "timezone": "Asia/Kathmandu" }, { "geonameid": 1283613, "latitude": "27.6768", "longitude": "84.43589", "name": "Bharatpur", "population": 107157, "timezone": "Asia/Kathmandu" }], "links": { "first": "/country/NP/city/list?page=1&per_page=7&population=15000", "last": "/country/NP/city/list?page=7&per_page=7&population=15000", "next": "/country/NP/city/list?page=2&per_page=7&population=15000", "previous": "" }, "page": 1, "per_page": 7, "status": "success", "total_cities": 44, "total_pages": 7 }
+
+sample4 = {
+    'name': 'Egypt',
+    'topLevelDomain': ['.eg'],
+    'alpha2Code': 'EG',
+    'alpha3Code': 'EGY',
+    'callingCodes': ['20'],
+    'capital': 'Cairo',
+    'altSpellings': ['EG', 'Arab Republic of Egypt'],
+    'region': 'Africa',
+    'subregion': 'Northern Africa',
+    'population': 91290000,
+    'latlng': [27.0, 30.0],
+    'demonym': 'Egyptian',
+    'area': 1002450.0,
+    'gini': 30.8,
+    'timezones': ['UTC+02:00'],
+    'borders': ['ISR', 'LBY', 'SDN'],
+    'nativeName': 'مصر\u200e',
+    'numericCode': '818',
+    'currencies': [
+        { 'code': 'EGP', 'name': 'Egyptian pound', 'symbol': '£' }
+    ],
+    'languages': [
+        { 'iso639_1': 'ar', 'iso639_2': 'ara', 'name': 'Arabic', 'nativeName': 'العربية' }
+    ],
+    'translations': { 'de': 'Ägypten', 'es': 'Egipto', 'fr': 'Égypte', 'ja': 'エジプト', 'it': 'Egitto', 'br': 'Egito', 'pt': 'Egipto', 'nl': 'Egypte', 'hr': 'Egipat', 'fa': 'مصر' },
+    'flag': 'https://restcountries.eu/data/egy.svg',
+    'regionalBlocs': [{
+        'acronym': 'AU', 'name': 'African Union', 'otherAcronyms': [],
+        'otherNames': ['الاتحاد الأفريقي', 'Union africaine', 'União Africana', 'Unión Africana', 'Umoja wa Afrika']
+    }, { 'acronym': 'AL', 'name': 'Arab League', 'otherAcronyms': [], 'otherNames': ['جامعة الدول العربية', 'Jāmiʻat ad-Duwal al-ʻArabīyah', 'League of Arab States'] }], 'cioc': 'EGY'
+}

@@ -34,11 +34,23 @@
 </head>
 
 <body>
+    <div id="user_info">
+        <a href="/login">Login</a>
+        <br>
+        <a href="/register">Register</a>
+        <br>
+        <a href="/logout">Logout</a>
+        <br>
+        <a href="/user">Save</a>
+    </div>
     <div id="map"></div>
     <div>
-        <form action="displayCountry" id="submit">
+        <form action="api/countriesInfo" id="submit">
             <input type="submit">
         </form>
+    </div>
+    <div id="like">
+
     </div>
     <div>
         <section id="display-country">
@@ -100,6 +112,7 @@
             $('#submit').on('submit', (evt) => {
                 evt.preventDefault();
 
+
                 // Refactoring 
                 // a map have to return something or it will be empty
                 //getting the data from the endpoint
@@ -115,6 +128,8 @@
                     photoUrls.forEach(url => {
                         $('#junk').append(`<img src="${url}" />`)
                     })
+
+                    $('#like').append(`<form action="/user" id="like" method="POST"><input type="submit" name= "country" value="${countryRes.country_info.countryName}"></form>`)
                     $('#name')[0].innerHTML = countryRes.country_info.countryName
                     $('#currency')[0].innerHTML = countryRes.country_info.currency
                     $('#language')[0].innerHTML = countryRes.country_info.language
@@ -127,6 +142,7 @@
                     popular_cities.forEach(city => {
                         $('#cities').append(`<li>${city['city_name']}</li>
                                              <dd> nearest aiport: ${city['nearest_airport']}</dd>`)
+
                     })
 
 
@@ -135,6 +151,8 @@
             });
         }
 
+    </script>
+    <script>
     </script>
 </body>
 
