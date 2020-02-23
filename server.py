@@ -110,7 +110,10 @@ def display_countries():
         'popular_cities': popular_cities
     }
 
-    return jsonify(country_information)
+    response = jsonify(country_information)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+    # return jsonify(country_information)
 
 
 @app.route('/login', methods=['GET'])
