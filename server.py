@@ -45,7 +45,7 @@ def display_countries():
             "temperatures": country.avg_temp,
             "city_temp": country.temp_city
         }
-        for country in Country.query.limit(10)
+        for country in Country.query.all()
     ]
 
     # get info from APIs
@@ -170,7 +170,7 @@ def register_process():
     db.session.commit()
 
     flash(f"User {email} added.")
-    return redirect("/")
+    return redirect("/login")
 
 
 @app.route('/logout')
@@ -186,13 +186,16 @@ def user_likes():
     current_user = session.get("user_id")
     display_countries = Save.query.filter_by(user_id=current_user).all()
 
-    countries_list = []
+    display_countries_info = []
 
     for country in display_countries:
-        countries_list.append(country.country_name)
+        display_countries_info.append({'country_name': country.country_name,
+                                       'country_photo': country.photo_url})
+
+    print(display_countries_info)
 
     return render_template("user_likes.html",
-                           countries=countries_list)
+                           countries=display_countries_info)
 
 
 @app.route('/user', methods=["POST"])
@@ -200,10 +203,8 @@ def user_likes_page():
     """display user's saved countries"""
 
     country = request.form["country"]
+    url = request.form["imgUrl"]
     user_id = session.get("user_id")
-
-    print(user_id)
-    print('******************', country)
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
@@ -214,11 +215,16 @@ def user_likes_page():
         flash("No user logged in.")
         return redirect("/")
 
-    save_countries = Save(user_id=user_id, country_name=country)
-    flash("Country added")
+    existing_save = Save.query.filter_by(
+        user_id=user_id, country_name=country).first()
 
-    db.session.add(save_countries)
-    db.session.commit()
+    if not existing_save:
+        save_countries = Save(
+            user_id=user_id, country_name=country, photo_url=url)
+        flash("Country added")
+
+        db.session.add(save_countries)
+        db.session.commit()
 
     return redirect("/")
 

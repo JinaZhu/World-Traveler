@@ -13,7 +13,8 @@
 
     <ul>
         {% for country in countries %}
-        <li>{{ country }}</li>
+        <li>{{ country.country_name }} <img src="{{ country.country_photo }}" /></li>
+
         {% endfor %}
     </ul>
 

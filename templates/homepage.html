@@ -115,11 +115,16 @@
                         return url
                     })
                     //for each url, add inside the junk tag an image tag with all the urls
-                    photoUrls.forEach(url => {
-                        $('#junk').append(`<img src="${url}" />`)
+                    const imagesFromUrl = photoUrls.map(url => {
+                        return `<img src="${url}" />`
                     })
+                    $('#junk')[0].innerHTML = imagesFromUrl.join('')
 
-                    $('#like').append(`<form action="/user" id="like" method="POST"><input type="submit" name= "country" value="${countryRes.country_info.countryName}"></form>`)
+                    //exactly like innerhtml
+                    $('#like').html(`<form action="/user" id="like" method="POST">
+                        <input type="hidden" name="imgUrl" value="${photoUrls[0]}">
+                        <input type="submit" name= "country" value="${countryRes.country_info.countryName}">
+                    </form>`)
                     $('#name')[0].innerHTML = countryRes.country_info.countryName
                     $('#currency')[0].innerHTML = countryRes.currency
                     $('#language')[0].innerHTML = countryRes.language
@@ -131,12 +136,10 @@
                     $('#temp_city')[0].innerHTML = countryRes.country_info.city_temp
 
                     const popular_cities = countryRes.popular_cities
-                    popular_cities.forEach(city => {
-                        $('#cities').append(`<li>${city}</li>`)
-
+                    const popularCityListItems = popular_cities.map(city => {
+                        return `<li>${city}</li>`
                     })
-
-
+                    $('#cities')[0].innerHTML = popularCityListItems.join('')
                 })
 
             });
