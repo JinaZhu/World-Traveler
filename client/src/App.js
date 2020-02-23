@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import $ from "jquery"
 import './App.css';
 
+//friendly reminders:
+//any javascript goes inside {}
+// you can declare and pass in a function 
+
 function App() {
+  function handleClick() {
+    const xhr = $.get('http://localhost:5000/api/countriesInfo')
+    xhr.done((data) => {
+      console.log('data', data)
+    })
+    xhr.fail((error) => {
+      console.log('error', error)
+    })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <button onClick={handleClick}
+      >
+        Generate an adventure!
+      </button>
+    </div >
   );
 }
 
