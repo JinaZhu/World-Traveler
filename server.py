@@ -110,10 +110,11 @@ def display_countries():
         'popular_cities': popular_cities
     }
 
+    # Modified this route to allow Access control origin from anywhere
+    # TODO: Create middleware to allow this setting for all route
     response = jsonify(country_information)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-    # return jsonify(country_information)
 
 
 @app.route('/login', methods=['GET'])
