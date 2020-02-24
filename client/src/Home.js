@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import $ from "jquery"
+import { Button } from 'reactstrap'
 import './App.css';
+import RegisterModal from './RegisterModal'
+import LoginModal from './LoginModal'
 
 //friendly reminders:
 //any javascript goes inside {}
@@ -8,12 +11,16 @@ import './App.css';
 
 const Home = () => {
     // setName is a function, name is a variable that hold the state
+    //country is the data and setCountry is the function that set the data
     const [country, setCountry] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    const [isOpenRegister, setIsOpenRegister] = useState(false)
+    const [isOpenLogin, setIsOpenLogin] = useState(false)
 
 
     console.log('country', country)
-    function handleClick() {
+
+    function handleGenerateClick() {
         setIsLoading(true)
         const xhr = $.get('http://localhost:5000/api/countriesInfo')
         xhr.done((data) => {
@@ -24,16 +31,38 @@ const Home = () => {
             console.log('error', error)
         })
     }
+
+
+    // function toggle() {
+    //     // if/else 
+    //     if (!isOpen) {
+    //         setIsOpen(true)
+    //     } else {
+    //         setIsOpen(false)
+    //     }
+
+    //     // ternary 
+    //     isOpen ? setIsOpen(false): setIsOpen(true)
+
+    //     // shorthand 
+    //     setIsOpen(!isOpen)
+    // }
+
+    const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
+    const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
+
     return (
         <div className="App">
-            <button onClick={handleClick}
-            >
-                Generate an adventure!
-      </button>
+            <Button color='primary' onClick={toggleRegister}>Register</Button>
+            <Button color='primary' onClick={toggleLogin}>Login</Button>
+            <Button color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
+            <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+            <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} />
+
             <section id="display-country">
                 <h3>Country Info</h3>
 
-                {isLoading && <img alt="loading..." src="https://media.giphy.com/media/eN4AxQLFu8gM96uvXd/giphy.gif" />}
+                {isLoading && <img alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
                 {country &&
                     <div>
                         <dl>
@@ -66,4 +95,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Home
