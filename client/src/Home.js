@@ -5,6 +5,7 @@ import './App.css';
 import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import CountryInfo from './CountryInfo'
+import DisplayMap from './DisplayMap'
 
 //friendly reminders:
 //any javascript goes inside {}
@@ -36,13 +37,18 @@ const Home = () => {
 
     return (
         <div className="App">
-            <Button color='primary' onClick={toggleRegister}>Register</Button>
-            <Button color='primary' onClick={toggleLogin}>Login</Button>
-            <Button color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
+            <div>
+                <Button color='primary' onClick={toggleRegister}>Register</Button>
+                <Button color='primary' onClick={toggleLogin}>Login</Button>
+                <Button color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
 
-            <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-            <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} />
-            <CountryInfo country={country} isLoading={isLoading} />
+                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} />
+                <CountryInfo country={country} isLoading={isLoading} />
+            </div>
+            <div>
+                <DisplayMap />
+            </div>
         </div >
 
     );
