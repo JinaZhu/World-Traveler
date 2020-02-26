@@ -7,7 +7,7 @@ const CountryInfo = (props) => {
         <div>
             <section id="display-country">
 
-                {isLoading && <img alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
+                {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
                 {country &&
                     <div>
                         <h3>Country Information</h3>

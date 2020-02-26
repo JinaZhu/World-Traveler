@@ -14,7 +14,7 @@ class User(db.Model):
                         primary_key=True)
 
     fname = db.Column(db.String(50), nullable=False)
-    lname = db.Column(db.String(50))
+    lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 

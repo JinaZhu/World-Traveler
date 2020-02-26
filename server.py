@@ -161,9 +161,10 @@ def register_form():
 @app.route('/register', methods=['POST'])
 def register_process():
     """Process registration."""
+    print('request', request)
 
-    first_name = request.form["first_name"]
-    last_name = request.form["last_name"]
+    first_name = request.form["firstName"]
+    last_name = request.form["lastName"]
     email = request.form["email"]
     password = request.form["password"]
 
@@ -173,8 +174,12 @@ def register_process():
     db.session.add(new_user)
     db.session.commit()
 
-    flash(f"User {email} added.")
-    return redirect("/login")
+    # create a session to log the user in
+    # the server will send a set-cookie-header to the client so the client
+    # will store a cookie
+    session["user_id"] = new_user.user_id
+
+    return ('', 204)
 
 
 @app.route('/logout')

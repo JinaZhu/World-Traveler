@@ -8,7 +8,7 @@ function LoginModal(props) {
         <Modal isOpen={isOpen} toggle={toggle}>
             <ModalHeader toggle={toggle}>Login</ModalHeader>
             <ModalBody>
-                <form action="login" method="POST">
+                <form action="/login" method="POST">
                     Email: <input type="text" name="email" className="form-control"></input>
                     Password: <input type="text" name="password" className="form-control"></input>
                 </form>
@@ -22,3 +22,5 @@ function LoginModal(props) {
 }
 
 export default LoginModal;
+
+// https://reactjs.org/docs/conditional-rendering.html
