@@ -113,7 +113,7 @@ def display_countries():
     # Modified this route to allow Access control origin from anywhere
     # TODO: Create middleware to allow this setting for all route
     response = jsonify(country_information)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
