@@ -143,8 +143,7 @@ def login_process():
 
     session["user_id"] = user.user_id
 
-    flash("logged in")
-    return redirect(f"/")
+    return ('', 204)
 
     # look at rating server.py after dealing with db to complete
 
