@@ -45,8 +45,8 @@ function RegisterModal(props) {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
-                    <Button color="primary" onClick={handleSubmit}>Submit</Button>
+                    <Button outline color="secondary" onClick={toggle}>Cancel</Button>
+                    <Button outline color="primary" onClick={handleSubmit}>Submit</Button>
                 </ModalFooter>
             </Modal>
         </div>

@@ -33,8 +33,8 @@ function LoginModal(props) {
                 </form>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={handleLogin}>login</Button>{' '}
-                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                <Button outline color="primary" onClick={handleLogin}>login</Button>{' '}
+                <Button outline color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
         </Modal>
     )
