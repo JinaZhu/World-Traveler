@@ -34,7 +34,7 @@ const Home = () => {
 
     const handleLogout = (e) => {
 
-        const xhr = $.post('/logout')
+        $.post('/logout')
         window.alert("You're logout!")
     }
 

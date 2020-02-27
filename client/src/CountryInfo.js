@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import $ from "jquery"
+import { Button } from 'reactstrap'
+
 
 const CountryInfo = (props) => {
     const { country, isLoading } = props;
+    const [saveCountry, setSaveCountry] = useState('')
+    const [savePhoto, setSavePhoto] = useState('')
+    console.log(country)
+
+
+    // setSaveCountry(country.country_info.countryName)
+    // setSavePhoto(country.place_photos[0])
+    // console.log(saveCountry)
+    // console.log(savePhoto)
+
+
+
+    const sendCountry = (e) => {
+        if (country !== undefined) {
+            const xhr = $.post('/save', {
+                'country': country.country_info.countryName,
+                'imgUrl': country.place_photos[0]
+            })
+            xhr.done((data) => {
+                window.alert("Country Saved!")
+            })
+            xhr.fail((error) => {
+                console.log('error', error)
+            })
+        }
+    }
     return (
+
         <div>
             <section id="display-country">
 
@@ -11,6 +41,8 @@ const CountryInfo = (props) => {
                 {country &&
                     <div>
                         <h3>Country Information</h3>
+                        <Button outline color='primary' onClick={sendCountry}>Save</Button>
+
                         <dl>
                             <dt>Name: {country.country_info.countryName} </dt>
 

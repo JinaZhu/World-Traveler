@@ -188,13 +188,15 @@ def user_likes():
                            countries=display_countries_info)
 
 
-@app.route('/user', methods=["POST"])
+@app.route('/save', methods=["POST"])
 def user_likes_page():
     """display user's saved countries"""
 
     country = request.form["country"]
     url = request.form["imgUrl"]
     user_id = session.get("user_id")
+
+    print('***********', country)
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
@@ -216,7 +218,7 @@ def user_likes_page():
         db.session.add(save_countries)
         db.session.commit()
 
-    return redirect("/")
+    return ('', 204)
 
 
 if __name__ == "__main__":
