@@ -7,6 +7,7 @@ import LoginModal from './LoginModal'
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
 
+
 //friendly reminders:
 //any javascript goes inside {}
 // you can declare and pass in a function 
@@ -31,24 +32,35 @@ const Home = () => {
         })
     }
 
+    const handleLogout = (e) => {
+
+        const xhr = $.post('/logout')
+        window.alert("You're logout!")
+    }
 
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
     const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
+    // const toggleLogout = () => setIsLogout(!isLogout)
+
 
     return (
         <div className="App">
             <div>
-                <Button color='primary' onClick={toggleRegister}>Register</Button>
-                <Button color='primary' onClick={toggleLogin}>Login</Button>
-                <Button color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
-
+                <Button outline color='primary' onClick={toggleRegister}>Register</Button>
                 <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+
+                <Button outline color='primary' onClick={toggleLogin}>Login</Button>
                 <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} />
+
+                <Button outline color='primary' onClick={handleLogout}>Logout</Button>
+
+                <Button outline color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
                 <CountryInfo country={country} isLoading={isLoading} />
+
             </div>
-            <div>
+            {/* <div>
                 <DisplayMap />
-            </div>
+            </div> */}
         </div >
 
     );

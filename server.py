@@ -117,47 +117,7 @@ def display_countries():
     return response
 
 
-@app.route('/login', methods=['GET'])
-def login_form():
-    """Show form for user login"""
-
-    return render_template("login_form.html")
-
-
-@app.route('/login', methods=['POST'])
-def login_process():
-    """Process login"""
-
-    email = request.form["email"]
-    password = request.form["password"]
-
-    user = User.query.filter_by(email=email).first()
-
-    if not user:
-        flash("No such user")
-        return redirect("/login")
-
-    if user.password != password:
-        flash("Incorrect password")
-        return redirect("/login")
-
-    session["user_id"] = user.user_id
-
-    return ('', 204)
-
-    # look at rating server.py after dealing with db to complete
-
-    # return redirect(f"/users/{user.user_id}")
-
-
-@app.route('/register', methods=['GET'])
-def register_form():
-    """show form for user signup"""
-
-    return render_template("register_form.html")
-
-
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register_process():
     """Process registration."""
     print('request', request)
@@ -181,11 +141,33 @@ def register_process():
     return ('', 204)
 
 
-@app.route('/logout')
+@app.route('/login', methods=['GET', 'POST'])
+def login_process():
+    """Process login"""
+
+    email = request.form["email"]
+    password = request.form["password"]
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        flash("No such user")
+        return redirect("/login")
+
+    if user.password != password:
+        flash("Incorrect password")
+        return redirect("/login")
+
+    session["user_id"] = user.user_id
+
+    return ('', 204)
+
+
+@app.route('/logout', methods=["POST"])
 def logout():
     """log out"""
     del session["user_id"]
-    return redirect("/")
+    return ('', 204)
 
 
 @app.route('/user', methods=["GET"])
