@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
+const apiKey = 'AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw'
 const mapStyles = {
     height: '80%',
     width: '100%'
 };
 
-export class DisplayMap extends Component {
+
+// const onMarkerClick = (props, marker, e) => {
+//     state = {
+//         showingInfoWindow: false,
+//         activeMarker: {},
+//         selectedPlace: {},
+//     };
+//     this.setState({
+//         selectedPlace: props,
+//         activeMarker: marker,
+//         showingInfoWindow: true
+//     });
+// }
+
+
+
+class DisplayMap extends Component {
     render() {
         return (
             <Map
-                google={this.props.google}
-                zoom={3}
-                style={mapStyles}
-                initialCenter={{
-                    lat: 37.0902,
-                    lng: -95.7129
-                }}
-            />
+                google={this.props.google} onClick={() => { console.log('hi') }}
+            >
+                <Marker />
+            </Map>
         );
     }
 }
 
 export default GoogleApiWrapper({
-    apiKey: ('AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw')
+    apiKey
 })(DisplayMap)

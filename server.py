@@ -170,7 +170,7 @@ def logout():
     return ('', 204)
 
 
-@app.route('/user', methods=["GET"])
+@app.route('/savedCountry')
 def user_likes():
     """display user's saved countries"""
     current_user = session.get("user_id")
@@ -182,10 +182,9 @@ def user_likes():
         display_countries_info.append({'country_name': country.country_name,
                                        'country_photo': country.photo_url})
 
-    print(display_countries_info)
+    print(jsonify(display_countries_info))
 
-    return render_template("user_likes.html",
-                           countries=display_countries_info)
+    return jsonify(display_countries_info)
 
 
 @app.route('/save', methods=["POST"])
@@ -195,8 +194,6 @@ def user_likes_page():
     country = request.form["country"]
     url = request.form["imgUrl"]
     user_id = session.get("user_id")
-
-    print('***********', country)
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
