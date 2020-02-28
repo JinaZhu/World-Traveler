@@ -24,12 +24,44 @@ const mapStyles = {
 
 
 class DisplayMap extends Component {
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         lat: '',
+    //         long: ''
+    //     }
+
+    //     this.handleMapClick = this.handleMapClick.bind(this)
+    // }
+
+
+
+    handleMapClick(mapProps, map, clickEvent) {
+        // const { latLng } = clickEvent
+        // const lat = latLng.lat()
+        // const lng = latLng.lng()
+
+        // const  country = geoCode({lat, lng})
+
+        // const  xhr = $.post(/countriesinfo, {country})
+
+        // xhr.hr.done
+
+        // console.log('this', this)
+
+        // this.setState({
+        //     lat, lng
+        // })
+        console.log('clickEvent', clickEvent.latLng.lat())
+        console.log('clickEvent', clickEvent.latLng.lng())
+    }
+
     render() {
+        console.log('this.state', this.state)
         return (
             <Map
-                google={this.props.google} onClick={() => { console.log('hi') }}
+                google={this.props.google} onClick={this.handleMapClick} zoom={3}
             >
-                <Marker />
             </Map>
         );
     }
