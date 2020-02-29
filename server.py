@@ -36,21 +36,45 @@ def display_countries():
     """select random country and get country info from APIs and datatbases"""
 
     # get info from database
-    countries = [
+
+    all_db_countries = []
+
+    all_db = [
         {
-            "id": country.country_id,
             "countryName": country.country_name,
-            "visa": country.visa,
-            "vaccination": country.vaccination,
-            "temperatures": country.avg_temp,
-            "city_temp": country.temp_city
         }
         for country in Country.query.all()
     ]
+    print(all_db)
+
+    for country in all_db:
+        all_db_countries.append(country['countryName'])
+
+    clicked_country = request.args.get('selectedCountry')
+
+    selected_country = ''
+
+    if clicked_country is None:
+        country = choice(countries)
+        selected_country = country
+    else:
+        selected_country = clicked_country
+
+        selected_country_db = Country.query.filter_by(
+            country_name=selected_country).first()
+
+    selected_country_db_info = {
+        "id": selected_country_db.country_id,
+        "countryName": selected_country_db.country_name,
+        "visa": selected_country_db.visa,
+        "vaccination": selected_country_db.vaccination,
+        "temperatures": selected_country_db.avg_temp,
+        "city_temp": selected_country_db.temp_city
+    }
 
     # get info from APIs
-    country = choice(countries)  # select a random country
-    country_name = country['countryName']  # get random the country name
+    # country = choice(selected_country)  # select a random country
+    country_name = selected_country  # get random the country name
 
     # get country place_id from geocode
     geocode_result = gmaps.geocode(country_name)
@@ -117,10 +141,30 @@ def display_countries():
     return response
 
 
+# @app.route('/api/country_by_name')
+# def country_by_name():
+
+#     selected_country = request.args.get('selectedCountry')
+
+#     selected_country_db = Country.query.filter_by(
+#         country_name=selected_country).first()
+#     selected_country_db_info = {
+#         "id": selected_country_db.country_id,
+#         "countryName": selected_country_db.country_name,
+#         "visa": selected_country_db.visa,
+#         "vaccination": selected_country_db.vaccination,
+#         "temperatures": selected_country_db.avg_temp,
+#         "city_temp": selected_country_db.temp_city
+#     }
+
+#     print(selected_country_db_info)
+
+#     return 'hello'
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register_process():
     """Process registration."""
-    print('request', request)
 
     first_name = request.form["firstName"]
     last_name = request.form["lastName"]

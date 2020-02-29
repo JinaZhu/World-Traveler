@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import NodeGeocoder from "node-geocoder";
+import $ from "jquery"
 
 const apiKey = 'AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw'
 const options = {
@@ -50,13 +51,23 @@ class DisplayMap extends Component {
         this.setState({ lat, lng: lon });
 
         geocoder.reverse({ lat, lon }, function (err, res) {
-            console.log("res", res[0].country);
+            const clickedCountry = res[0].country
+            console.log('clickedCountry', clickedCountry)
+            const xhr = $.get('/api/countriesInfo', {
+                'selectedCountry': clickedCountry
+            })
+
+            xhr.done((data) => {
+                window.alert("Yay! Country selected")
+            })
+            xhr.fail((error) => {
+                console.log('error', error)
+            })
         });
 
     }
 
     render() {
-        console.log('this.state', this.state)
         return (
             <Map
                 google={this.props.google} onClick={this.handleMapClick} zoom={3}
