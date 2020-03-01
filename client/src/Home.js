@@ -43,7 +43,6 @@ const Home = () => {
 
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
     const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
-    // const toggleLogout = () => setIsLogout(!isLogout)
 
     function handleViewAllSavedCountries() {
         console.log('hello')
