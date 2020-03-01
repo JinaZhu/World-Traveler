@@ -55,13 +55,14 @@ def display_countries():
     selected_country = ''
 
     if clicked_country is None:
-        country = choice(countries)
-        selected_country = country
+        selected_country = choice(all_db_countries)
     else:
         selected_country = clicked_country
 
-        selected_country_db = Country.query.filter_by(
-            country_name=selected_country).first()
+    print('selected_country', selected_country)
+
+    selected_country_db = Country.query.filter_by(
+        country_name=selected_country).first()
 
     selected_country_db_info = {
         "id": selected_country_db.country_id,
@@ -125,7 +126,7 @@ def display_countries():
 
     # store all the data info
     country_information = {
-        'country_info': country,
+        'country_info': selected_country_db_info,
         'currency': get_currency,
         'language': get_language,
         'place_photos': place_photos_list,
@@ -134,32 +135,7 @@ def display_countries():
         'popular_cities': popular_cities
     }
 
-    # Modified this route to allow Access control origin from anywhere
-    # TODO: Create middleware to allow this setting for all route
-    response = jsonify(country_information)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-
-
-# @app.route('/api/country_by_name')
-# def country_by_name():
-
-#     selected_country = request.args.get('selectedCountry')
-
-#     selected_country_db = Country.query.filter_by(
-#         country_name=selected_country).first()
-#     selected_country_db_info = {
-#         "id": selected_country_db.country_id,
-#         "countryName": selected_country_db.country_name,
-#         "visa": selected_country_db.visa,
-#         "vaccination": selected_country_db.vaccination,
-#         "temperatures": selected_country_db.avg_temp,
-#         "city_temp": selected_country_db.temp_city
-#     }
-
-#     print(selected_country_db_info)
-
-#     return 'hello'
+    return jsonify(country_information)
 
 
 @app.route('/register', methods=['GET', 'POST'])

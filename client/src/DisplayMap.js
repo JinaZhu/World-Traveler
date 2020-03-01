@@ -51,17 +51,22 @@ class DisplayMap extends Component {
         this.setState({ lat, lng: lon });
 
         geocoder.reverse({ lat, lon }, function (err, res) {
+            if (err) {
+                return window.alert('Please click a country')
+            }
+
             const clickedCountry = res[0].country
-            console.log('clickedCountry', clickedCountry)
             const xhr = $.get('/api/countriesInfo', {
                 'selectedCountry': clickedCountry
             })
 
             xhr.done((data) => {
                 window.alert("Yay! Country selected")
+                console.log('data', data)
             })
             xhr.fail((error) => {
                 console.log('error', error)
+                window.alert("Our researchers are hard at work exploring this unknown territory. Please choose another country!")
             })
         });
 

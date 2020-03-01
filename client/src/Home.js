@@ -38,7 +38,7 @@ const Home = () => {
     const handleLogout = (e) => {
 
         $.post('/logout')
-        window.alert("You're logout!")
+        window.alert("You're logged out!")
     }
 
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
