@@ -28,6 +28,7 @@ class DisplayMap extends Component {
     }
 
     handleMapClick(mapProps, map, clickEvent) {
+        const { setCountry } = this.props
 
         const { latLng } = clickEvent;
 
@@ -47,7 +48,7 @@ class DisplayMap extends Component {
 
             xhr.done((data) => {
                 window.alert("Yay! Country selected")
-                console.log('data', data)
+                setCountry(data)
             })
             xhr.fail((error) => {
                 console.log('error', error)

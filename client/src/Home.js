@@ -36,7 +36,6 @@ const Home = () => {
     }
 
     const handleLogout = (e) => {
-
         $.post('/logout')
         window.alert("You're logged out!")
     }
@@ -75,7 +74,7 @@ const Home = () => {
 
             </div>
             {/* <div> */}
-            <DisplayMap />
+            <DisplayMap setCountry={setCountry} />
             {/* </div> */}
         </div >
 
