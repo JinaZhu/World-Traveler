@@ -190,7 +190,7 @@ def logout():
     return ('', 204)
 
 
-@app.route('/savedCountry')
+@app.route('/allSavedCountries')
 def user_likes():
     """display user's saved countries"""
     current_user = session.get("user_id")

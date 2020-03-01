@@ -10,25 +10,10 @@ const options = {
 };
 
 const geocoder = NodeGeocoder(options);
-const mapStyles = {
+const mapStyle = {
     height: '80%',
-    width: '100%'
+    width: '80%'
 };
-
-
-// const onMarkerClick = (props, marker, e) => {
-//     state = {
-//         showingInfoWindow: false,
-//         activeMarker: {},
-//         selectedPlace: {},
-//     };
-//     this.setState({
-//         selectedPlace: props,
-//         activeMarker: marker,
-//         showingInfoWindow: true
-//     });
-// }
-
 
 
 class DisplayMap extends Component {
@@ -75,7 +60,10 @@ class DisplayMap extends Component {
     render() {
         return (
             <Map
-                google={this.props.google} onClick={this.handleMapClick} zoom={3}
+                google={this.props.google}
+                onClick={this.handleMapClick}
+                zoom={3}
+                style={mapStyle}
             >
             </Map>
         );

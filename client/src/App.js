@@ -4,6 +4,8 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import { Container, Row, Col } from 'reactstrap';
+
 
 import './App.css';
 
@@ -16,16 +18,18 @@ import CountriesList from "./CountriesList"
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/countries-list">
-          <CountriesList />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <Container>
+      <Router>
+        <Switch>
+          <Route path="/countries-list">
+            <CountriesList />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </Container>
   )
 }
 
