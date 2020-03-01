@@ -7,7 +7,7 @@ import { Button } from 'reactstrap'
 const CountryInfo = (props) => {
     const { country, isLoading } = props;
 
-    const handleCountrySend = (e) => {
+    const handleCountrySave = (e) => {
         if (country !== undefined) {
             const xhr = $.post('/save', {
                 'country': country.country_info.countryName,
@@ -30,7 +30,7 @@ const CountryInfo = (props) => {
                 {country &&
                     <div>
                         <h3>Country Information</h3>
-                        <Button outline color='primary' onClick={handleCountrySend}>Save</Button>
+                        <Button outline color='primary' onClick={handleCountrySave}>Save</Button>
 
                         <dl>
                             <dt>Name: {country.country_info.countryName} </dt>

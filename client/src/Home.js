@@ -36,18 +36,16 @@ const Home = () => {
     }
 
     const handleLogout = (e) => {
-
         $.post('/logout')
-        window.alert("You're logout!")
+        window.alert("You're logged out!")
     }
 
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
     const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
-    // const toggleLogout = () => setIsLogout(!isLogout)
 
-    function handleSaveCountry() {
+    function handleViewAllSavedCountries() {
         console.log('hello')
-        const xhr = $.get('/savedCountry')
+        const xhr = $.get('/allSavedCountries')
         xhr.done((data) => {
             setAllSavedCountries(data)
         })
@@ -71,13 +69,13 @@ const Home = () => {
                 <Button outline color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
                 <CountryInfo country={country} isLoading={isLoading} />
 
-                <Button outline color='primary' onClick={handleSaveCountry}>View Saved</Button>
+                <Button outline color='primary' onClick={handleViewAllSavedCountries}>View Saved Countries</Button>
                 <SavedCountriesList saveCountry={allSavedCountries} isLoading={isLoading} />
 
             </div>
-            <div>
-                <DisplayMap />
-            </div>
+            {/* <div> */}
+            <DisplayMap setCountry={setCountry} />
+            {/* </div> */}
         </div >
 
     );
