@@ -11,6 +11,7 @@ import './App.css';
 
 import Home from "./Home"
 import SavedCountriesList from './SavedCountriesList'
+import NavBar from './Navbar'
 
 //friendly reminders:
 //any javascript goes inside {}
@@ -19,20 +20,7 @@ import SavedCountriesList from './SavedCountriesList'
 function App() {
   return (
     <Container>
-      <Nav>
-        <NavItem>
-          <NavLink href="/">Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/saved-countries-list">Saved Countries</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">Another Link</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink disabled href="#">Disabled Link</NavLink>
-        </NavItem>
-      </Nav>
+      <NavBar />
       <Router>
         <Switch>
           <Route path="/saved-countries-list">
