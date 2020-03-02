@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
 
 
 import './App.css';
@@ -19,6 +19,20 @@ import SavedCountriesList from './SavedCountriesList'
 function App() {
   return (
     <Container>
+      <Nav>
+        <NavItem>
+          <NavLink href="/">Home</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/saved-countries-list">Saved Countries</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">Another Link</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink disabled href="#">Disabled Link</NavLink>
+        </NavItem>
+      </Nav>
       <Router>
         <Switch>
           <Route path="/saved-countries-list">
