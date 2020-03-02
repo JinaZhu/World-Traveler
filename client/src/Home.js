@@ -35,7 +35,7 @@ const Home = () => {
     return (
         <div className="App">
             <Row>
-                <Button outline color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
+                <Button outline color='primary' onClick={handleGenerateClick}>Where To Next?</Button>
                 <CountryInfo country={country} isLoading={isLoading} />
             </Row>
             <Row>

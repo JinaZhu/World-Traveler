@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
+import { Container } from 'reactstrap';
 import $ from "jquery"
 
 

@@ -31,12 +31,16 @@ function NavBar({ user, setUser }) {
             <NavItem>
                 <NavLink href="/">Home</NavLink>
             </NavItem>
-            <NavItem>
-                <NavLink href="/saved-countries-list">Saved Countries</NavLink>
-            </NavItem>
-            <NavItem>
-                <Button outline color='primary' onClick={toggleRegister}>Register</Button>
-            </NavItem>
+            {user &&
+                <NavItem>
+                    <NavLink href="/saved-countries-list">{user}'s Travel Bucket List</NavLink>
+                </NavItem>
+            }
+            {!user &&
+                <NavItem >
+                    <Button outline color='primary' onClick={toggleRegister}>Register</Button>
+                </NavItem>
+            }
             {!user &&
                 <NavItem>
                     <Button outline color='primary' onClick={toggleLogin}>Login</Button>

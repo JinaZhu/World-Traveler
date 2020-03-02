@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 import NodeGeocoder from "node-geocoder";
 import $ from "jquery"
 
@@ -51,6 +51,7 @@ class DisplayMap extends Component {
             }
 
             const clickedCountry = res[0].country
+            console.log(clickedCountry)
             const xhr = $.get('/api/countriesInfo', {
                 'selectedCountry': clickedCountry
             })

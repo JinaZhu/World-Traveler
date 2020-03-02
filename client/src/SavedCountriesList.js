@@ -31,7 +31,7 @@ const SavedCountriesList = (props) => {
                     <div>
                         <ul>
                             {allSavedCountries.map((country, index) => {
-                                return <li key={index}>{country.country_name} <img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} /></li>
+                                return <li key={index}>{country.country_name} <img alt="country" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} /></li>
                             })}
                         </ul>
                     </div>
