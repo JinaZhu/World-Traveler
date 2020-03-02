@@ -26,7 +26,16 @@ class DisplayMap extends Component {
 
         this.handleMapClick = this.handleMapClick.bind(this)
     }
+    componentDidMount() {
+        console.log('I mounted!', this.props.google)
+        // this.props.google.event.addListener(polygon, "mouseover", function (e, d) {
+        // this.setOptions({ fillcolor: "#FF0000" })
+        // console.log(e, d)
+        // this.setMap(null);
+        // polyShapeOver.setMap(map);
+        // });
 
+    }
     handleMapClick(mapProps, map, clickEvent) {
         const { setCountry } = this.props
 

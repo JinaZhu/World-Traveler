@@ -36,7 +36,7 @@ const CountryInfo = ({ country, isLoading }) => {
 
     const countryPhotoList = country.place_photos.map((reference, index) => {
         return {
-            'src': `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`,
+            'src': `https://maps.googleapis.com/maps/api/place/photo?maxwidth=150&maxheight=150&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`,
             'altText': index + 1,
             'caption': `Slide ${index + 1}`,
             'header': `Slide ${index + 1} Header`,
@@ -75,7 +75,7 @@ const CountryInfo = ({ country, isLoading }) => {
                         })}</ul></dt>
                     </dl>
                     <div>
-                        <UncontrolledCarousel items={countryPhotoList} />
+                        <UncontrolledCarousel items={countryPhotoList} style={{ width: '300px' }} />
                     </div>
                 </div>
 

@@ -6,7 +6,7 @@ import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
-import SavedCountriesList from './SavedCountriesList'
+
 
 
 //friendly reminders:
@@ -20,8 +20,7 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isOpenRegister, setIsOpenRegister] = useState(false)
     const [isOpenLogin, setIsOpenLogin] = useState(false)
-    const [allSavedCountries, setAllSavedCountries] = useState()
-    console.log(allSavedCountries)
+
 
     function handleGenerateClick() {
         setIsLoading(true)
@@ -43,16 +42,6 @@ const Home = () => {
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
     const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
 
-    function handleViewAllSavedCountries() {
-        console.log('hello')
-        const xhr = $.get('/allSavedCountries')
-        xhr.done((data) => {
-            setAllSavedCountries(data)
-        })
-        xhr.fail((error) => {
-            console.log('error', error)
-        })
-    }
 
 
     return (
@@ -68,9 +57,6 @@ const Home = () => {
 
                 <Button outline color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
                 <CountryInfo country={country} isLoading={isLoading} />
-
-                <Button outline color='primary' onClick={handleViewAllSavedCountries}>View Saved Countries</Button>
-                <SavedCountriesList saveCountry={allSavedCountries} isLoading={isLoading} />
 
             </div>
             {/* <div> */}

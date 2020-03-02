@@ -10,7 +10,7 @@ import { Container, Row, Col } from 'reactstrap';
 import './App.css';
 
 import Home from "./Home"
-import CountriesList from "./CountriesList"
+import SavedCountriesList from './SavedCountriesList'
 
 //friendly reminders:
 //any javascript goes inside {}
@@ -21,8 +21,8 @@ function App() {
     <Container>
       <Router>
         <Switch>
-          <Route path="/countries-list">
-            <CountriesList />
+          <Route path="/saved-countries-list">
+            <SavedCountriesList />
           </Route>
           <Route path="/">
             <Home />
