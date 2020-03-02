@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom"
 import { Container, Row, Col, Nav, NavItem, NavLink } from 'reactstrap';
+import $ from "jquery"
 
 
 import './App.css';
@@ -18,9 +19,28 @@ import NavBar from './Navbar'
 // you can declare and pass in a function 
 
 function App() {
+  const [user, setUser] = useState()
+
+  function checkIsLoggedIn() {
+    const xhr = $.get('/isLoggedIn')
+
+    xhr.done((data) => {
+      console.log('data', data)
+      setUser(data)
+    })
+    xhr.fail((error) => {
+      console.log('error', error)
+    })
+  }
+
+  useEffect(() => {
+    checkIsLoggedIn()
+  }, [])
+
+
   return (
     <Container>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       <Router>
         <Switch>
           <Route path="/saved-countries-list">

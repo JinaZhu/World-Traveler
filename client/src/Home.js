@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import $ from "jquery"
-import { Button } from 'reactstrap'
+import { Button, Row } from 'reactstrap'
 import './App.css';
-import RegisterModal from './RegisterModal'
-import LoginModal from './LoginModal'
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
 
@@ -18,8 +16,6 @@ const Home = () => {
     //country is the data and setCountry is the function that set the data
     const [country, setCountry] = useState()
     const [isLoading, setIsLoading] = useState(false)
-    const [isOpenRegister, setIsOpenRegister] = useState(false)
-    const [isOpenLogin, setIsOpenLogin] = useState(false)
 
 
     function handleGenerateClick() {
@@ -34,36 +30,18 @@ const Home = () => {
         })
     }
 
-    const handleLogout = (e) => {
-        $.post('/logout')
-        window.alert("You're logged out!")
-    }
-
-    const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
-    const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
-
 
 
     return (
         <div className="App">
-            <div>
-                <Button outline color='primary' onClick={toggleRegister}>Register</Button>
-                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-
-                <Button outline color='primary' onClick={toggleLogin}>Login</Button>
-                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} />
-
-                <Button outline color='primary' onClick={handleLogout}>Logout</Button>
-
+            <Row>
                 <Button outline color='primary' onClick={handleGenerateClick}>Generate an adventure!</Button>
                 <CountryInfo country={country} isLoading={isLoading} />
-
-            </div>
-            {/* <div> */}
-            <DisplayMap setCountry={setCountry} />
-            {/* </div> */}
+            </Row>
+            <Row>
+                <DisplayMap setCountry={setCountry} />
+            </Row>
         </div >
-
     );
 }
 
