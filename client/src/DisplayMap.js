@@ -51,7 +51,6 @@ class DisplayMap extends Component {
             }
 
             const clickedCountry = res[0].country
-            console.log(clickedCountry)
             const xhr = $.get('/api/countriesInfo', {
                 'selectedCountry': clickedCountry
             })

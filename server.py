@@ -24,16 +24,6 @@ app.secret_key = "ABC"
 app.jinja_env.undefined = StrictUndefined
 
 
-@app.route('/isLoggedIn')
-def homepage():
-    user_id = session.get("user_id")
-
-    current_user = User.query.filter_by(user_id=user_id).first()
-    user_name = current_user.fname
-
-    return user_name
-
-
 @app.route('/api/countriesInfo')
 def display_countries():
     """select random country and get country info from APIs and datatbases"""
@@ -48,7 +38,6 @@ def display_countries():
         }
         for country in Country.query.all()
     ]
-    print(all_db)
 
     for country in all_db:
         all_db_countries.append(country['countryName'])
@@ -61,8 +50,6 @@ def display_countries():
         selected_country = choice(all_db_countries)
     else:
         selected_country = clicked_country
-
-    print('selected_country', selected_country)
 
     selected_country_db = Country.query.filter_by(
         country_name=selected_country).first()
@@ -163,6 +150,16 @@ def login_process():
     return (user.fname)
 
 
+@app.route('/isLoggedIn')
+def homepage():
+    user_id = session.get("user_id")
+
+    current_user = User.query.filter_by(user_id=user_id).first()
+    user_name = current_user.fname
+
+    return user_name
+
+
 @app.route('/logout', methods=["POST"])
 def logout():
     """log out"""
@@ -180,9 +177,8 @@ def user_likes():
 
     for country in display_countries:
         display_countries_info.append({'country_name': country.country_name,
-                                       'country_photo': country.photo_url})
-
-    print(jsonify(display_countries_info))
+                                       'country_photo': country.photo_url,
+                                       'save_id': country.save_id})
 
     return jsonify(display_countries_info)
 
@@ -216,6 +212,21 @@ def user_likes_page():
         db.session.commit()
 
     return ('', 204)
+
+
+@app.route('/deleteSaved', methods=["POST"])
+def delete_saved():
+    """ delete saved countries """
+
+    save_id = request.form["saveId"]
+    print('*********', save_id)
+
+    Save.query.filter_by(
+        save_id=save_id).delete()
+
+    db.session.commit()
+
+    return save_id
 
 
 if __name__ == "__main__":

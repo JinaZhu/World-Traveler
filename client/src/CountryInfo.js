@@ -29,11 +29,6 @@ const CountryInfo = ({ country, isLoading }) => {
     }
 
 
-
-
-    console.log('isLoading', isLoading)
-    console.log('country', country)
-
     const countryPhotoList = country.place_photos.map((reference, index) => {
         return {
             'src': `https://maps.googleapis.com/maps/api/place/photo?maxwidth=150&maxheight=150&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`,

@@ -1,20 +1,20 @@
-United States|Not Required|None|33.0,35.7,42.9,53.4,62.8,71.8,76.9,75.7,68.4,57.3,48.1,37.9|New York City 
-Vietnam|eVisa|Routine, Hepatitis A, Typhoid, Malaria|78.8,80.2,82.4,84.6,83.8,82.0,81.5,81.3,81.0,80.6,80.1,78.8|Ho Chi Minh City
-France|Not Required|Routine|40.8,42.1,47.8,52.5,59.2,64.8,68.7,68.4,62.4,55.2,46.6,41.7|Paris
-Japan|Not Required|Routine|41.4,42.3,47.7,57.0,64.8,70.5,77.0,79.5,73.0,63.5,53.8,45.7|Tokyo
-Australia|Electronic Travel Authority|Routine|72.1,72.1,70.2,65.3,59.9,55.6,54.0,56.1,59.9,64.0,67.3,70.3|Sydney
-Egypt|eVisa / Visa on arrival|Routine, Typhoid|56.1,57.0,60.3,65.3,70.2,75.7,78.6,79.3,77.2,71.6,65.7,58.8|Alexandria
-Italy|Not Required|Routine|45.5,46.8,50.4,54.7,63.0,70.0,75.4,76.1,69.4,61.5,52.5,47.1|Rome
-Nepal|Visa on arrival|Routine, Hepatitis A, Typhoid|50.0,53.4,61.0,66.6,71.2,74.8,75.4,75.4,73.9,66.4,58.6,52.3|Kathmandu
-Peru|Not Required|Routine, Hepatitis A, Typhoid|71.8,72.9,72.0,69.1,65.8,63.5,62.1,61.2,61.5,63.1,65.7,69.3|Lima
-United Arab Emirates|Free visa on arrival|Routine, Typhoid|65.7,66.7,72.1,79.0,85.8,90.0,93.9,93.9,89.8,83.7,75.7,69.1|Dubai
-Canada|Not Required|Routine|25.3,27.3,34.5,46.2,57.4,66.9,72.1,70.7,63.0,51.3,40.8,31.1|Toronto
-El Salvador|Not required|Routine, Hepatitis A, Typhoid|72.0,73.0,74.8,76.1,75.6,73.9,73.9,73.8,73.0,73.0,72.3,71.6|San Salvador
-Afghanistan|Visa required|Routine, Polio, Hepatitis A, Typhoid|27.9,30.7,43.3,55.0,63.1,73.0,77.0,75.4,67.5,55.6,42.6,33.1|Kabul
-Albania|Not required|Routine, Hepatitis A|44.1,46.0,50.0,56.1,64.4,70.9,75.2,74.8,69.3,60.8,53.1,46.6|Tirana
-Algeria|Visa required|Routine, Hepatitis A, Typhoid|52.2,53.4,55.0,58.5,63.9,70.3,76.3,77.4,73.8,66.9,59.4,53.8|Algiers
-Andorra|Not required|Routine|47.0,45.0,49.0,54.0,59.0,68.0,75.0,75.0,67.0,61.0,51.0,50.0|Andorra la Vella
-Angola|eVisa|Routine, Yellow Fever, Polio|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4|Luanda
+United States|Not Required|None|33.0,35.7,42.9,53.4,62.8,71.8,76.9,75.7,68.4,57.3,48.1,37.9|New York City|224
+Vietnam|eVisa|Routine, Hepatitis A, Typhoid, Malaria|78.8,80.2,82.4,84.6,83.8,82.0,81.5,81.3,81.0,80.6,80.1,78.8|Ho Chi Minh City|42
+France|Not Required|Routine|40.8,42.1,47.8,52.5,59.2,64.8,68.7,68.4,62.4,55.2,46.6,41.7|Paris|197
+Japan|Not Required|Routine|41.4,42.3,47.7,57.0,64.8,70.5,77.0,79.5,73.0,63.5,53.8,45.7|Tokyo|115
+Australia|Electronic Travel Authority|Routine|72.1,72.1,70.2,65.3,59.9,55.6,54.0,56.1,59.9,64.0,67.3,70.3|Sydney|127
+Egypt|eVisa / Visa on arrival|Routine, Typhoid|56.1,57.0,60.3,65.3,70.2,75.7,78.6,79.3,77.2,71.6,65.7,58.8|Alexandria|25
+Italy|Not Required|Routine|45.5,46.8,50.4,54.7,63.0,70.0,75.4,76.1,69.4,61.5,52.5,47.1|Rome|135
+Nepal|Visa on arrival|Routine, Hepatitis A, Typhoid|50.0,53.4,61.0,66.6,71.2,74.8,75.4,75.4,73.9,66.4,58.6,52.3|Kathmandu|25
+Peru|Not Required|Routine, Hepatitis A, Typhoid|71.8,72.9,72.0,69.1,65.8,63.5,62.1,61.2,61.5,63.1,65.7,69.3|Lima|45
+United Arab Emirates|Free visa on arrival|Routine, Typhoid|65.7,66.7,72.1,79.0,85.8,90.0,93.9,93.9,89.8,83.7,75.7,69.1|Dubai|276
+Canada|Not Required|Routine|25.3,27.3,34.5,46.2,57.4,66.9,72.1,70.7,63.0,51.3,40.8,31.1|Toronto|137
+El Salvador|Not required|Routine, Hepatitis A, Typhoid|72.0,73.0,74.8,76.1,75.6,73.9,73.9,73.8,73.0,73.0,72.3,71.6|San Salvador|30
+Afghanistan|Visa required|Routine, Polio, Hepatitis A, Typhoid|27.9,30.7,43.3,55.0,63.1,73.0,77.0,75.4,67.5,55.6,42.6,33.1|Kabul|N/A
+Albania|Not required|Routine, Hepatitis A|44.1,46.0,50.0,56.1,64.4,70.9,75.2,74.8,69.3,60.8,53.1,46.6|Tirana|46
+Algeria|Visa required|Routine, Hepatitis A, Typhoid|52.2,53.4,55.0,58.5,63.9,70.3,76.3,77.4,73.8,66.9,59.4,53.8|Algiers|N/A
+Andorra|Not required|Routine|47.0,45.0,49.0,54.0,59.0,68.0,75.0,75.0,67.0,61.0,51.0,50.0|Andorra la Vella|143
+Angola|eVisa|Routine, Yellow Fever, Polio|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4|Luanda|
 Antigua and Barbuda|Not required|Routine, Hepatitis A, Typhoid|77.7,77.4,78.1,79.3,81.0,82.2,82.8,82.9,82.6,81.5,80.2,78.6|St. John's
 Argentina|Not required|Routine, Hepatitis A, Typhoid|76.8,74.5,71.4,64.2,58.1,53.1,51.8,55.0,58.3,64.2,69.3,73.9|Buenos Aires
 Armenia|Not required|Routine, Hepatitis A|25.5,32.2,43.3,55.2,63.3,72.7,79.5,79.0,70.0,56.8,43.2,31.6|Yerevan
