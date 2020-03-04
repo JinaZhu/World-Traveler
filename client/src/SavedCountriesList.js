@@ -9,6 +9,8 @@ const SavedCountriesList = (props) => {
     const [isLoading, setIsLoading] = useState(false)
     const [deleteId, setDeleteId] = useState()
 
+    console.log('allSavedCountries', allSavedCountries)
+
 
     // function version of componentDidMount
     useEffect(() => {
@@ -34,7 +36,8 @@ const SavedCountriesList = (props) => {
 
         xhr.done((data) => {
             // console.log(data)
-            setAllSavedCountries(allSavedCountries)
+            const newCountryList = allSavedCountries.filter(obj => obj.save_id !== e)
+            setAllSavedCountries(newCountryList)
         })
         xhr.fail((error) => {
             console.log('error', error)
@@ -51,12 +54,13 @@ const SavedCountriesList = (props) => {
                     <div>
                         <ul>
                             {allSavedCountries.map((country, index) => {
-                                return <li key={country.save_id}> <button onClick={e => handleDeleteCountry(country.save_id)}>Delete</button> {country.country_name} <img alt="country" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} /></li>
+                                return <li key={index}> <button onClick={e => handleDeleteCountry(country.save_id)}>Delete</button> {country.country_name} <img alt="country" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} /></li>
                             })}
                         </ul>
                     </div>
                 }
             </section>
+            {deleteId}
         </div>
     )
 
