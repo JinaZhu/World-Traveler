@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import './App.css';
 
 function LoginModal(props) {
-    const { isOpen, toggle } = props
+    const { isOpen, toggle, setUser } = props
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -15,6 +15,7 @@ function LoginModal(props) {
         })
 
         xhr.done((data) => {
+            setUser(data)
             window.alert("You're logged in!")
             toggle()
         })
@@ -41,5 +42,3 @@ function LoginModal(props) {
 }
 
 export default LoginModal;
-
-// https://reactjs.org/docs/conditional-rendering.html
