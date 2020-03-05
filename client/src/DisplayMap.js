@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import NodeGeocoder from "node-geocoder";
 import $ from "jquery"
+import MapStyles from "./MapStyles"
 
 const apiKey = 'AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw'
 const options = {
     provider: "google",
     apiKey: apiKey
 };
-
-const geocoder = NodeGeocoder(options);
-const mapStyle = {
+const style = {
     height: '80%',
     width: '80%'
 };
+
+
+const geocoder = NodeGeocoder(options);
 
 
 class DisplayMap extends Component {
@@ -25,6 +27,12 @@ class DisplayMap extends Component {
         }
 
         this.handleMapClick = this.handleMapClick.bind(this)
+    }
+
+    _mapLoaded(mapProps, map) {
+        map.setOptions({
+            styles: MapStyles
+        });
     }
     componentDidMount() {
         console.log('I mounted!', this.props.google)
@@ -70,10 +78,11 @@ class DisplayMap extends Component {
     render() {
         return (
             <Map
+                style={style}
                 google={this.props.google}
                 onClick={this.handleMapClick}
                 zoom={3}
-                style={mapStyle}
+                onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
             >
             </Map>
         );
