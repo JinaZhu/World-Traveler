@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import $ from "jquery"
-import { CardSubtitle } from 'reactstrap'
+import { Card, CardBody, Button, CardTitle, CardText, CardImg } from 'reactstrap'
 
 
 
 const SavedCountriesList = (props) => {
     const [allSavedCountries, setAllSavedCountries] = useState()
     const [isLoading, setIsLoading] = useState(false)
-    const [deleteId, setDeleteId] = useState()
 
     console.log('allSavedCountries', allSavedCountries)
 
@@ -53,14 +52,21 @@ const SavedCountriesList = (props) => {
                 {allSavedCountries &&
                     <div>
                         <ul>
-                            {allSavedCountries.map((country, index) => {
-                                return <li key={index}> <button onClick={e => handleDeleteCountry(country.save_id)}>Delete</button> {country.country_name} <img alt="country" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} /></li>
+                            {allSavedCountries.map((country) => {
+                                return (
+                                    <Card>
+                                        <CardImg top width="100%" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} alt="Card image cap" />
+                                        <CardBody>
+                                            <CardTitle>{country.country_name}</CardTitle>
+                                            <button onClick={e => handleDeleteCountry(country.save_id)}>Delete</button>
+                                        </CardBody>
+                                    </Card>
+                                )
                             })}
                         </ul>
                     </div>
                 }
             </section>
-            {deleteId}
         </div>
     )
 
