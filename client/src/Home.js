@@ -26,6 +26,11 @@ const H1 = styled.h1`
     left: 10%;
 `
 
+const ButtonAlign = styled.div`
+float: center;
+z-index: 3;
+`
+
 const Home = () => {
     // setName is a function, name is a variable that hold the state
     //country is the data and setCountry is the function that set the data
@@ -49,10 +54,12 @@ const Home = () => {
 
     return (
         <div>
-
-            <CountryInfo country={country} isLoading={isLoading} />
+            <h1>ADVENTURE AWAITS</h1>
             <DisplayMap setCountry={setCountry} />
-            <Button outline color='primary' onClick={handleGenerateClick}>Where To Next?</Button>
+            <div className="text-center" style={{ padding: '1%' }}>
+                <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>
+            </div>
+            <CountryInfo country={country} isLoading={isLoading} />
 
 
         </div >

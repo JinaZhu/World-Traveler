@@ -9,12 +9,6 @@ import styled, { css } from "styled-components";
 const NavAlign = styled.nav`
 float: right;
 z-index: 3;
-margin: 0;
-top: 0;
-right: 60;
-bottom:20;
-left: 'auto';
-position: 'fixed'
 `;
 
 
@@ -42,7 +36,6 @@ function NavBar({ user, setUser }) {
     return (
         <NavAlign>
             <Nav>
-                {/* <NavAlign> */}
                 <NavItem>
                     <NavLink href="/">Home</NavLink>
                 </NavItem>
@@ -53,22 +46,21 @@ function NavBar({ user, setUser }) {
                 }
                 {!user &&
                     <NavItem >
-                        <Button outline color="secondary" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
+                        <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
                 </NavItem>
                 }
                 {!user &&
                     <NavItem>
-                        <Button outline color="secondary" onClick={toggleLogin}>Login</Button>
+                        <Button outline color="dark" onClick={toggleLogin}>Login</Button>
                     </NavItem>
                 }
                 {user &&
                     <NavItem>
-                        <Button outline color="secondary" onClick={handleLogout}>Logout</Button>
+                        <Button outline color="dark" onClick={handleLogout}>Logout</Button>
                     </NavItem>
                 }
                 <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
                 <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-                {/* </NavAlign> */}
             </Nav>
         </NavAlign>
     )
