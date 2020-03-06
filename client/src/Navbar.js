@@ -3,6 +3,14 @@ import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import $ from "jquery"
+import styled, { css } from "styled-components";
+
+
+const NavAlign = styled.nav`
+float: right;
+z-index: 3;
+`;
+
 
 function NavBar({ user, setUser }) {
     const [isOpenRegister, setIsOpenRegister] = useState(false)
@@ -26,35 +34,35 @@ function NavBar({ user, setUser }) {
 
 
     return (
-
-        <Nav>
-            <NavItem>
-                <NavLink href="/">Home</NavLink>
-            </NavItem>
-            {user &&
+        <NavAlign>
+            <Nav>
                 <NavItem>
-                    <NavLink href="/saved-countries-list">{user}'s Travel Bucket List</NavLink>
+                    <NavLink href="/">Home</NavLink>
                 </NavItem>
-            }
-            {!user &&
-                <NavItem >
-                    <Button outline color='primary' onClick={toggleRegister}>Register</Button>
+                {user &&
+                    <NavItem>
+                        <NavLink href="/saved-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>{user}'s Travel Bucket List</NavLink>
+                    </NavItem>
+                }
+                {!user &&
+                    <NavItem >
+                        <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
                 </NavItem>
-            }
-            {!user &&
-                <NavItem>
-                    <Button outline color='primary' onClick={toggleLogin}>Login</Button>
-                </NavItem>
-            }
-            {user &&
-                <NavItem>
-                    <Button outline color='primary' onClick={handleLogout}>Logout</Button>
-                </NavItem>
-            }
-            <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
-            <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-        </Nav>
-
+                }
+                {!user &&
+                    <NavItem>
+                        <Button outline color="dark" onClick={toggleLogin}>Login</Button>
+                    </NavItem>
+                }
+                {user &&
+                    <NavItem>
+                        <Button outline color="dark" onClick={handleLogout}>Logout</Button>
+                    </NavItem>
+                }
+                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
+                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+            </Nav>
+        </NavAlign>
     )
 
 }
