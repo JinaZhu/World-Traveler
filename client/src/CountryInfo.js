@@ -17,10 +17,26 @@ const CountryInfo = ({ country, isLoading }) => {
     const handleCountrySave = (e) => {
         const xhr = $.post('/save', {
             'country': country.country_info.countryName, // country exists at this point, so no need to handle when country is undefined
-            'imgUrl': country.place_photos[0]
+            'imgUrl': country.place_photos[0],
+            'visited': 'no'
         })
         xhr.done((data) => {
-            window.alert("Country Saved!")
+            window.alert(data)
+        })
+        xhr.fail((error) => {
+            console.log('error', error)
+        })
+
+    }
+
+    const handleVisitedCountry = (e) => {
+        const xhr = $.post('/save', {
+            'country': country.country_info.countryName, // country exists at this point, so no need to handle when country is undefined
+            'imgUrl': country.place_photos[0],
+            'visited': 'yes'
+        })
+        xhr.done((data) => {
+            window.alert(data)
         })
         xhr.fail((error) => {
             console.log('error', error)
@@ -49,6 +65,7 @@ const CountryInfo = ({ country, isLoading }) => {
                 <div>
                     <h3>Country Information</h3>
                     <Button outline color='primary' onClick={handleCountrySave}>Save</Button>
+                    <Button outline color='primary' onClick={handleVisitedCountry}>Visited</Button>
 
                     <dl>
                         <dt>Name: {country.country_info.countryName} </dt>

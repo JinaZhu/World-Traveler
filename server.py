@@ -128,6 +128,30 @@ def display_countries():
     return jsonify(country_information)
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register_process():
+    """Process registration."""
+    print('request', request)
+
+    first_name = request.form["firstName"]
+    last_name = request.form["lastName"]
+    email = request.form["email"]
+    password = request.form["password"]
+
+    new_user = User(fname=first_name, lname=last_name,
+                    email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    # create a session to log the user in
+    # the server will send a set-cookie-header to the client so the client
+    # will store a cookie
+    session["user_id"] = new_user.user_id
+
+    return ('', 204)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login_process():
     """Process login"""
@@ -167,6 +191,36 @@ def logout():
     return ('', 204)
 
 
+@app.route('/save', methods=["POST"])
+def user_likes_page():
+    """display user's saved countries"""
+
+    country = request.form["country"]
+    visited = request.form["visited"]
+    url = request.form["imgUrl"]
+    user_id = session.get("user_id")
+
+    current_user = User.query.filter_by(user_id=user_id).first()
+
+    # if not user_id:
+    #     return ("No user logged in.")
+
+    if not current_user:
+        return ("Please login or register!")
+
+    existing_save = Save.query.filter_by(
+        user_id=user_id, country_name=country).first()
+
+    if not existing_save:
+        save_countries = Save(
+            user_id=user_id, country_name=country, photo_url=url, visited_country=visited)
+
+        db.session.add(save_countries)
+        db.session.commit()
+
+    return ('', 204)
+
+
 @app.route('/allSavedCountries')
 def user_likes():
     """display user's saved countries"""
@@ -181,37 +235,6 @@ def user_likes():
                                        'save_id': country.save_id})
 
     return jsonify(display_countries_info)
-
-
-@app.route('/save', methods=["POST"])
-def user_likes_page():
-    """display user's saved countries"""
-
-    country = request.form["country"]
-    url = request.form["imgUrl"]
-    user_id = session.get("user_id")
-
-    current_user = User.query.filter_by(user_id=user_id).first()
-
-    if not user_id:
-        raise Exception("No user logged in.")
-
-    if not current_user:
-        flash("No user logged in.")
-        return redirect("/")
-
-    existing_save = Save.query.filter_by(
-        user_id=user_id, country_name=country).first()
-
-    if not existing_save:
-        save_countries = Save(
-            user_id=user_id, country_name=country, photo_url=url)
-        flash("Country added")
-
-        db.session.add(save_countries)
-        db.session.commit()
-
-    return ('', 204)
 
 
 @app.route('/deleteSaved', methods=["POST"])

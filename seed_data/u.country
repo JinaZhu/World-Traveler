@@ -14,16 +14,16 @@ Afghanistan|Visa required|Routine, Polio, Hepatitis A, Typhoid|27.9,30.7,43.3,55
 Albania|Not required|Routine, Hepatitis A|44.1,46.0,50.0,56.1,64.4,70.9,75.2,74.8,69.3,60.8,53.1,46.6|Tirana|46
 Algeria|Visa required|Routine, Hepatitis A, Typhoid|52.2,53.4,55.0,58.5,63.9,70.3,76.3,77.4,73.8,66.9,59.4,53.8|Algiers|N/A
 Andorra|Not required|Routine|47.0,45.0,49.0,54.0,59.0,68.0,75.0,75.0,67.0,61.0,51.0,50.0|Andorra la Vella|143
-Angola|eVisa|Routine, Yellow Fever, Polio|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4|Luanda|
-Antigua and Barbuda|Not required|Routine, Hepatitis A, Typhoid|77.7,77.4,78.1,79.3,81.0,82.2,82.8,82.9,82.6,81.5,80.2,78.6|St. John's
-Argentina|Not required|Routine, Hepatitis A, Typhoid|76.8,74.5,71.4,64.2,58.1,53.1,51.8,55.0,58.3,64.2,69.3,73.9|Buenos Aires
-Armenia|Not required|Routine, Hepatitis A|25.5,32.2,43.3,55.2,63.3,72.7,79.5,79.0,70.0,56.8,43.2,31.6|Yerevan
-Austria|Not required|Routine|32.5,34.7,42.3,51.3,60.3,65.7,69.4,68.4,59.7,50.4,41.2,34.0|Vienna
-Azerbaijan|eVisa / Visa on arrival|Routine, Hepatitis A|39.9,39.6,44.6,55.2,65.3,74.3,79.5,79.3,72.5,61.9,52.2,45.1|Baku
-The Bahamas|Not required|Routine, Hepatitis A, Typhoid|70.0,70.0,72.0,74.1,77.5,80.4,82.2,82.2,81.1,78.6,74.8,71.4|Nassau
-Bahrain|eVisa / Visa on arrival|Routine, Hepatitis A, Typhoid|63.0,64.4,70.2,77.5,86.0,90.7,93.4,93.6,90.5,84.7,76.1,66.7|Manama
-Bangladesh|Visa on arrival|Routine, Hepatitis A, Typhoid|65.5,71.6,79.3,83.1,83.8,84.2,83.7,84.0,83.3,81.3,75.2,68.0|Dhaka
-Barbados|Visa not required[|Routine, Hepatitis A, Typhoid|78.4,78.3,79.2,80.2,81.7,81.9,81.7,82.0,81.9,81.5,80.6,79.5|Bridgetown
-Belarus|Visa not required|Routine, Hepatitis A|23.9,24.1,32.0,45.0,55.9,61.5,65.3,63.5,53.8,43.9,33.1,25.9|Minsk
-Belgium|Visa not required|Routine, Hepatitis A, Hepatitis B|37.938.7,44.2,49.6,56.5,61.2,65.1,64.4,58.8,52.0,44.2,39.0|Brussels
-Belize|Visa not required|Routine, Hepatitis A, Typhoid|75.2,76.8,78.6,81.1,82.9,83.3,82.6,82.8,82.4,80.6,78.1,76.1|Belize City
+Angola|eVisa|Routine, Yellow Fever, Polio|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4|Luanda|N/A
+Antigua and Barbuda|Not required|Routine, Hepatitis A, Typhoid|77.7,77.4,78.1,79.3,81.0,82.2,82.8,82.9,82.6,81.5,80.2,78.6|St. John's|282
+Argentina|Not required|Routine, Hepatitis A, Typhoid|76.8,74.5,71.4,64.2,58.1,53.1,51.8,55.0,58.3,64.2,69.3,73.9|Buenos Aires|43
+Armenia|Not required|Routine, Hepatitis A|25.5,32.2,43.3,55.2,63.3,72.7,79.5,79.0,70.0,56.8,43.2,31.6|Yerevan|19
+Austria|Not required|Routine|32.5,34.7,42.3,51.3,60.3,65.7,69.4,68.4,59.7,50.4,41.2,34.0|Vienna|115
+Azerbaijan|eVisa / Visa on arrival|Routine, Hepatitis A|39.9,39.6,44.6,55.2,65.3,74.3,79.5,79.3,72.5,61.9,52.2,45.1|Baku|30
+The Bahamas|Not required|Routine, Hepatitis A, Typhoid|70.0,70.0,72.0,74.1,77.5,80.4,82.2,82.2,81.1,78.6,74.8,71.4|Nassau|124
+Bahrain|eVisa / Visa on arrival|Routine, Hepatitis A, Typhoid|63.0,64.4,70.2,77.5,86.0,90.7,93.4,93.6,90.5,84.7,76.1,66.7|Manama|127
+Bangladesh|Visa on arrival|Routine, Hepatitis A, Typhoid|65.5,71.6,79.3,83.1,83.8,84.2,83.7,84.0,83.3,81.3,75.2,68.0|Dhaka|53
+Barbados|Visa not required[|Routine, Hepatitis A, Typhoid|78.4,78.3,79.2,80.2,81.7,81.9,81.7,82.0,81.9,81.5,80.6,79.5|Bridgetown|300
+Belarus|Visa not required|Routine, Hepatitis A|23.9,24.1,32.0,45.0,55.9,61.5,65.3,63.5,53.8,43.9,33.1,25.9|Minsk|35
+Belgium|Visa not required|Routine, Hepatitis A, Hepatitis B|37.938.7,44.2,49.6,56.5,61.2,65.1,64.4,58.8,52.0,44.2,39.0|Brussels|115
+Belize|Visa not required|Routine, Hepatitis A, Typhoid|75.2,76.8,78.6,81.1,82.9,83.3,82.6,82.8,82.4,80.6,78.1,76.1|Belize City|66
