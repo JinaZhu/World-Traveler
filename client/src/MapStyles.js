@@ -250,7 +250,7 @@ export default [
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "color": "#6D7973"
+                "color": "#3F3931"
             }
         ]
     }

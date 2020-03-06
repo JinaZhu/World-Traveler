@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
 import $ from "jquery"
-import { Button, Row } from 'reactstrap'
+import { Button, Row, Container } from 'reactstrap'
 import './App.css';
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
+import styled, { css } from "styled-components";
 
 
 
 //friendly reminders:
 //any javascript goes inside {}
 // you can declare and pass in a function 
+
+const Wrapper = styled.div`
+  padding: 5%;
+  background: linear-gradient(to top, #E5DACE, #6D7973);
+  margin: 0
+`;
+const H1 = styled.h1`
+    font-family: Verdana;
+    color: #3F3931;
+    font-size: 50px;
+    position: absolute;
+    top: 70%; 
+    left: 10%;
+`
 
 const Home = () => {
     // setName is a function, name is a variable that hold the state
@@ -33,14 +48,13 @@ const Home = () => {
 
 
     return (
-        <div className="App">
-            <Row>
-                <Button outline color='primary' onClick={handleGenerateClick}>Where To Next?</Button>
-                <CountryInfo country={country} isLoading={isLoading} />
-            </Row>
-            <Row>
-                <DisplayMap setCountry={setCountry} />
-            </Row>
+        <div>
+
+            <CountryInfo country={country} isLoading={isLoading} />
+            <DisplayMap setCountry={setCountry} />
+            <Button outline color='primary' onClick={handleGenerateClick}>Where To Next?</Button>
+
+
         </div >
     );
 }

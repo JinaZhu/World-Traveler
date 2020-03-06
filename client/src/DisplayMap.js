@@ -10,9 +10,21 @@ const options = {
     apiKey: apiKey
 };
 const style = {
-    height: '80%',
-    width: '80%'
+    height: '80vh',
+    width: '100%',
+    padding: '0%',
+    margin: "0",
+    position: 'relative',
+    top: "0"
 };
+
+const containerStyle = {
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+    padding: '0%',
+    margin: "0",
+}
 
 
 const geocoder = NodeGeocoder(options);
@@ -79,6 +91,7 @@ class DisplayMap extends Component {
         return (
             <Map
                 style={style}
+                containerStyle={containerStyle}
                 google={this.props.google}
                 onClick={this.handleMapClick}
                 zoom={3}
