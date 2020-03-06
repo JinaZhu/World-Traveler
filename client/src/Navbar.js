@@ -41,7 +41,7 @@ function NavBar({ user, setUser }) {
                 </NavItem>
                 {user &&
                     <NavItem>
-                        <NavLink href="/saved-countries-list">{user}'s Travel Bucket List</NavLink>
+                        <NavLink href="/saved-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>{user}'s Travel Bucket List</NavLink>
                     </NavItem>
                 }
                 {!user &&
