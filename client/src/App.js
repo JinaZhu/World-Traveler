@@ -14,6 +14,7 @@ import './App.css';
 import Home from "./Home"
 import SavedCountriesList from './SavedCountriesList'
 import NavBar from './Navbar'
+import VisitedCountriesList from './VisitedCountriesList'
 
 //friendly reminders:
 //any javascript goes inside {}
@@ -21,7 +22,7 @@ import NavBar from './Navbar'
 
 const Wrapper = styled.div`
   padding: 5%;
-  background: linear-gradient(to top, #E5DACE, #6D7973);
+  background: linear-gradient(to top, white, #6D7973);
   margin: 0
 `;
 
@@ -53,6 +54,9 @@ function App() {
           <Switch>
             <Route path="/saved-countries-list">
               <SavedCountriesList />
+            </Route>
+            <Route path="/visited-countries-list">
+              <VisitedCountriesList />
             </Route>
             <Route path="/">
               <Home />

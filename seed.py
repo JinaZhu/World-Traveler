@@ -13,13 +13,14 @@ def load_countries():
 
     for row in open("seed_data/u.country"):
         row = row.rstrip()
-        country_name, visa, vaccinations, temperature, city_temp = row.split(
+        country_name, visa, vaccinations, temperature, city_temp, cost = row.split(
             "|")
         country = Country(country_name=country_name,
                           visa=visa,
                           vaccination=vaccinations,
                           avg_temp=temperature,
-                          temp_city=city_temp)
+                          temp_city=city_temp,
+                          avg_cost=cost)
 
         db.session.add(country)
 

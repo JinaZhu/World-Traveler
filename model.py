@@ -42,6 +42,7 @@ class Country(db.Model):
     vaccination = db.Column(db.String(100))
     avg_temp = db.Column(db.String(200))
     temp_city = db.Column(db.String(200))
+    avg_cost = db.Column(db.String(5))
 
     def __repr__(self):
         """Provide helpful representation when printed."""
@@ -63,6 +64,7 @@ class Save(db.Model):
                         db.ForeignKey('users.user_id'))
     country_name = db.Column(db.String,
                              db.ForeignKey('countries.country_name'))
+    visited_country = db.Column(db.String)
     photo_url = db.Column(db.String)
 
     user = db.relationship("User",
