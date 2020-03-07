@@ -60,7 +60,8 @@ def display_countries():
         "visa": selected_country_db.visa,
         "vaccination": selected_country_db.vaccination,
         "temperatures": selected_country_db.avg_temp,
-        "city_temp": selected_country_db.temp_city
+        "city_temp": selected_country_db.temp_city,
+        "avg_price": selected_country_db.avg_cost
     }
 
     # get info from APIs
@@ -225,16 +226,35 @@ def user_likes_page():
 def user_likes():
     """display user's saved countries"""
     current_user = session.get("user_id")
-    display_countries = Save.query.filter_by(user_id=current_user).all()
+    saved_countries = Save.query.filter_by(
+        user_id=current_user, visited_country='no').all()
 
-    display_countries_info = []
+    save_countries_info = []
 
-    for country in display_countries:
-        display_countries_info.append({'country_name': country.country_name,
+    for country in saved_countries:
+        save_countries_info.append({'country_name': country.country_name,
+                                    'country_photo': country.photo_url,
+                                    'save_id': country.save_id})
+
+    return jsonify(save_countries_info)
+
+
+@app.route('/allVisitedCountries')
+def user_saves():
+    """display user's visited countries"""
+
+    current_user = session.get("user_id")
+    visited_countries = Save.query.filter_by(
+        user_id=current_user, visited_country='yes').all()
+
+    visited_countries_info = []
+
+    for country in visited_countries:
+        visited_countries_info.append({'country_name': country.country_name,
                                        'country_photo': country.photo_url,
                                        'save_id': country.save_id})
 
-    return jsonify(display_countries_info)
+    return jsonify(visited_countries_info)
 
 
 @app.route('/deleteSaved', methods=["POST"])
