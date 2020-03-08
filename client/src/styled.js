@@ -2,8 +2,23 @@ import React from 'react';
 import styled from "styled-components";
 
 export const NavAlign = styled.nav`
-float: right;
+    float: right;
 `;
+
+export const Wrapper = styled.div`
+    padding: 0 5%;    
+    margin: 0;
+`;
+
+export const Slider = styled.div`
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    background: linear-gradient(to left, #E5DACE, #6D7973);
+    z-index: -1;
+`
 
 
 

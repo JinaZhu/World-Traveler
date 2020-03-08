@@ -6,9 +6,11 @@ import $ from "jquery"
 import styled, { css } from "styled-components";
 
 
-const NavAlign = styled.nav`
-float: right;
-z-index: 3;
+const NavAlign = styled(Nav)`
+    margin: 20px;
+    display:flex;
+    justify-content: flex-end;
+    align-items:flex-center;
 `;
 
 
@@ -35,38 +37,36 @@ function NavBar({ user, setUser }) {
 
     return (
         <NavAlign>
-            <Nav>
+            <NavItem>
+                <NavLink href="/">Home</NavLink>
+            </NavItem>
+            {user &&
                 <NavItem>
-                    <NavLink href="/">Home</NavLink>
+                    <NavLink href="/saved-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
                 </NavItem>
-                {user &&
-                    <NavItem>
-                        <NavLink href="/saved-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
-                    </NavItem>
-                }
-                {user &&
-                    <NavItem>
-                        <NavLink href="/visited-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
-                    </NavItem>
-                }
-                {!user &&
-                    <NavItem >
-                        <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
+            }
+            {user &&
+                <NavItem>
+                    <NavLink href="/visited-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
                 </NavItem>
-                }
-                {!user &&
-                    <NavItem>
-                        <Button outline color="dark" onClick={toggleLogin}>Login</Button>
-                    </NavItem>
-                }
-                {user &&
-                    <NavItem>
-                        <Button outline color="dark" onClick={handleLogout}>Logout</Button>
-                    </NavItem>
-                }
-                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
-                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-            </Nav>
+            }
+            {!user &&
+                <NavItem >
+                    <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
+                </NavItem>
+            }
+            {!user &&
+                <NavItem>
+                    <Button outline color="dark" onClick={toggleLogin}>Login</Button>
+                </NavItem>
+            }
+            {user &&
+                <NavItem>
+                    <Button outline color="dark" onClick={handleLogout}>Logout</Button>
+                </NavItem>
+            }
+            <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
+            <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
         </NavAlign>
     )
 

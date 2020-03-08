@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import $ from "jquery"
 import { Button } from 'reactstrap'
 import './App.css';
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
 import styled from "styled-components";
-import { Tween, Timeline } from 'react-gsap';
-
+import { Slider } from "./styled"
+import { TweenMax, Power2, TimelineMax } from 'gsap'
 
 
 //friendly reminders:
 //any javascript goes inside {}
 // you can declare and pass in a function 
 
-const Wrapper = styled.div`
-  padding: 5%;
-  background: linear-gradient(to top, #E5DACE, #6D7973);
-  margin: 0
-`;
+
 const H1 = styled.h1`
     font-family: Verdana;
     color: #3F3931;
@@ -37,7 +33,13 @@ const Home = () => {
     //country is the data and setCountry is the function that set the data
     const [country, setCountry] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    let slider = useRef(null)
 
+    const tl = new TimelineMax();
+    useEffect(() => {
+        console.log(slider)
+        tl.fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
+    }, [])
 
     function handleGenerateClick() {
         setIsLoading(true)
@@ -54,17 +56,16 @@ const Home = () => {
 
 
     return (
-        <div>
+        <>
             <h1>ADVENTURE AWAITS</h1>
             <DisplayMap setCountry={setCountry} />
             <div className="text-center" style={{ padding: '1%' }}>
                 <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>
             </div>
             <CountryInfo country={country} isLoading={isLoading} />
-
-
-        </div >
-    );
+            <Slider ref={el => slider = el} />
+        </>
+    )
 }
 
 export default Home
