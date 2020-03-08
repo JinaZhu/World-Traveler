@@ -14,20 +14,6 @@ import { TweenMax, Power2, TimelineMax } from 'gsap'
 // you can declare and pass in a function 
 
 
-const H1 = styled.h1`
-    font-family: Verdana;
-    color: #3F3931;
-    font-size: 50px;
-    position: absolute;
-    top: 70%; 
-    left: 10%;
-`
-
-const ButtonAlign = styled.div`
-float: center;
-z-index: 3;
-`
-
 const Home = () => {
     // setName is a function, name is a variable that hold the state
     //country is the data and setCountry is the function that set the data
@@ -57,7 +43,6 @@ const Home = () => {
 
     return (
         <>
-            <h1>ADVENTURE AWAITS</h1>
             <DisplayMap setCountry={setCountry} />
             <div className="text-center" style={{ padding: '1%' }}>
                 <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>

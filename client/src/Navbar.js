@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Nav, NavItem, NavLink, Button, Container } from 'reactstrap';
 import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import $ from "jquery"
@@ -9,9 +9,10 @@ import styled, { css } from "styled-components";
 const NavAlign = styled(Nav)`
     margin: 20px;
     display:flex;
-    justify-content: flex-end;
-    align-items:flex-center;
+    justify-content: center;
+    align-items: center;
 `;
+
 
 
 function NavBar({ user, setUser }) {
@@ -36,38 +37,41 @@ function NavBar({ user, setUser }) {
 
 
     return (
-        <NavAlign>
-            <NavItem>
-                <NavLink href="/">Home</NavLink>
-            </NavItem>
-            {user &&
+        <div>
+            <h1 style={{ textAlign: "center" }}> Adventure Awaits</h1 >
+            <NavAlign>
                 <NavItem>
-                    <NavLink href="/saved-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
+                    <NavLink href="/">Home</NavLink>
                 </NavItem>
-            }
-            {user &&
-                <NavItem>
-                    <NavLink href="/visited-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
+                {user &&
+                    <NavItem>
+                        <NavLink href="/saved-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
+                    </NavItem>
+                }
+                {user &&
+                    <NavItem>
+                        <NavLink href="/visited-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
+                    </NavItem>
+                }
+                {!user &&
+                    <NavItem >
+                        <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
                 </NavItem>
-            }
-            {!user &&
-                <NavItem >
-                    <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
-                </NavItem>
-            }
-            {!user &&
-                <NavItem>
-                    <Button outline color="dark" onClick={toggleLogin}>Login</Button>
-                </NavItem>
-            }
-            {user &&
-                <NavItem>
-                    <Button outline color="dark" onClick={handleLogout}>Logout</Button>
-                </NavItem>
-            }
-            <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
-            <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-        </NavAlign>
+                }
+                {!user &&
+                    <NavItem>
+                        <Button outline color="dark" onClick={toggleLogin}>Login</Button>
+                    </NavItem>
+                }
+                {user &&
+                    <NavItem>
+                        <Button outline color="dark" onClick={handleLogout}>Logout</Button>
+                    </NavItem>
+                }
+                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
+                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+            </NavAlign>
+        </div>
     )
 
 }

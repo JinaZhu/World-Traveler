@@ -16,7 +16,7 @@ export const Slider = styled.div`
     left: 0;
     width: 100%;
     height: 110vh;
-    background: linear-gradient(to left, #E5DACE, #6D7973);
+    background: linear-gradient(to top, #E5DACE, #6D7973);
     z-index: -1;
 `
 
