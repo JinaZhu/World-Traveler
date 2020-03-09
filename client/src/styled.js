@@ -14,10 +14,21 @@ export const Slider = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 135vh;
+    height: 125vh;
     background: linear-gradient(to top, #E5DACE, #6D7973);
     z-index: -1;
 `;
+
+export const Info = styled.div`
+    margin: 0 10%;
+`;
+
+export const FilteredPhoto = styled.img`
+    width: 250;
+    height: 250;    
+    opacity: 0.85;
+    filter: grayscale(10%) sepia(30%) saturate(1.5) brightness(1.1) contrast(1); 
+`
 
 
 
