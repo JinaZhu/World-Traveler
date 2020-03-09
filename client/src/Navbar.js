@@ -14,6 +14,14 @@ const NavAlign = styled(Nav)`
     align-items: center;
 `;
 
+const StyledNavLink = styled(NavLink)`
+    color: #3F3931;
+
+    &:hover {
+        color: #6D7973;
+    }
+`
+
 function NavBar({ user, setUser }) {
     const [isOpenRegister, setIsOpenRegister] = useState(false)
     const [isOpenLogin, setIsOpenLogin] = useState(false)
@@ -47,16 +55,16 @@ function NavBar({ user, setUser }) {
                 <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="https://mail.google.com/mail/u/0?ui=2&ik=23c0149e5f&attid=0.1&permmsgid=msg-a:r585519150284982156&th=170bceb4cdde4e2b&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ-0UqO8x_50UOo9BfcGKpdXHhXDqblen9T7zKBbMjUWjxFZ3GNP5F4g-LFO_GX78HWxaygGx_s_ZP2XsOjiBjW-jsVDpuXRFxScrImz0HZWEFwj-yQ-9xM7gic&disp=emb&realattid=ii_k7jsia5b0" align="middle" alt="logo" height="200" width="220"></img>
                 <NavAlign >
                     <NavItem >
-                        <NavLink href="/">Home</NavLink>
+                        <StyledNavLink href="/">Home</StyledNavLink>
                     </NavItem>
                     {user &&
                         <NavItem>
-                            <NavLink href="/saved-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
+                            <StyledNavLink href="/saved-countries-list">Places To Go</StyledNavLink>
                         </NavItem>
                     }
                     {user &&
                         <NavItem>
-                            <NavLink href="/visited-countries-list" style={{ textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
+                            <StyledNavLink href="/visited-countries-list" style={{ textDecoration: 'none' }}>Places {user} Been</StyledNavLink>
                         </NavItem>
                     }
                     {!user &&
