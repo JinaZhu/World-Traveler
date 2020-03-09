@@ -4,9 +4,8 @@ import { Button } from 'reactstrap'
 import './App.css';
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
-import styled from "styled-components";
 import { Slider } from "./styled"
-import { TweenMax, Power2, TimelineMax } from 'gsap'
+import { Power2, TimelineMax } from 'gsap'
 
 
 //friendly reminders:
@@ -20,12 +19,15 @@ const Home = () => {
     const [country, setCountry] = useState()
     const [isLoading, setIsLoading] = useState(false)
     let slider = useRef(null)
+    let mapSlide = useRef(null)
+    let buttonSlide = useRef(null)
 
     const tl = new TimelineMax();
     useEffect(() => {
-        console.log(slider)
-        tl.fromTo(slider, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
+        tl.fromTo(slider, 1.2, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut }, "-=1.2")
+            .fromTo(mapSlide, 1.2, { x: "-110%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
     }, [])
+
 
     function handleGenerateClick() {
         setIsLoading(true)
@@ -43,9 +45,14 @@ const Home = () => {
 
     return (
         <>
-            <DisplayMap setCountry={setCountry} />
-            <div className="text-center" style={{ padding: '1%' }}>
-                <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>
+
+            <div ref={el => mapSlide = el}>
+                <div>
+                    <DisplayMap setCountry={setCountry} />
+                </div>
+                <div className="text-center" style={{ padding: '1%' }}>
+                    <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>
+                </div>
             </div>
             <CountryInfo country={country} isLoading={isLoading} />
             <Slider ref={el => slider = el} />

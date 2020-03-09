@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import $ from "jquery"
-import { Card, CardBody, Button, CardTitle, CardText, CardImg } from 'reactstrap'
+import { Card, CardBody, CardTitle, CardImg } from 'reactstrap'
 
 const VisitedCountriesList = (props) => {
     const [allVisitedCountries, setAllVisitedCountries] = useState()

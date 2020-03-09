@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import $ from "jquery"
-import { Button, UncontrolledCarousel } from 'reactstrap'
+import { Button } from 'reactstrap'
 
 
 
