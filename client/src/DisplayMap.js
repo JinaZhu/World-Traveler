@@ -13,10 +13,12 @@ const style = {
     height: '80vh',
     width: '100%',
     padding: '0%',
-    margin: "0",
+    margin: '0',
     marginTop: "0",
     position: 'relative',
-    top: "0"
+    top: "0",
+    outline: '1px solid #3F3931',
+    outlineOffset: '7px'
 };
 
 const containerStyle = {
@@ -24,7 +26,7 @@ const containerStyle = {
     width: '100%',
     height: '100%',
     padding: '0%',
-    margin: "0",
+    margin: '0',
 }
 
 

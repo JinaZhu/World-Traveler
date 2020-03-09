@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import $ from "jquery"
-import { Button, UncontrolledCarousel } from 'reactstrap'
+import { Button } from 'reactstrap'
+import { Info, FilteredPhoto } from './styled'
 
 
 
@@ -47,14 +48,19 @@ const CountryInfo = ({ country, isLoading }) => {
     console.log(country)
 
     return (
-
-        <div>
+        <Info>
 
             {/* {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />} */}
             <h3>{country.country_info.countryName}</h3>
             <div>
                 <Button outline color='primary' onClick={handleCountrySave}>Save</Button>
                 <Button outline color='primary' onClick={handleVisitedCountry}>Visited</Button>
+                <div>{country.place_photos.map((reference, index) => {
+                    return <FilteredPhoto key={index} alt="country"
+                        src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
+                        width="250" height="250" />
+                })}
+                </div>
             </div>
 
             <div>
@@ -75,12 +81,7 @@ const CountryInfo = ({ country, isLoading }) => {
             <div>
                 <div>Monthly Average temperature: {country.country_info.temperatures} for {country.country_info.city_temp}</div>
             </div>
-            <div>
-                <div> {country.place_photos.map((reference, index) => {
-                    return <img key={index} alt="country" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} />
-                })}</div>
-            </div>
-        </div>
+        </Info>
     );
 }
 

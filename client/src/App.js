@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom"
-import { Container } from 'reactstrap';
 import $ from "jquery"
-import styled, { css } from "styled-components";
-
 
 import './App.css';
 
@@ -15,19 +12,19 @@ import Home from "./Home"
 import SavedCountriesList from './SavedCountriesList'
 import NavBar from './Navbar'
 import VisitedCountriesList from './VisitedCountriesList'
+import { Wrapper } from './styled'
+
 
 //friendly reminders:
 //any javascript goes inside {}
 // you can declare and pass in a function 
 
-const Wrapper = styled.div`
-  padding: 5%;
-  background: linear-gradient(to top, white, #6D7973);
-  margin: 0
-`;
 
 function App() {
   const [user, setUser] = useState()
+
+  // // console.log('TimelineMax', TimelineMax)
+
 
   function checkIsLoggedIn() {
     const xhr = $.get('/isLoggedIn')
@@ -48,22 +45,20 @@ function App() {
 
   return (
     <Wrapper>
-      <div>
-        <NavBar user={user} setUser={setUser} />
-        <Router>
-          <Switch>
-            <Route path="/saved-countries-list">
-              <SavedCountriesList />
-            </Route>
-            <Route path="/visited-countries-list">
-              <VisitedCountriesList />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <NavBar user={user} setUser={setUser} />
+      <Router>
+        <Switch>
+          <Route path="/saved-countries-list">
+            <SavedCountriesList />
+          </Route>
+          <Route path="/visited-countries-list">
+            <VisitedCountriesList />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </Wrapper>
   )
 }

@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import $ from "jquery"
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { Power2, TimelineMax } from 'gsap'
 
 
-const NavAlign = styled.nav`
-float: right;
-z-index: 3;
+const NavAlign = styled(Nav)`
+    margin: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `;
 
+const StyledNavLink = styled(NavLink)`
+    color: #3F3931;
+
+    &:hover {
+        color: #6D7973;
+    }
+`
 
 function NavBar({ user, setUser }) {
     const [isOpenRegister, setIsOpenRegister] = useState(false)
     const [isOpenLogin, setIsOpenLogin] = useState(false)
+    let NavSlide = useRef(null)
 
     const toggleRegister = () => setIsOpenRegister(!isOpenRegister)
     const toggleLogin = () => setIsOpenLogin(!isOpenLogin)
+
+    const tl = new TimelineMax();
+    useEffect(() => {
+        tl.fromTo(NavSlide, 1.2, { y: "-110%" }, { y: "0%", ease: Power2.easeInOut }, "-=1.2")
+    }, [])
 
     const handleLogout = (e) => {
         const xhr = $.post('/logout')
@@ -34,40 +50,43 @@ function NavBar({ user, setUser }) {
 
 
     return (
-        <NavAlign>
-            <Nav>
-                <NavItem>
-                    <NavLink href="/">Home</NavLink>
-                </NavItem>
-                {user &&
-                    <NavItem>
-                        <NavLink href="/saved-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places To Go</NavLink>
-                    </NavItem>
-                }
-                {user &&
-                    <NavItem>
-                        <NavLink href="/visited-countries-list" style={{ color: 'white', textDecoration: 'none' }} activeStyle={{ color: 'red', textDecoration: 'none' }}>Places {user} Been</NavLink>
-                    </NavItem>
-                }
-                {!user &&
+        <div>
+            <div ref={el => NavSlide = el}>
+                <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="/static/travelLogo.png" alt="logo" height="200" width="220"></img>
+                <NavAlign >
                     <NavItem >
-                        <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
+                        <StyledNavLink href="/">Home</StyledNavLink>
+                    </NavItem>
+                    {user &&
+                        <NavItem>
+                            <StyledNavLink href="/saved-countries-list">Places To Go</StyledNavLink>
+                        </NavItem>
+                    }
+                    {user &&
+                        <NavItem>
+                            <StyledNavLink href="/visited-countries-list" style={{ textDecoration: 'none' }}>Places {user} Been</StyledNavLink>
+                        </NavItem>
+                    }
+                    {!user &&
+                        <NavItem >
+                            <Button outline color="dark" onClick={toggleRegister}>Register</Button>&nbsp;&nbsp;&nbsp;
                 </NavItem>
-                }
-                {!user &&
-                    <NavItem>
-                        <Button outline color="dark" onClick={toggleLogin}>Login</Button>
-                    </NavItem>
-                }
-                {user &&
-                    <NavItem>
-                        <Button outline color="dark" onClick={handleLogout}>Logout</Button>
-                    </NavItem>
-                }
-                <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
-                <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
-            </Nav>
-        </NavAlign>
+                    }
+                    {!user &&
+                        <NavItem>
+                            <Button outline color="dark" onClick={toggleLogin}>Login</Button>
+                        </NavItem>
+                    }
+                    {user &&
+                        <NavItem>
+                            <Button outline color="dark" onClick={handleLogout}>Logout</Button>
+                        </NavItem>
+                    }
+                    <LoginModal isOpen={isOpenLogin} toggle={toggleLogin} setUser={setUser} />
+                    <RegisterModal isOpen={isOpenRegister} toggle={toggleRegister} />
+                </NavAlign>
+            </div>
+        </div >
     )
 
 }
