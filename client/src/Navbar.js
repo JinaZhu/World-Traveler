@@ -52,7 +52,7 @@ function NavBar({ user, setUser }) {
     return (
         <div>
             <div ref={el => NavSlide = el}>
-                <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="https://mail.google.com/mail/u/0?ui=2&ik=23c0149e5f&attid=0.1&permmsgid=msg-a:r585519150284982156&th=170bceb4cdde4e2b&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ-0UqO8x_50UOo9BfcGKpdXHhXDqblen9T7zKBbMjUWjxFZ3GNP5F4g-LFO_GX78HWxaygGx_s_ZP2XsOjiBjW-jsVDpuXRFxScrImz0HZWEFwj-yQ-9xM7gic&disp=emb&realattid=ii_k7jsia5b0" align="middle" alt="logo" height="200" width="220"></img>
+                <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="/static/travelLogo.png" alt="logo" height="200" width="220"></img>
                 <NavAlign >
                     <NavItem >
                         <StyledNavLink href="/">Home</StyledNavLink>
