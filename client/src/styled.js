@@ -1,8 +1,17 @@
 import styled from "styled-components";
+import { NavLink } from 'reactstrap';
 
 export const NavAlign = styled.nav`
     float: right;
 `;
+
+export const StyledNavLink = styled(NavLink)`
+    color: #3F3931;
+
+    &:hover {
+        color: #6D7973;
+    }
+`
 
 export const Wrapper = styled.div`
     padding: 0 5%;    
@@ -37,7 +46,7 @@ export const StyledH3 = styled.h3`
     display: flex; 
     margin: 5% 40; 
     color: #3F3931; 
-    font-size: 25px; 
+    font-size: 30px; 
     justify-content: center;
     align-items: center;
     background: linear-gradient(to left, white, #e7c9a9, white);
@@ -57,6 +66,24 @@ export const PhotoAlign = styled.div`
     flex-flow: row wrap;
     background: linear-gradient(to top, white, #E7BAA0, #E5DACE, white);
 `
+
+export const InfoStyle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 5%
+`
+
+export const IconStyle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    flex-direction: column;
+    margin: 7%;
+`
+
 
 
 
