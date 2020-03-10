@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from 'reactstrap';
+import { NavLink, Button } from 'reactstrap';
 
 export const NavAlign = styled.nav`
     float: right;
@@ -42,9 +42,7 @@ export const Info = styled.div`
 `;
 
 
-export const FilteredPhoto = styled.img`
-    width: 250;
-    height: 250;    
+export const FilteredPhoto = styled.img`   
     opacity: 0.85;
     filter: grayscale(10%) sepia(30%) saturate(1.5) brightness(1.1) contrast(1); 
     margin: 1%; 
@@ -125,6 +123,48 @@ export const TempContainer = styled.div`
     align-items: center;
     flex-direction: column;
     margin: 5%; 
+`
+
+export const SaveRow = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 0; 
+`
+
+export const Polaroid = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 403.2px;
+    width: 336px;
+    margin: 5%;
+    padding: 1.5rem 2rem;
+    border-style: solid;
+    background: white;
+`
+
+export const PolaroidTitle = styled.p`
+    text-align: center;
+    padding: 0;
+    font-size: 20px;
+`
+
+export const DeleteButton = styled(Button)`
+    color: #3F3931;
+
+    &:hover {
+        color: #6D7973;
+    };
+`
+
+export const PolaroidLayout = styled.div`
+    position:absolute;
+    left:0;
+    right:-10;
+    background: linear-gradient(to top, #6D7973, #B2B2A2, #E5DACE, #E7BAA0, #e7c9a9, white);
 `
 
 

@@ -60,13 +60,13 @@ const CountryInfo = ({ country, isLoading }) => {
                 <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
             </ButtonAlign>
 
-            <PhotoAlign>
+            {/* <PhotoAlign>
                 {country.place_photos.map((reference, index) => {
                     return <FilteredPhoto key={index} alt="country"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
                         width="200" height="200" />
                 })}
-            </PhotoAlign>
+            </PhotoAlign> */}
             <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Travel Basics</p>
             <InfoStyle>
                 <IconStyle>
