@@ -46,10 +46,11 @@ export const StyledH3 = styled.h3`
     display: flex; 
     margin: 5% 40; 
     color: #3F3931; 
-    font-size: 30px; 
+    font-size: 35px; 
     justify-content: center;
     align-items: center;
     background: linear-gradient(to left, white, #e7c9a9, white);
+    fontWeight: bold;
 `
 
 export const ButtonAlign = styled.div`
@@ -82,6 +83,19 @@ export const IconStyle = styled.div`
     flex-flow: row wrap;
     flex-direction: column;
     margin: 7%;
+`
+
+export const CityContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`
+export const CityStyle = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    background: #B2B2A2
 `
 
 

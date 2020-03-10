@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import $ from "jquery";
 import { Button } from 'reactstrap';
-import { Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign, IconStyle, InfoStyle, StyledNavLink } from './styled';
+import { Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign, IconStyle, InfoStyle, StyledNavLink, CityStyle, CityContainer } from './styled';
 
 
 
@@ -59,14 +59,14 @@ const CountryInfo = ({ country, isLoading }) => {
                 <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
             </ButtonAlign>
 
-            <PhotoAlign>
+            {/* <PhotoAlign>
                 {country.place_photos.map((reference, index) => {
                     return <FilteredPhoto key={index} alt="country"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
                         width="200" height="200" />
                 })}
-            </PhotoAlign>
-
+            </PhotoAlign> */}
+            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Travel Basics</p>
             <InfoStyle>
                 <IconStyle>
                     <img src="/static/language.png" alt="logo" height="50" width="50"></img>
@@ -103,11 +103,15 @@ const CountryInfo = ({ country, isLoading }) => {
                     <b>${country.country_info.avg_price}</b>
                 </IconStyle>
             </InfoStyle>
-            <div>
-                <div>Popular Cities: <ul>{country.popular_cities.map((city, index) => {
-                    return <li key={index}>{city}</li>
-                })}</ul></div>
-            </div>
+            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
+            <CityContainer>
+                <img src="/static/city.jpg" alt="logo" height="500" width="500"></img>
+                <CityStyle>
+                    {country.popular_cities.map((city, index) => {
+                        return <p key={index}>{city}</p>
+                    })}
+                </CityStyle>
+            </CityContainer>
             <div>
                 <div>Monthly Average temperature: {country.country_info.temperatures} for {country.country_info.city_temp}</div>
             </div>
