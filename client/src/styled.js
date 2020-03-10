@@ -13,6 +13,14 @@ export const StyledNavLink = styled(NavLink)`
     }
 `
 
+export const CityNavLink = styled(NavLink)`
+    color: white;
+
+    &:hover {
+        color: #6D7973;
+    }
+`
+
 export const Wrapper = styled.div`
     padding: 0 5%;    
     margin: 0;
@@ -72,7 +80,6 @@ export const InfoStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
     margin: 5%
 `
 
@@ -80,22 +87,44 @@ export const IconStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
     flex-direction: column;
-    margin: 7%;
+    margin: 5%;
 `
 
-export const CityContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-`
 export const CityStyle = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    background: black;
+`
+
+export const TempStyle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;                                                
+`
+export const WarmTempStyle = styled.b`
+    width: 50px;
+    height: 50px; 
+    background: linear-gradient(to top, white, #ffefd5);
+`
+
+export const ColdTempStyle = styled.b`
+    width: 50px;
+    height: 50px; 
+    background: linear-gradient(to top, white, #b0e0e6);
+`
+
+export const MonthStyle = styled.b`
+    width: 54px;
+    height: 25px; 
+`
+export const TempContainer = styled.div`
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #B2B2A2
+    margin: 5%; 
 `
 
 

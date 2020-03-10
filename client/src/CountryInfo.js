@@ -2,12 +2,11 @@ import React from 'react';
 import './App.css';
 import $ from "jquery";
 import { Button } from 'reactstrap';
-import { Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign, IconStyle, InfoStyle, StyledNavLink, CityStyle, CityContainer } from './styled';
-
-
-
-
-
+import {
+    Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign,
+    IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle,
+    TempStyle, WarmTempStyle, ColdTempStyle, MonthStyle, TempContainer
+} from './styled';
 
 const CountryInfo = ({ country, isLoading }) => {
     if (!isLoading && !country) {
@@ -48,6 +47,8 @@ const CountryInfo = ({ country, isLoading }) => {
 
     }
 
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
     return (
         <Info>
 
@@ -59,13 +60,13 @@ const CountryInfo = ({ country, isLoading }) => {
                 <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
             </ButtonAlign>
 
-            {/* <PhotoAlign>
+            <PhotoAlign>
                 {country.place_photos.map((reference, index) => {
                     return <FilteredPhoto key={index} alt="country"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
                         width="200" height="200" />
                 })}
-            </PhotoAlign> */}
+            </PhotoAlign>
             <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Travel Basics</p>
             <InfoStyle>
                 <IconStyle>
@@ -86,36 +87,62 @@ const CountryInfo = ({ country, isLoading }) => {
             </InfoStyle>
             <InfoStyle>
                 <IconStyle>
+                    <img src="/static/currency.png" alt="logo" height="50" width="50"></img>
+                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Currency</p>
+                    <b>{country.currency}</b>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                </IconStyle>
+                <IconStyle>
+                    <img src="/static/cost.png" alt="logo" height="50" width="50"></img>
+                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Average Daily Price</p>
+                    <b>${country.country_info.avg_price}</b>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                    <p>  </p>
+                </IconStyle>
+                <IconStyle>
                     <img src="/static/safety.png" alt="logo" height="50" width="50"></img>
                     <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Safety Score</p>
                     <b>{country.advisor_score}</b>
                     <p>Low Risk (0 - 5) High Risk</p>
                     <StyledNavLink href={country.learn_more_advisory}>Learn More</StyledNavLink>
                 </IconStyle>
-                <IconStyle>
-                    <img src="/static/currency.png" alt="logo" height="50" width="50"></img>
-                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Currency</p>
-                    <b>{country.currency}</b>
-                </IconStyle>
-                <IconStyle>
-                    <img src="/static/cost.png" alt="logo" height="50" width="50"></img>
-                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Average Daily Price</p>
-                    <b>${country.country_info.avg_price}</b>
-                </IconStyle>
             </InfoStyle>
-            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
-            <CityContainer>
-                <img src="/static/city.jpg" alt="logo" height="500" width="500"></img>
-                <CityStyle>
-                    {country.popular_cities.map((city, index) => {
-                        return <p key={index}>{city}</p>
+            <TempContainer>
+                <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>When To Visit </p>
+                <p style={{ textAlign: 'center', fontSize: '15px', fontWeight: 'bold' }}>{country.country_info.city_temp}'s Monthly Average Temperature</p>
+                <TempStyle>
+                    {months.map((month, index) => {
+                        return <MonthStyle key={index}>{month}</MonthStyle>
                     })}
-                </CityStyle>
-            </CityContainer>
-            <div>
-                <div>Monthly Average temperature: {country.country_info.temperatures} for {country.country_info.city_temp}</div>
-            </div>
-        </Info>
+                </TempStyle>
+                <TempStyle>
+                    {country.country_info.temperatures.split(",").map((temp, index) => {
+                        if (temp > 65) {
+                            return <WarmTempStyle key={index}>{temp}</WarmTempStyle>
+                        } else {
+                            return <ColdTempStyle key={index}>{temp}</ColdTempStyle>
+                        }
+                    })}
+                </TempStyle>
+            </TempContainer>
+            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
+            <img src="/static/city.png" alt="logo" height="200" width="1100" />
+            <CityStyle>
+                {country.popular_cities.map((city, index) => {
+                    {
+                        let cityInfo = `https://en.wikipedia.org/wiki/${city}`
+                        return <CityNavLink key={index} href={cityInfo} target="_blank">{city}</CityNavLink>
+                    }
+                })}
+            </CityStyle>
+        </Info >
     );
 }
 

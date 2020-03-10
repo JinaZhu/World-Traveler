@@ -9,6 +9,8 @@ const options = {
     provider: "google",
     apiKey: apiKey
 };
+const geocoder = NodeGeocoder(options);
+
 const style = {
     height: '80vh',
     width: '100%',
@@ -28,9 +30,6 @@ const containerStyle = {
     padding: '0%',
     margin: '0',
 }
-
-
-const geocoder = NodeGeocoder(options);
 
 
 class DisplayMap extends Component {
@@ -69,6 +68,7 @@ class DisplayMap extends Component {
         this.setState({ lat, lng: lon });
 
         geocoder.reverse({ lat, lon }, function (err, res) {
+            console.log(res)
             if (err) {
                 return window.alert('Please click a country')
             }
