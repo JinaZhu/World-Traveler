@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import { NavLink, Button } from 'reactstrap';
+import { NavLink, Button, Nav } from 'reactstrap';
 
-export const NavAlign = styled.nav`
-    float: right;
-`;
 
 export const StyledNavLink = styled(NavLink)`
     color: #3F3931;
@@ -14,7 +11,7 @@ export const StyledNavLink = styled(NavLink)`
 `
 
 export const CityNavLink = styled(NavLink)`
-    color: white;
+    color: #3F3931;
 
     &:hover {
         color: #6D7973;
@@ -55,8 +52,8 @@ export const StyledH3 = styled.h3`
     font-size: 35px; 
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to left, white, #e7c9a9, white);
     fontWeight: bold;
+    letter-spacing: 3px;
 `
 
 export const ButtonAlign = styled.div`
@@ -71,7 +68,7 @@ export const PhotoAlign = styled.div`
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    background: linear-gradient(to top, white, #E7BAA0, #E5DACE, white);
+    background: linear-gradient(to bottom, #E7BAA0 80%, white 20%);
 `
 
 export const InfoStyle = styled.div`
@@ -93,8 +90,19 @@ export const CityStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
+    background-image: linear-gradient(to top left, #E5DACE 50%, #B2B2A2 50%);
+    opacity: 0.9;
 `
+
+export const CityContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white; 
+    padding: 0 50px; 
+`
+
 
 export const TempStyle = styled.div`
     display: flex;
@@ -143,7 +151,9 @@ export const Polaroid = styled.div`
     margin: 5%;
     padding: 1.5rem 2rem;
     border-style: solid;
-    background: white;
+    background: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #3F3931;
 `
 
 export const PolaroidTitle = styled.p`
@@ -164,7 +174,14 @@ export const PolaroidLayout = styled.div`
     position:absolute;
     left:0;
     right:-10;
-    background: linear-gradient(to top, #6D7973, #B2B2A2, #E5DACE, #E7BAA0, #e7c9a9, white);
+    background: linear-gradient(to top, #6D7973, #B2B2A2, #e7c9a9, #E7BAA0, white);
+`
+
+export const NavAlign = styled(Nav)`
+    margin: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `
 
 

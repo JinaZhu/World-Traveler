@@ -5,24 +5,17 @@ import LoginModal from './LoginModal'
 import $ from "jquery"
 import styled from "styled-components";
 import { Power2, TimelineMax } from 'gsap'
-import { StyledNavLink } from './styled'
+import { StyledNavLink, NavAlign } from './styled'
 
 
 
-const NavAlign = styled(Nav)`
-    margin: 20px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-`;
+// const NavAlign = styled(Nav)`
+//     margin: 20px;
+//     display:flex;
+//     justify-content: center;
+//     align-items: center;
+// `;
 
-// const StyledNavLink = styled(NavLink)`
-//     color: #3F3931;
-
-//     &:hover {
-//         color: #6D7973;
-//     }
-// `
 
 function NavBar({ user, setUser }) {
     const [isOpenRegister, setIsOpenRegister] = useState(false)
