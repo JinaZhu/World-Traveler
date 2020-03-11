@@ -30,7 +30,6 @@ function App() {
     const xhr = $.get('/isLoggedIn')
 
     xhr.done((data) => {
-      console.log('data', data)
       setUser(data)
     })
     xhr.fail((error) => {

@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import {
     Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign,
     IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle,
-    TempStyle, WarmTempStyle, ColdTempStyle, MonthStyle, TempContainer
+    TempStyle, WarmTempStyle, ColdTempStyle, MonthStyle, TempContainer, CityContainer
 } from './styled';
 
 const CountryInfo = ({ country, isLoading }) => {
@@ -54,7 +54,7 @@ const CountryInfo = ({ country, isLoading }) => {
 
             {/* {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />} */}
             <img style={{ display: "block", marginLeft: "45%", marginRight: "auto", marginTop: "5%" }} src="https://surgicorps.org/wp-content/uploads/2018/02/watercolor-world-map.png" alt="map" width="100" length="100" />
-            <StyledH3>{country.country_info.countryName}</StyledH3>
+            <StyledH3>{country.country_info.countryName.toUpperCase()}</StyledH3>
             <ButtonAlign>
                 <Button outline color='dark' onClick={handleCountrySave}>Save</Button>
                 <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
@@ -114,6 +114,17 @@ const CountryInfo = ({ country, isLoading }) => {
                     <StyledNavLink href={country.learn_more_advisory}>Learn More</StyledNavLink>
                 </IconStyle>
             </InfoStyle>
+            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
+            <CityStyle>
+                <CityContainer>
+                    {country.popular_cities.map((city, index) => {
+                        {
+                            let cityInfo = `https://en.wikipedia.org/wiki/${city}`
+                            return <CityNavLink key={index} href={cityInfo} target="_blank">{index + 1}. {city}</CityNavLink>
+                        }
+                    })}
+                </CityContainer>
+            </CityStyle>
             <TempContainer>
                 <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>When To Visit </p>
                 <p style={{ textAlign: 'center', fontSize: '15px', fontWeight: 'bold' }}>{country.country_info.city_temp}'s Monthly Average Temperature</p>
@@ -132,16 +143,6 @@ const CountryInfo = ({ country, isLoading }) => {
                     })}
                 </TempStyle>
             </TempContainer>
-            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
-            <img src="/static/city.png" alt="logo" height="200" width="1100" />
-            <CityStyle>
-                {country.popular_cities.map((city, index) => {
-                    {
-                        let cityInfo = `https://en.wikipedia.org/wiki/${city}`
-                        return <CityNavLink key={index} href={cityInfo} target="_blank">{city}</CityNavLink>
-                    }
-                })}
-            </CityStyle>
         </Info >
     );
 }

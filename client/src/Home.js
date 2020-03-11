@@ -20,7 +20,6 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(false)
     let slider = useRef(null)
     let mapSlide = useRef(null)
-    let buttonSlide = useRef(null)
 
     const tl = new TimelineMax();
     useEffect(() => {
