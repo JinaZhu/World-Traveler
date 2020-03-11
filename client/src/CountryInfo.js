@@ -7,6 +7,7 @@ import {
     IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle,
     TempStyle, WarmTempStyle, ColdTempStyle, MonthStyle, TempContainer, CityContainer
 } from './styled';
+import TempChart from './TempChart'
 
 const CountryInfo = ({ country, isLoading }) => {
     if (!isLoading && !country) {
@@ -60,13 +61,13 @@ const CountryInfo = ({ country, isLoading }) => {
                 <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
             </ButtonAlign>
 
-            <PhotoAlign>
+            {/* <PhotoAlign>
                 {country.place_photos.map((reference, index) => {
                     return <FilteredPhoto key={index} alt="country"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
                         width="200" height="200" />
                 })}
-            </PhotoAlign>
+            </PhotoAlign> */}
             <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Travel Basics</p>
             <InfoStyle>
                 <IconStyle>
@@ -114,8 +115,8 @@ const CountryInfo = ({ country, isLoading }) => {
                     <StyledNavLink href={country.learn_more_advisory}>Learn More</StyledNavLink>
                 </IconStyle>
             </InfoStyle>
-            <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
             <CityStyle>
+                <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
                 <CityContainer>
                     {country.popular_cities.map((city, index) => {
                         {
@@ -126,22 +127,7 @@ const CountryInfo = ({ country, isLoading }) => {
                 </CityContainer>
             </CityStyle>
             <TempContainer>
-                <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>When To Visit </p>
-                <p style={{ textAlign: 'center', fontSize: '15px', fontWeight: 'bold' }}>{country.country_info.city_temp}'s Monthly Average Temperature</p>
-                <TempStyle>
-                    {months.map((month, index) => {
-                        return <MonthStyle key={index}>{month}</MonthStyle>
-                    })}
-                </TempStyle>
-                <TempStyle>
-                    {country.country_info.temperatures.split(",").map((temp, index) => {
-                        if (temp > 65) {
-                            return <WarmTempStyle key={index}>{temp}</WarmTempStyle>
-                        } else {
-                            return <ColdTempStyle key={index}>{temp}</ColdTempStyle>
-                        }
-                    })}
-                </TempStyle>
+                <TempChart temperatures={country.country_info.temperatures} countryName={country.country_info.city_temp} />
             </TempContainer>
         </Info >
     );

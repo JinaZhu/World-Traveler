@@ -36,6 +36,7 @@ export const Slider = styled.div`
 
 export const Info = styled.div`
     margin: 0 7%;
+    background: linear-gradient(to top, white, #e7c9a9, #E7BAA0, #E5DACE, #B2B2A2, #6D7973, #B2B2A2, white); 
 `;
 
 
@@ -90,8 +91,7 @@ export const CityStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to top left, #E5DACE 50%, #B2B2A2 50%);
-    opacity: 0.9;
+    background: white; 
 `
 
 export const CityContainer = styled.div`
