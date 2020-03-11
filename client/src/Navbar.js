@@ -54,7 +54,7 @@ function NavBar({ user, setUser }) {
     return (
         <div>
             <div ref={el => NavSlide = el}>
-                <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="/static/travelLogo.png" alt="logo" height="200" width="220"></img>
+                <a href="/"><img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="/static/travelLogo.png" alt="logo" height="200" width="220"></img></a>
                 <NavAlign >
                     <NavItem >
                         <StyledNavLink href="/">Home</StyledNavLink>

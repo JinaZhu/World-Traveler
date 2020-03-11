@@ -1,10 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import $ from "jquery"
 import { SaveRow, Polaroid, FilteredPhoto, PolaroidTitle, DeleteButton, PolaroidLayout } from './styled'
+import { Power2, TimelineMax } from 'gsap'
 
 const VisitedCountriesList = (props) => {
     const [allVisitedCountries, setAllVisitedCountries] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    let PolaroidSlide = useRef(null)
+
+
+    const tl = new TimelineMax();
+    useEffect(() => {
+        tl.fromTo(PolaroidSlide, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
+    }, [])
 
 
     // function version of componentDidMount
@@ -39,7 +47,7 @@ const VisitedCountriesList = (props) => {
 
     return (
 
-        <PolaroidLayout>
+        <PolaroidLayout ref={el => PolaroidSlide = el}>
             {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
             {allVisitedCountries &&
 
@@ -55,7 +63,7 @@ const VisitedCountriesList = (props) => {
                     })}
                 </SaveRow>
             }
-            <img style={{ opacity: 0.10 }} src="/static/palmTree.png" alt="logo" height="200" width="1500" />
+            <img style={{ opacity: 0.30 }} src="/static/ocean.png" alt="logo" height="200" width="1500" />
         </PolaroidLayout>
     )
 

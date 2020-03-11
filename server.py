@@ -219,7 +219,7 @@ def user_likes_page():
         db.session.add(save_countries)
         db.session.commit()
 
-    return ('', 204)
+    return('Country stored!')
 
 
 @app.route('/allSavedCountries')

@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import $ from "jquery"
 import { SaveRow, Polaroid, FilteredPhoto, PolaroidTitle, DeleteButton, PolaroidLayout } from './styled'
+import { Power2, TimelineMax } from 'gsap'
 
 
 const SavedCountriesList = (props) => {
     const [allSavedCountries, setAllSavedCountries] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    let PolaroidSlide = useRef(null)
 
     console.log('allSavedCountries', allSavedCountries)
 
+
+    const tl = new TimelineMax();
+    useEffect(() => {
+        tl.fromTo(PolaroidSlide, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
+    }, [])
 
     // function version of componentDidMount
     useEffect(() => {
@@ -43,11 +50,11 @@ const SavedCountriesList = (props) => {
     }
 
     return (
-        <PolaroidLayout>
+        <PolaroidLayout ref={el => PolaroidSlide = el}>
             {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
             {allSavedCountries &&
 
-                <SaveRow>
+                <SaveRow >
                     {allSavedCountries.map((country) => {
                         return <Polaroid>
                             <FilteredPhoto src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=${country.country_photo}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`} alt="Card image cap" width="297.6" height="297.6" />
