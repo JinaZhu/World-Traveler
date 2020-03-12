@@ -15,8 +15,7 @@ const TempChart = ({ temperatures, countryName }) => {
         }
     })
 
-
-    const [data, setData] = useState({
+    const data = {
         dataBar: {
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             datasets: [
@@ -55,7 +54,7 @@ const TempChart = ({ temperatures, countryName }) => {
                 ]
             }
         }
-    })
+    }
 
     return (
         <MDBContainer>

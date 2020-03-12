@@ -4,7 +4,7 @@ import { Button } from 'reactstrap'
 import './App.css';
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
-import { Slider } from "./styled"
+import { Slider, InfoSlider } from "./styled"
 import { Power2, TimelineMax } from 'gsap'
 
 
@@ -40,20 +40,20 @@ const Home = () => {
         })
     }
 
-
-
     return (
         <>
-
-            <div ref={el => mapSlide = el}>
+            <div id="map-slide" ref={el => mapSlide = el}>
                 <div>
                     <DisplayMap setCountry={setCountry} />
                 </div>
                 <div className="text-center" style={{ padding: '1%' }}>
-                    <Button outline color='dark' onClick={handleGenerateClick}>Where To Next?</Button>
+                    <Button outline color='dark' style={{ margin: "10px" }} onClick={handleGenerateClick}>Where To Next?</Button>
                 </div>
             </div>
-            <CountryInfo country={country} isLoading={isLoading} />
+            <div>
+                <CountryInfo country={country} isLoading={isLoading} />
+            </div>
+
             <Slider ref={el => slider = el} />
         </>
     )

@@ -4,8 +4,7 @@ import $ from "jquery";
 import { Button } from 'reactstrap';
 import {
     Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign,
-    IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle,
-    TempStyle, WarmTempStyle, ColdTempStyle, MonthStyle, TempContainer, CityContainer
+    IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle, TempContainer, CityContainer, SeperateButton
 } from './styled';
 import TempChart from './TempChart'
 
@@ -15,7 +14,7 @@ const CountryInfo = ({ country, isLoading }) => {
     }
 
     if (isLoading) {
-        return <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />
+        return <img style={{ display: "block", marginLeft: "45%", marginRight: "auto", marginTop: "5%" }} alt="loading..." src="/static/paperplane.gif" width="150" height="150" />
     }
 
     const handleCountrySave = (e) => {
@@ -48,26 +47,26 @@ const CountryInfo = ({ country, isLoading }) => {
 
     }
 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
     return (
         <Info>
-
-            {/* {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />} */}
-            <img style={{ display: "block", marginLeft: "45%", marginRight: "auto", marginTop: "5%" }} src="https://surgicorps.org/wp-content/uploads/2018/02/watercolor-world-map.png" alt="map" width="100" length="100" />
+            <img style={{ display: "block", marginLeft: "45%", marginRight: "auto", marginTop: "5%" }} src="/static/map.png" alt="map" width="100" length="100" />
             <StyledH3>{country.country_info.countryName.toUpperCase()}</StyledH3>
             <ButtonAlign>
-                <Button outline color='dark' onClick={handleCountrySave}>Save</Button>
-                <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
+                <SeperateButton>
+                    <Button outline color='dark' onClick={handleCountrySave}>Save</Button>
+                </SeperateButton>
+                <SeperateButton>
+                    <Button outline color='dark' onClick={handleVisitedCountry}>Visited</Button>
+                </SeperateButton>
             </ButtonAlign>
 
-            {/* <PhotoAlign>
+            <PhotoAlign>
                 {country.place_photos.map((reference, index) => {
                     return <FilteredPhoto key={index} alt="country"
                         src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
                         width="200" height="200" />
                 })}
-            </PhotoAlign> */}
+            </PhotoAlign>
             <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Travel Basics</p>
             <InfoStyle>
                 <IconStyle>
@@ -112,7 +111,7 @@ const CountryInfo = ({ country, isLoading }) => {
                     <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Safety Score</p>
                     <b>{country.advisor_score}</b>
                     <p>Low Risk (0 - 5) High Risk</p>
-                    <StyledNavLink href={country.learn_more_advisory}>Learn More</StyledNavLink>
+                    <StyledNavLink href={country.learn_more_advisory} target="_blank">Learn More</StyledNavLink>
                 </IconStyle>
             </InfoStyle>
             <CityStyle>

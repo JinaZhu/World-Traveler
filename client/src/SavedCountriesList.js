@@ -17,6 +17,7 @@ const SavedCountriesList = (props) => {
         tl.fromTo(PolaroidSlide, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
     }, [])
 
+
     // function version of componentDidMount
     useEffect(() => {
         console.log('use effect')

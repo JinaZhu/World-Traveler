@@ -28,21 +28,31 @@ export const Slider = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 125vh;
+    height: 120vh;
     background: linear-gradient(to top, white, #B2B2A2, #6D7973, #B2B2A2, #E5DACE, #E7BAA0, #e7c9a9);
     z-index: -1;
 `;
 
+export const InfoSlider = styled.div`
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+`
+
 
 export const Info = styled.div`
+    top: 0;
     margin: 0 7%;
     background: linear-gradient(to top, white, #e7c9a9, #E7BAA0, #E5DACE, #B2B2A2, #6D7973, #B2B2A2, white); 
 `;
 
 
 export const FilteredPhoto = styled.img`   
-    opacity: 0.85;
-    filter: grayscale(10%) sepia(30%) saturate(1.5) brightness(1.1) contrast(1); 
+    opacity: 0.80;
+    filter: grayscale(10%) sepia(30%) saturate(1.1) brightness(1.1) contrast(1); 
     margin: 1%; 
 `
 
@@ -69,7 +79,6 @@ export const PhotoAlign = styled.div`
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    background: linear-gradient(to bottom, #E7BAA0 80%, white 20%);
 `
 
 export const InfoStyle = styled.div`
@@ -91,7 +100,8 @@ export const CityStyle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white; 
+    flex-direction: column;
+    margin: 15px;
 `
 
 export const CityContainer = styled.div`
@@ -99,7 +109,6 @@ export const CityContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: white; 
     padding: 0 50px; 
 `
 
@@ -125,12 +134,9 @@ export const MonthStyle = styled.b`
     width: 54px;
     height: 25px; 
 `
+
 export const TempContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 5%; 
+    max-height: 500px;
 `
 
 export const SaveRow = styled.div`
@@ -184,14 +190,6 @@ export const NavAlign = styled(Nav)`
     align-items: center;
 `
 
-
-
-
-
-
-
-
-
-
-
-
+export const SeperateButton = styled(Nav)`
+    margin: 6px;  
+`

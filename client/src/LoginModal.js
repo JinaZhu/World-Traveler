@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import $ from "jquery"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import './App.css';
+import { DeleteButton } from "./styled";
 
 function LoginModal(props) {
     const { isOpen, toggle, setUser } = props
@@ -34,8 +35,8 @@ function LoginModal(props) {
                 </form>
             </ModalBody>
             <ModalFooter>
-                <Button outline color="primary" onClick={handleLogin}>login</Button>{' '}
-                <Button outline color="secondary" onClick={toggle}>Cancel</Button>
+                <DeleteButton outline color="dark" onClick={handleLogin}>login</DeleteButton>
+                <Button outline color="dark" onClick={toggle}>Cancel</Button>
             </ModalFooter>
         </Modal>
     )
