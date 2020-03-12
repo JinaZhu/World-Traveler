@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import $ from "jquery"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import $ from "jquery";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './App.css';
+import { DeleteButton } from "./styled";
 
 
 //friendly reminders:
@@ -45,8 +46,8 @@ function RegisterModal(props) {
                     </form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button outline color="secondary" onClick={toggle}>Cancel</Button>
-                    <Button outline color="primary" onClick={handleSubmit}>Submit</Button>
+                    <Button outline color="dark" onClick={toggle}>Cancel</Button>
+                    <DeleteButton outline color="dark" onClick={handleSubmit}>Submit</DeleteButton>
                 </ModalFooter>
             </Modal>
         </div>

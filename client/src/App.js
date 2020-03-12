@@ -23,8 +23,6 @@ import { Wrapper } from './styled'
 function App() {
   const [user, setUser] = useState()
 
-  // // console.log('TimelineMax', TimelineMax)
-
 
   function checkIsLoggedIn() {
     const xhr = $.get('/isLoggedIn')
