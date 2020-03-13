@@ -52,7 +52,7 @@ function App() {
             <VisitedCountriesList />
           </Route>
           <Route path="/">
-            <Home />
+            <Home user={user} />
           </Route>
         </Switch>
       </Router>

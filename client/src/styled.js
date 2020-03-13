@@ -193,3 +193,78 @@ export const NavAlign = styled(Nav)`
 export const SeperateButton = styled(Nav)`
     margin: 6px;  
 `
+
+export const TicketBox = styled.div`
+    display:flex;
+    flex-direction: column;
+    background: white; 
+    border-style: solid;
+    border-radius: 15px;
+    margin: 25px; 
+`
+
+export const TicketSections = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 0; 
+`
+
+export const TicketHeader = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #6D7973
+`
+
+export const TitleStyle = styled.h3`
+    align-text: right;
+    color: white;
+    font-weight: bold
+    width: 600px
+`
+
+export const DetailBox = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: white
+    width: "650px"
+`
+
+export const TicketDetailBoxLeft = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: white
+    width: "700px"
+`
+
+export const TicketDetailBoxRight = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: white
+`
+
+export const DetailTitleP = styled.p`
+    color: 6D7973;
+    margin: 2px;
+    font-weight: bold
+`
+
+export const DetailDataP = styled.p`
+    color: 6D7973;
+    margin: 2px;
+`
+
+export const DetailRow = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+

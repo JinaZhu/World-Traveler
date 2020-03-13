@@ -4,11 +4,12 @@ import $ from "jquery";
 import { Button } from 'reactstrap';
 import {
     Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign,
-    IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle, TempContainer, CityContainer, SeperateButton
+    IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle, TempContainer, CityContainer, SeperateButton,
+    TicketBox, TitleStyle, TicketHeader, TicketDetailBox, DetailBox, TicketDetailBoxRight, TicketDetailBoxLeft, DetailTitleP, DetailDataP, DetailRow
 } from './styled';
 import TempChart from './TempChart'
 
-const CountryInfo = ({ country, isLoading }) => {
+const CountryInfo = ({ country, isLoading, user }) => {
     if (!isLoading && !country) {
         return null
     }
@@ -49,8 +50,59 @@ const CountryInfo = ({ country, isLoading }) => {
 
     return (
         <Info>
-            <img style={{ display: "block", marginLeft: "45%", marginRight: "auto", marginTop: "5%" }} src="/static/map.png" alt="map" width="100" length="100" />
-            <StyledH3>{country.country_info.countryName.toUpperCase()}</StyledH3>
+            <TicketBox>
+                <TicketHeader>
+                    <img style={{ marginRight: "30%" }} src="/static/travelLogo.png" alt="logo" height="65" width="65" />
+                    <div style={{ width: "500px" }}><TitleStyle>{country.country_info.countryName.toUpperCase()}</TitleStyle></div>
+                    <div style={{ width: "200px" }}><h4 style={{ color: "white", alignItems: "right" }}>Boarding Pass</h4></div>
+                </TicketHeader>
+                <DetailBox>
+                    <TicketDetailBoxLeft style={{ backgroundImage: "url('/static/map.png')", backgroundRepeat: "no-repeat", backgroundSize: "auto" }}>
+                        <div style={{ width: "700px", padding: "15px" }}>
+                            <DetailTitleP>Passenger Name</DetailTitleP>
+                            <DetailDataP>{user}</DetailDataP>
+                            <p></p>
+                            <p></p>
+                            <DetailRow>
+                                <DetailTitleP>From</DetailTitleP>
+                                <DetailTitleP>To</DetailTitleP>
+                            </DetailRow>
+                            <DetailRow>
+                                <DetailDataP>Anywhere</DetailDataP>
+                                <DetailDataP>{country.country_info.countryName}</DetailDataP>
+                            </DetailRow>
+                            <p></p>
+                            <p></p>
+                            <DetailRow>
+                                <DetailTitleP>Class</DetailTitleP>
+                                <DetailTitleP>Flight</DetailTitleP>
+                                <DetailTitleP>Gate</DetailTitleP>
+                            </DetailRow>
+                            <DetailRow>
+                                <DetailDataP>First Class</DetailDataP>
+                                <DetailDataP>Adventure Awaits AA77</DetailDataP>
+                                <DetailDataP>A7</DetailDataP>
+                            </DetailRow>
+                        </div>
+                    </TicketDetailBoxLeft>
+                    <TicketDetailBoxRight style={{ borderLeft: "4px dotted #6D7973", width: "100%", padding: "10px" }}>
+                        <DetailTitleP>Passenger</DetailTitleP>
+                        <DetailDataP>{user}</DetailDataP>
+                        <p></p>
+                        <DetailRow>
+                            <DetailTitleP>Departure</DetailTitleP>
+                        </DetailRow>
+                        <DetailRow>
+                            <DetailDataP>Anytime</DetailDataP>
+                        </DetailRow>
+                        <img style={{ display: "block", marginLeft: "auto", marginRight: "auto" }} src="/static/barcode.gif" alt="barcode" height="65" width="130" />
+                    </TicketDetailBoxRight>
+                </DetailBox>
+                <TicketHeader>
+                    <p style={{ margin: "25px" }}></p>
+                </TicketHeader>
+            </TicketBox>
+
             <ButtonAlign>
                 <SeperateButton>
                     <Button outline color='dark' onClick={handleCountrySave}>Save</Button>

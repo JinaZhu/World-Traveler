@@ -13,7 +13,7 @@ import { Power2, TimelineMax } from 'gsap'
 // you can declare and pass in a function 
 
 
-const Home = () => {
+const Home = ({ user }) => {
     // setName is a function, name is a variable that hold the state
     //country is the data and setCountry is the function that set the data
     const [country, setCountry] = useState()
@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <CountryInfo country={country} isLoading={isLoading} />
+                <CountryInfo country={country} isLoading={isLoading} user={user} />
             </div>
 
             <Slider ref={el => slider = el} />
