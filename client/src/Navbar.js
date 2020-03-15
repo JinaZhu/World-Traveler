@@ -19,7 +19,7 @@ function NavBar({ user, setUser }) {
     const tl = new TimelineMax();
     useEffect(() => {
         tl.fromTo(NavSlide, 1.2, { y: "-110%" }, { y: "0%", ease: Power2.easeInOut }, "-=1.2")
-    }, [tl])
+    }, [])
 
     const handleLogout = (e) => {
         const xhr = $.post('/logout')

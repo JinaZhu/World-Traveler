@@ -12,7 +12,7 @@ const VisitedCountriesList = (props) => {
     const tl = new TimelineMax();
     useEffect(() => {
         tl.fromTo(PolaroidSlide, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
-    }, [tl])
+    }, [])
 
 
     // function version of componentDidMount

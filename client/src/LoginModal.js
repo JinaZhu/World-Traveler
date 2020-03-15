@@ -31,7 +31,7 @@ function LoginModal(props) {
             <ModalBody>
                 <form>
                     Email: <input type="text" name="email" className="form-control" onChange={(e) => setEmail(e.target.value)}></input>
-                    Password: <input type="text" name="password" className="form-control" onChange={(e) => setPassword(e.target.value)}></input>
+                    Password: <input type="password" name="password" className="form-control" onChange={(e) => setPassword(e.target.value)}></input>
                 </form>
             </ModalBody>
             <ModalFooter>
