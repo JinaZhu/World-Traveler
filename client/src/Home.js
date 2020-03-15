@@ -25,7 +25,7 @@ const Home = ({ user }) => {
     useEffect(() => {
         tl.fromTo(slider, 1.2, { y: "-100%" }, { y: "0%", ease: Power2.easeInOut }, "-=1.2")
             .fromTo(mapSlide, 1.2, { x: "-110%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
-    }, [tl])
+    }, [])
 
 
     function handleGenerateClick() {
