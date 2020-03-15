@@ -47,7 +47,7 @@ const Home = ({ user }) => {
                     <DisplayMap setCountry={setCountry} />
                 </div>
                 <div className="text-center" style={{ padding: '1%' }}>
-                    <Button outline color='dark' style={{ margin: "10px" }} onClick={handleGenerateClick}>Where To Next?</Button>
+                    <Button outline color='dark' style={{ margin: "10px" }} onClick={handleGenerateClick}>Explore</Button>
                 </div>
             </div>
             <div>
