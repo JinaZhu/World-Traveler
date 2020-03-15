@@ -4,7 +4,7 @@ import { Button } from 'reactstrap'
 import './App.css';
 import CountryInfo from './CountryInfo'
 import DisplayMap from './DisplayMap'
-import { Slider, InfoSlider } from "./styled"
+import { Slider } from "./styled"
 import { Power2, TimelineMax } from 'gsap'
 
 

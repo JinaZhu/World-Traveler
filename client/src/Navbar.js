@@ -1,20 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { NavItem, Button } from 'reactstrap';
 import RegisterModal from './RegisterModal'
 import LoginModal from './LoginModal'
 import $ from "jquery"
-import styled from "styled-components";
 import { Power2, TimelineMax } from 'gsap'
 import { StyledNavLink, NavAlign } from './styled'
 
-
-
-// const NavAlign = styled(Nav)`
-//     margin: 20px;
-//     display:flex;
-//     justify-content: center;
-//     align-items: center;
-// `;
 
 
 function NavBar({ user, setUser }) {
@@ -28,7 +19,7 @@ function NavBar({ user, setUser }) {
     const tl = new TimelineMax();
     useEffect(() => {
         tl.fromTo(NavSlide, 1.2, { y: "-110%" }, { y: "0%", ease: Power2.easeInOut }, "-=1.2")
-    }, [])
+    }, [tl])
 
     const handleLogout = (e) => {
         const xhr = $.post('/logout')
@@ -59,7 +50,7 @@ function NavBar({ user, setUser }) {
                     }
                     {user &&
                         <NavItem>
-                            <StyledNavLink href="/visited-countries-list" style={{ textDecoration: 'none' }}>Places {user} Been</StyledNavLink>
+                            <StyledNavLink href="/visited-countries-list" style={{ textDecoration: 'none' }}>Places I'd Been</StyledNavLink>
                         </NavItem>
                     }
                     {!user &&
