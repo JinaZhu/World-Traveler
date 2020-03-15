@@ -3,9 +3,9 @@ import './App.css';
 import $ from "jquery";
 import { Button } from 'reactstrap';
 import {
-    Info, FilteredPhoto, StyledH3, ButtonAlign, PhotoAlign,
+    Info, FilteredPhoto, ButtonAlign, PhotoAlign,
     IconStyle, InfoStyle, StyledNavLink, CityNavLink, CityStyle, TempContainer, CityContainer, SeperateButton,
-    TicketBox, TitleStyle, TicketHeader, TicketDetailBox, DetailBox, TicketDetailBoxRight, TicketDetailBoxLeft, DetailTitleP, DetailDataP, DetailRow
+    TicketBox, TitleStyle, TicketHeader, DetailBox, TicketDetailBoxRight, TicketDetailBoxLeft, DetailTitleP, DetailDataP, DetailRow
 } from './styled';
 import TempChart from './TempChart'
 
@@ -170,10 +170,8 @@ const CountryInfo = ({ country, isLoading, user }) => {
                 <p style={{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }}>Popular Cities</p>
                 <CityContainer>
                     {country.popular_cities.map((city, index) => {
-                        {
-                            let cityInfo = `https://en.wikipedia.org/wiki/${city}`
-                            return <CityNavLink key={index} href={cityInfo} target="_blank">{index + 1}. {city}</CityNavLink>
-                        }
+                        let cityInfo = `https://en.wikipedia.org/wiki/${city}`
+                        return <CityNavLink key={index} href={cityInfo} target="_blank">{index + 1}. {city}</CityNavLink>
                     })}
                 </CityContainer>
             </CityStyle>

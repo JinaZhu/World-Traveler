@@ -15,7 +15,7 @@ const SavedCountriesList = (props) => {
     const tl = new TimelineMax();
     useEffect(() => {
         tl.fromTo(PolaroidSlide, 1.2, { x: "-100%" }, { x: "0%", ease: Power2.easeInOut }, "-=1.2")
-    }, [])
+    }, [tl])
 
 
     // function version of componentDidMount
@@ -52,6 +52,7 @@ const SavedCountriesList = (props) => {
 
     return (
         <PolaroidLayout ref={el => PolaroidSlide = el}>
+            <img style={{ display: "block", marginLeft: "auto", marginRight: "auto", marginTop: "60px" }} src="/static/Places.png" alt="title" height="80" width="250"></img>
             {isLoading && <img style={{ width: "50%", height: "50%" }} alt="loading..." src="https://media0.giphy.com/media/8F94rv33nxAFvNEc4H/source.gif" />}
             {allSavedCountries &&
 
