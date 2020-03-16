@@ -34,15 +34,15 @@ class Country(db.Model):
                            primary_key=True,
                            unique=True)
 
-    country_name = db.Column(db.String(50),
+    country_name = db.Column(db.String(),
                              nullable=False,
                              unique=True)
 
-    visa = db.Column(db.String(100))
-    vaccination = db.Column(db.String(100))
-    avg_temp = db.Column(db.String(200))
-    temp_city = db.Column(db.String(200))
-    avg_cost = db.Column(db.String(5))
+    visa = db.Column(db.String())
+    vaccination = db.Column(db.String())
+    avg_temp = db.Column(db.String())
+    temp_city = db.Column(db.String())
+    avg_cost = db.Column(db.String())
 
     def __repr__(self):
         """Provide helpful representation when printed."""
