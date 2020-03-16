@@ -1,29 +1,220 @@
 United States|Not Required|None|33.0,35.7,42.9,53.4,62.8,71.8,76.9,75.7,68.4,57.3,48.1,37.9|New York City|224
-Vietnam|eVisa|Routine, Hepatitis A, Typhoid, Malaria|78.8,80.2,82.4,84.6,83.8,82.0,81.5,81.3,81.0,80.6,80.1,78.8|Ho Chi Minh City|42
-France|Not Required|Routine|40.8,42.1,47.8,52.5,59.2,64.8,68.7,68.4,62.4,55.2,46.6,41.7|Paris|197
-Japan|Not Required|Routine|41.4,42.3,47.7,57.0,64.8,70.5,77.0,79.5,73.0,63.5,53.8,45.7|Tokyo|115
-Australia|Electronic Travel Authority|Routine|72.1,72.1,70.2,65.3,59.9,55.6,54.0,56.1,59.9,64.0,67.3,70.3|Sydney|127
-Egypt|eVisa / Visa on arrival|Routine, Typhoid|56.1,57.0,60.3,65.3,70.2,75.7,78.6,79.3,77.2,71.6,65.7,58.8|Alexandria|25
-Italy|Not Required|Routine|45.5,46.8,50.4,54.7,63.0,70.0,75.4,76.1,69.4,61.5,52.5,47.1|Rome|135
-Nepal|Visa on arrival|Routine, Hepatitis A, Typhoid|50.0,53.4,61.0,66.6,71.2,74.8,75.4,75.4,73.9,66.4,58.6,52.3|Kathmandu|25
-Peru|Not Required|Routine, Hepatitis A, Typhoid|71.8,72.9,72.0,69.1,65.8,63.5,62.1,61.2,61.5,63.1,65.7,69.3|Lima|45
-United Arab Emirates|Free visa on arrival|Routine, Typhoid|65.7,66.7,72.1,79.0,85.8,90.0,93.9,93.9,89.8,83.7,75.7,69.1|Dubai|276
-Canada|Not Required|Routine|25.3,27.3,34.5,46.2,57.4,66.9,72.1,70.7,63.0,51.3,40.8,31.1|Toronto|137
-El Salvador|Not required|Routine, Hepatitis A, Typhoid|72.0,73.0,74.8,76.1,75.6,73.9,73.9,73.8,73.0,73.0,72.3,71.6|San Salvador|30
-Afghanistan|Visa required|Routine, Polio, Hepatitis A, Typhoid|27.9,30.7,43.3,55.0,63.1,73.0,77.0,75.4,67.5,55.6,42.6,33.1|Kabul|N/A
-Albania|Not required|Routine, Hepatitis A|44.1,46.0,50.0,56.1,64.4,70.9,75.2,74.8,69.3,60.8,53.1,46.6|Tirana|46
-Algeria|Visa required|Routine, Hepatitis A, Typhoid|52.2,53.4,55.0,58.5,63.9,70.3,76.3,77.4,73.8,66.9,59.4,53.8|Algiers|N/A
+Afghanistan|Visa required|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Rabies|27.9,30.7,43.3,55.0,63.1,73.0,77.0,75.4,67.5,55.6,42.6,33.1,53.8|Kabul|N/A
+Albania|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies, Yellow Fever|44.1,46.0,50.0,56.1,64.4,70.9,75.2,74.8,69.3,60.8,53.1,46.6,59.4|Tirana|46
+Algeria|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Malaria, Hepatitis B, Rabies, Yellow Fever|52.2,53.4,55.0,58.5,63.9,70.3,76.3,77.4,73.8,66.9,59.4,53.8,63.3|Algiers|N/A
 Andorra|Not required|Routine|47.0,45.0,49.0,54.0,59.0,68.0,75.0,75.0,67.0,61.0,51.0,50.0|Andorra la Vella|143
-Angola|eVisa|Routine, Yellow Fever, Polio|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4|Luanda|N/A
-Antigua and Barbuda|Not required|Routine, Hepatitis A, Typhoid|77.7,77.4,78.1,79.3,81.0,82.2,82.8,82.9,82.6,81.5,80.2,78.6|St. John's|282
-Argentina|Not required|Routine, Hepatitis A, Typhoid|76.8,74.5,71.4,64.2,58.1,53.1,51.8,55.0,58.3,64.2,69.3,73.9|Buenos Aires|43
-Armenia|Not required|Routine, Hepatitis A|25.5,32.2,43.3,55.2,63.3,72.7,79.5,79.0,70.0,56.8,43.2,31.6|Yerevan|19
-Austria|Not required|Routine|32.5,34.7,42.3,51.3,60.3,65.7,69.4,68.4,59.7,50.4,41.2,34.0|Vienna|115
-Azerbaijan|eVisa / Visa on arrival|Routine, Hepatitis A|39.9,39.6,44.6,55.2,65.3,74.3,79.5,79.3,72.5,61.9,52.2,45.1|Baku|30
+Angola|eVisa|Measles, Yellow Fever, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies|80.1,83.3,83.5,82.8,80.6,75.0,71.8,71.8,74.3,77.4,80.1,80.4,78.4|Luanda|N/A
+Antigua and Barbuda|Not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|77.7,77.4,78.1,79.3,81.0,82.2,82.8,82.9,82.6,81.5,80.2,78.6,80.4|St. John's|282 
+Argentina|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|76.8,74.5,71.4,64.2,58.1,53.1,51.8,55.0,58.3,64.2,69.3,73.9,64.2|Buenos Aires|43
+Armenia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|25.5,32.2,43.3,55.2,63.3,72.7,79.5,79.0,70.0,56.8,43.2,31.6,54.3|Yerevan|19
+Australia|Electronic Travel Authority|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Japanese Encephalitis, Rabies, Yellow Fever|72.1,72.1,70.2,65.3,59.9,55.6,54.0,56.1,59.9,64.0,67.3,70.3,63.9|Sydney|127
+Austria|Not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|32.5,34.7,42.3,51.3,60.3,65.7,69.4,68.4,59.7,50.4,41.2,34.0,50.7|Vienna|115
+Azerbaijan|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Malaria, Rabies|39.9,39.6,44.6,55.2,65.3,74.3,79.5,79.3,72.5,61.9,52.2,45.1,59.2|Baku
 The Bahamas|Not required|Routine, Hepatitis A, Typhoid|70.0,70.0,72.0,74.1,77.5,80.4,82.2,82.2,81.1,78.6,74.8,71.4|Nassau|124
-Bahrain|eVisa / Visa on arrival|Routine, Hepatitis A, Typhoid|63.0,64.4,70.2,77.5,86.0,90.7,93.4,93.6,90.5,84.7,76.1,66.7|Manama|127
-Bangladesh|Visa on arrival|Routine, Hepatitis A, Typhoid|65.5,71.6,79.3,83.1,83.8,84.2,83.7,84.0,83.3,81.3,75.2,68.0|Dhaka|53
-Barbados|Visa not required[|Routine, Hepatitis A, Typhoid|78.4,78.3,79.2,80.2,81.7,81.9,81.7,82.0,81.9,81.5,80.6,79.5|Bridgetown|300
-Belarus|Visa not required|Routine, Hepatitis A|23.9,24.1,32.0,45.0,55.9,61.5,65.3,63.5,53.8,43.9,33.1,25.9|Minsk|35
-Belgium|Visa not required|Routine, Hepatitis A, Hepatitis B|37.9,38.7,44.2,49.6,56.5,61.2,65.1,64.4,58.8,52.0,44.2,39.0|Brussels|115
-Belize|Visa not required|Routine, Hepatitis A, Typhoid|75.2,76.8,78.6,81.1,82.9,83.3,82.6,82.8,82.4,80.6,78.1,76.1|Belize City|66
+Bahrain|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|63.0,64.4,70.2,77.5,86.0,90.7,93.4,93.6,90.5,84.7,76.1,66.7,79.7|Manama|127
+Bangladesh|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|65.5,71.6,79.3,83.1,83.8,84.2,83.7,84.0,83.3,81.3,75.2,68.0,78.6|Dhaka|53
+Barbados|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|78.4,78.3,79.2,80.2,81.7,81.9,81.7,82.0,81.9,81.5,80.6,79.5,80.6|Bridgetown|300
+Belarus|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|23.9,24.1,32.0,45.0,55.9,61.5,65.3,63.5,53.8,43.9,33.1,25.9,44.1|Minsk|35 
+Belgium|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|37.9,38.7,44.2,49.6,56.5,61.2,65.1,64.4,58.8,52.0,44.2,39.0,50.9|Brussels|115 
+Belize|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever, Malaria|75.2,76.8,78.6,81.1,82.9,83.3,82.6,82.8,82.4,80.6,78.1,76.1,80.1|Belize City|66 
+Benin|eVisa|Measles, Routine vaccines, Yellow Fever, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|81.1,83.3,84.0,83.5,82.0,79.7,78.4,78.1,78.8,80.1,81.7,81.1,81.0|Cotonou|N/A 
+Bhutan|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|82
+Bolivia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|48.7,48.2,48.0,47.8,46.8,45.1,44.2,46.8,47.7,50.0,50.9,49.5,47.8|La Paz|28
+Bosnia and Herzegovina|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|31.1,34.5,42.3,50.0,58.6,63.9,67.5,67.5,59.5,51.8,41.7,33.6,50.2|Sarajevo|61
+Botswana|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|79,77,75,70,63,55,55,63,70,73,77,77,70|Gaborone|58
+Brazil|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Yellow Fever, Hepatitis B, Malaria, Rabies|79.3,79.9,78.8,75.9,73.0,71.2,70.3,71.2,72.0,73.2,75.2,77.5,74.8|Rio de Janeiro|60
+Brunei|Visa not required|Measles, Routine vaccines, Typhoid, Hepatitis A, Hepatitis B, Japanese Encephalitis, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A
+Bulgaria|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|31.1,34.0,41.7,51.1,59.7,66.0,70.2,69.8,61.7,52.3,41.2,33.3,51.1|Sofia|57
+Burkina Faso|Visa on arrival|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Meningitis, Rabies|76.6,81.9,87.6,90.7,88.9,84.6,81.1,79.5,80.6,84.0,81.9,77.2,82.9|Ouagadougou|25
+Burundi|Visa required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies|74.8,74.8,74.7,75.0,75.0,73.9,73.2,75.2,76.5,76.3,74.1,74.5,74.8|Bujumbura|N/A 
+Cambodia|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|79.9,82.4,84.9,86.4,86.0,84.6,83.7,83.3,82.8,81.0,80.8,79.3,82.9|Phnom Penh|36
+Cameroon|Visa required|Measles, Routine vaccines, Yellow Fever, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|81.5,82.6,82.0,81.7,81.0,79.2,77.2,76.8,78.1,79.0,80.4,81.0,80.1|Douala|N/A 
+Canada|Not Required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|25.3,27.3,34.5,46.2,57.4,66.9,72.1,70.7,63.0,51.3,40.8,31.1,48.9|Toronto|137
+Cape Verde|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|72.3,72.0,73.2,74.1,75.2,76.8,77.7,79.2,80.2,79.5,77.7,74.1,75.9|Praia|N/A
+Central African Republic|Visa not required|Measles, Routine vaccines, Yellow Fever, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|78.8,80.8,81.3,80.8,79.7,77.5,77.2,77.2,77.7,77.9,78.3,78.3,78.8|Bangui|N/A
+Chad|Visa required|Measles, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies, Yellow Fever|73.9,80.4,86.7,92.8,92.3,87.8,82.8,79.7,82.0,84.6,81.1,75.2,82.9|N'Djamena|N/A 
+Chile|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|73.9,74.7,73.6,71.4,68.2,66.0,64.4,64.2,64.9,66.2,68.7,71.2,68.9|Hanga Roa|87
+China|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Polio, Rabies, Yellow Fever, Malaria|26.4,32.5,44.1,58.6,69.4,76.8,80.1,77.9,69.4,56.7,41.0,30.4,55.2|Beijing|66
+Colombia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|57.7,58.1,58.8,58.8,59.0,58.1,58.3,57.4,57.7,57.7,57.9,58.3,57.9|Bogotá|23
+Comoros|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Democratic Republic of the Congo|Visa required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|78.8,79.2,80.1,80.2,78.8,74.7,72.0,74.3,77.5,78.8,78.6,78.1,77.5|Kinshasa|N/A
+Republic of the Congo|Visa required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|79,79,81,79,79,73,72,73,77,79,79,79,77|Brazzaville|N/A 
+Costa Rica|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Malaria, Hepatitis B, Rabies, Yellow Fever|72.7,73.4,74.3,74.7,73.2,72.5,72.7,72.3,71.6,71.2,71.4,72.1,72.7|San José|73
+Côte d'Ivoire|eVisa|Measles, Routine vaccines,Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Croatia|Visa not required|Measles, Routine vaccines, Hepatitis A, Rabies, Hepatitis B|32.5,36.1,43.5,51.3,60.4,65.8,69.1,68.2,60.6,50.9,41.0,34.5,51.3|Zagreb|77
+Cuba|Tourist Card required|Measles, Routine vaccines, Typhoid, Hepatitis A, Rabies, Hepatitis B|72.0,72.3,74.7,76.6,79.0,80.6,81.7,82.2,81.3,79.0,76.1,73.4,77.4|Havana|34
+Cyprus|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|51.1,51.1,55.6,62.8,72.1,80.4,85.5,84.9,79.2,72.1,61.3,53.6,67.5|Nicosia|91
+Czech Republic|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|29.5,31.3,38.5,47.1,56.1,61.0,64.8,64.0,56.3,47.3,37.6,31.5,47.1|Prague|83
+Denmark|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|34.5,34.5,38.3,45.9,54.5,60.1,64.6,63.9,57.0,49.6,41.9,36.5,48.4|Copenhagen|178
+Djibouti|eVisa|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|77.2,78.3,80.6,83.7,87.8,93.6,97.5,96.8,91.6,84.7,80.4,77.7,85.8|Djibouti|N/A 
+Dominica|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|76.8,76.6,77.2,78.4,79.9,81.1,81.3,81.3,80.8,79.0,79.2,77.7,79.2|Roseau|163
+Dominican Republic|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Rabies, Yellow Fever|75.9,75.9,76.8,78.1,79.3,80.4,80.6,80.8,80.6,80.1,78.8,76.8,78.6|Santo Domingo|115
+Ecuador|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|57.6,57.2,57.7,57.7,58.1,58.1,58.3,59.0,58.6,57.7,57.7,57.9,57.9|Quito|42
+Egypt|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|56.5,58.8,62.4,70.2,76.1,81.1,81.7,81.3,79,73.9,66.0,59,70.5|25
+El Salvador|Not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|72.0,73.0,74.8,76.1,75.6,73.9,73.9,73.8,73.0,73.0,72.3,71.6,73.6|San Salvador|30
+Equatorial Guinea|Visa not required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Yellow Fever, Hepatitis B, Rabies|78.1,78.4,78.3,78.1,78.1,77.0,75.4,75.6,76.3,76.6,77.4,77.0,77.2|Bata|N/A
+Eritrea|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Meningitis, Rabies, Yellow Fever|56.8,58.8,61.3,62.6,63.7,63.7,61.3,61.0,60.3,58.8,57.2,55.8,60.1|Asmara 
+Estonia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|26.1,24.3,30.2,40.1,50.2,57.4,63.0,60.8,52.3,43.7,34.3,28.6,42.6|Tallinn|69
+Eswatini|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Ethiopia|eVisa / Visa on arrival|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Meningitis, Rabies, Yellow Fever|61,63,63,63,64,63,59,61,61,61,59,59,61|Addis Ababa|37
+Fiji|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Yellow Fever|81.3,81.7,79.5,79.9,77.7,76.3,74.8,74.7,75.4,77.2,79.0,80.4,78.1|Suva|138
+Finland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|25.0,23.5,29.7,39.0,50.4,58.3,64.0,61.3,52.7,43.9,34.9,28.4,42.6|Helsinki|135
+France|Not Required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|40.8,42.1,47.8,52.5,59.2,64.8,68.7,68.4,62.4,55.2,46.6,41.7,54.1|Paris|197
+Gabon|eVisa / Visa on arrival|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|80.2,80.6,80.8,79.9,80.1,77.7,75.7,75.7,77.7,78.3,78.6,79.2,78.6|Libreville|N/A 
+Gambia|Visa required|Measles, Routine vaccines, Hepatitis A, Hepatitis B,|73,77,77,77,79,81,81,81,81,81,79,75,79|Banjul|N/A
+Georgia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|34.2,36.9,43.9,54.0,63.3,70.3,76.1,75.4,67.3,56.7,46.0,37.8,55.2|Tbilisi|16
+Germany|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|33.1,36.1,41.2,50.4,58.6,64.2,68.5,67.5,59.5,50.9,42.8,34.3,50.5|Berlin|117
+Ghana|Visa required|Measles, Routine vaccines, Polio, Yellow Fever, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|81.1,81.9,81.9,81.9,81.0,78.1,75.9,75.7,77.4,78.8,80.6,81.0,79.5|Accra|7.40
+Greece|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|50.4,51.6,55.8,62.4,71.2,79.9,84.7,84.7,77.0,68.2,59.9,52.7,66.6|Athens|123
+Grenada|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Guatemala|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|36
+Guinea|eVisa|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Yellow Fever, Hepatitis B, Meningitis, Rabies|79.0,79.7,80.6,81.3,81.5,79.7,77.9,77.4,78.1,79.3,80.6,79.9,79.5|Conakry|N/A
+Guinea-Bissau|eVisa / Visa on arrival|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Meningitis, Rabies|79,81,82,82,82,82,81,79,81,82,81,79,81|Bissau|N/A
+Guyana|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Yellow Fever, Hepatitis B, Malaria, Rabies|79.0,79.5,80.1,80.6,80.2,79.7,79.9,80.6,81.5,81.7,81.0,79.5,80.2|Georgetown|N/A
+Haiti|Visa not required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|40
+Honduras|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|67.1,68.7,71.8,74.1,74.5,72.7,71.8,72.3,72.0,70.7,68.7,67.5,71.1|Tegucigalpa|28
+Hungary|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|32.7,36.1,43.0,53.6,61.9,67.5,70.7,70.2,62.4,53.2,41.7,35.2,52.3|Budapest|68
+Iceland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|31.1,32.7,32.9,37.2,43.3,48.2,51.1,50.5,45.3,39.9,34.0,31.6,39.7|Reykjavík|163
+India|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Japanese Encephalitis, Rabies, Yellow Fever|56.8,61.7,71.8,83.7,91.0,93,87.6,85.5,84,79.0,68.9,59.5,77|New Delhi|28
+Indonesia|Visa not required|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|79.0,79.0,79.5,80.6,81.0,80.1,79.5,80.1,80.6,81.0,80.6,79.5,80.1|Jakarta|49
+Iran|Visa required|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|34,41,50,63,70,81,88,84,79,64,52,41,63|Tehran|46
+Iraq|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|49.5,54,61.9,72.7,82.9,90.1,94.6,93,86.9,76.5,61.7,52.2,72.99|Baghdad|N/Ababa
+Ireland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|41.5,41.5,44.2,46.9,51.6,56.5,60.1,59.5,56.1,50.9,45.3,42.1,49.6|Dublin|119
+Israel|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies, Typhoid|54,55,59,64,70,73,79,79,77,72,64,55,68|Tel Aviv|95
+Italy|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|45.5,46.8,50.4,54.7,63.0,70.0,75.4,76.1,69.4,61.5,52.5,47.1,59.4|Rome|135
+Jamaica|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|78.4,78.6,79.5,80.4,82.0,83.3,84.0,83.7,83.1,81.9,81.0,80.1,81.3|Kingston|114
+Japan|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Japanese Encephalitis, Rabies|41.4,42.3,47.7,57.0,64.8,70.5,77.0,79.5,73.0,63.5,53.8,45.7,59.7|Tokyo|115
+Jordan|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|82
+Kazakhstan|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|23.5,26.6,38.1,52.7,61.9,70.9,74.8,73.4,63.7,49.8,36.9,27.0,50.0|Almaty|20
+Kenya|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Meningitis, Rabies, Yellow Fever|81.7,82.6,82.9,81.7,79.2,76.6,75.2,75.2,76.5,78.3,80.4,81.3,79.3|Mombasa|116
+Kiribati|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+North Korea|Travel restricted|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|21.6,36.3,39.9,52.2,62.8,71.1,75.7,76.3,67.3,54.5,40.5,26.8,51.4|Pyongyang|N/A 
+South Korea|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies|27.7,32.7,42.3,54.5,64.0,72.0,76.8,78.3,70.2,58.6,45.0,32.7,54.5|Seoul|124
+Kuwait|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|54.5,58.6,66.7,76.8,88.7,96.8,99.9,98.2,91.9,81.1,67.8,57.4,78.3|Kuwait City|N/A
+Kyrgyzstan|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|27.3,30.6,41.5,54.1,63.3,72.3,76.8,74.8,65.3,51.8,40.5,30.4,52.3|Bishkek|N/A
+Laos|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|71.1,75.2,80.1,83.3,81.9,81.9,81.5,81.0,80.6,79.5,75.7,71.1,78.6|Vientiane|28
+Latvia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|23.5,24.4,32.9,41.2,52.5,59.9,62.4,61.2,53.6,45.3,35.8,27.9,43.2|Riga|58
+Lebanon|Free visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|57.2,57.2,60.8,65.7,71.1,76.8,80.8,82.0,80.2,75.4,67.1,60.4,69.6|Beirut|753
+Lesotho|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|62 
+Liberia|Visa required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Libya|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|54,55,59,64,72,79,81,82,81,73,63,55,68|Tripoli|N/A
+Liechtenstein|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|33.4,35.8,43.3,49.8,57.9,62.8,66.2,65.1,58.8,51.6,41.4,35.4,50.2|Vaduz|190
+Lithuania|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|21.0,23.4,30.9,42.3,54.5,60.4,62.4,61.3,52.9,43.9,34.2,26.8,42.8|Vilnius|75
+Luxembourg|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|33.4,34.9,41.4,47.7,55.4,60.6,64.8,63.9,57.0,49.1,40.5,35.2,48.7|Luxembourg City|164
+Madagascar|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Malaria, Hepatitis B, Rabies, Yellow Fever|68.9,69.3,68.2,66.6,62.2,58.3,57.4,58.1,61.3,65.3,67.5,68.4,64.2|Antananarivo|84
+Malawi|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|74.3,74.1,73.8,72.0,68.5,65.3,65.1,68.0,73.6,77.0,77.0,75.2,72.0|Blantyre|69
+Malaysia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|80.4,81.1,81.7,81.9,82.4,82.2,81.3,81.5,81.0,80.8,80.2,80.1,81.1|Kuala Lumpur|70
+Maldives|Free visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Yellow Fever|81.9,82.4,83.3,84.0,83.5,82.8,82.4,82.0,81.7,81.7,81.9,81.5,82.4|Malé|60
+Mali|Visa required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Meningitis, Rabies|77.2,82.0,86.4,88.9,88.5,84.4,80.2,79.0,79.9,81.9,79.7,76.6,82.0|Bamako|27
+Malta|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies, Yellow Fever|55.0,55.0,55.9,60.1,66.0,73.0,79.0,80.1,75.0,70.0,63.0,57.0,65.8|Valletta|186
+Marshall Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Mauritania|Visa on arrival|Measles, Routine vaccines, Malaria, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|70.7,73.4,75.6,75.7,78.4,80.1,81.1,83.1,85.3,83.8,78.4,73.0,78.3|Nouakchott|43
+Mauritius|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|N/A 
+Mexico|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies|58.3,60.6,64.6,67.3,68.0,66.9,64.8,64.9,64.4,62.8,61.3,59.0,63.5|Mexico City|44
+Micronesia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0,0,0,0,0,0,0,0,0,0,0,0,0|N/A|202
+Moldova|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|28.6,30.6,38.7,50.7,61.7,67.8,71.8,71.1,61.3,50.9,39.4,30.9,50.4|Chișinău|N/A
+Monaco|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|50.4,50.4,53.6,56.8,63.5,69.6,74.8,75.6,70.0,64.2,56.8,52.2,61.5|Monaco|187
+Mongolia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|−6.9,2.1,18.7,35.6,50.2,60.3,64.8,60.8,49.3,32.9,10.6,−2.2,31.3|Ulaanbaatar|18
+Montenegro|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|41.0,44.2,50.0,57.0,66.2,73.0,78.8,78.1,70.5,60.6,50.9,43.7,59.5|Podgorica|66
+Morocco|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|54.0,56.8,60.4,63.1,69.1,74.8,82.9,82.9,77.5,70.0,61.3,54.7,67.3|Marrakesh|41
+Mozambique|Visa on arrival|Measles, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|79.3,79.2,78.1,74.3,70.5,66.0,65.8,68.0,70.7,72.3,74.8,77.9,73.0|Maputo|N/A
+Myanmar|eVisa|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid|77.0,79.3,83.5,87.1,85.3,81.3,80.4,80.4,81.3,82.2,81.3,77.7,81.5|Yangon|66
+Namibia|Hepatitis A, Typhoid|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|0|N/A|69
+Nauru|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Nepal|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|50.0,53.4,61.0,66.6,71.2,74.8,75.4,75.4,73.9,66.4,58.6,52.3,64.9|Kathmandu|25
+Netherlands|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|38.1,38.3,43.0,48.4,55.2,59.7,63.7,63.5,58.5,51.8,44.8,39.2,50.4|Amsterdam|137
+New Zealand|Electronic Travel Authority|Measles, Routine vaccines, Hepatitis A, Hepatitis B|66.4,67.5,65.1,61.0,57.2,53.2,51.6,52.3,54.9,57.6,60.3,64.0,59.4|Auckland|109
+Nicaragua|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|79.3,81.0,83.3,84.7,84.7,81.0,80.2,81.0,80.2,79.7,79.3,79.2,81.1|Managua|33
+Niger|Visa required|Measles, Routine vaccines, Yellow Fever, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|75.7,81.1,87.6,92.8,93.2,88.7,84.2,82.2,84.2,87.4,82.2,77.0,84.7|Niamey|N/A
+Nigeria|Visa required|Measles, Yellow Fever, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Meningitis|81.1,83.3,83.3,82,80.8,78.1,77.5,77.2,77.9,79.5,81.0,81.0,80.2|Lagos|N/A 
+North Macedonia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|32.2,36.7,45.7,53.8,63.1,70.7,74.8,74.8,65.8,55.6,43.7,35.1,54.3|Skopje|N/A 
+Norway|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|24.3,24.8,31.6,40.1,51.4,59.4,61.5,59.4,51.4,43.3,33.3,26.4,42.3|Oslo|101
+Oman|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Malaria, Hepatitis B, Rabies, Yellow Fever|70,72,77,86,93,95,93,90,88,86,77,72,82|Muscat|N/A 
+Pakistan|Online Visa|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|64.6,68.4,76.1,82.9,86.9,88.5,86.5,84.0,84.0,82.2,75.0,67.1,78.8|Karachi|63
+Palau|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Panama|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever, Malaria|82,82,82,82,82,81,81,81,81,81,81,81,82|Panama City|63
+Papua New Guinea|Free eVisa / Visa on arrival|Measles, Routine vaccines, Polio, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|81.3,81.1,80.8,80.6,80.4,79.0,78.3,79.0,79.7,81.5,81.7,82.0,80.4|Port Moresby|189
+Paraguay|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever, Malaria|81.5,80.4,78.6,73.0,67.6,63.7,64.2,65.5,68.9,73.8,76.8,79.7,72.9|Asunción|44
+Peru|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|71.8,72.9,72.0,69.1,65.8,63.5,62.1,61.2,61.5,63.1,65.7,69.3,66.6|Lima|45
+Philippines|Visa not required|Measles, Polio, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|80.1,81.3,83.7,86.2,86.0,84.7,83.3,82.9,83.1,83.1,82.4,80.6,83.1|Manila|52
+Poland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|28.8,30.9,37.0,47.7,57.6,62.6,66.6,64.9,56.3,47.3,37.9,30.7,47.3|Warsaw|66
+Portugal|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|52.9,54.9,58.8,60.6,64.4,70.2,73.6,74.3,71.8,65.8,59.0,54.3,63.5|Lisbon|111
+Qatar|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0|N/A|58
+Romania|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|29.7,32.7,41.7,52.2,62.2,69.1,72.5,71.6,62.4,51.8,40.5,32.4,51.4|Bucharest|71
+Russia|Visa required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Japanese Encephalitis, Rabies|20.3,19.9,30.2,44.1,55.8,62.6,66.6,62.6,52.3,42.1,29.8,22.6,42.4|Moscow|48
+Rwanda|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|N/A 
+Saint Kitts and Nevis|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|248
+Saint Lucia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|169
+Saint Vincent and the Grenadines|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|132
+Samoa|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Yellow Fever|0|N/A|N/A 
+San Marino|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|0|N/A|N/A
+Saudi Arabia|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Meningitis, Rabies, Yellow Fever|57,61,70,79,90,93,97,95,90,81,70,61,79|Riyadh|N/A 
+Senegal|Visa not required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Yellow Fever, Hepatitis B, Meningitis, Rabies|70,70,70,70,72,77,81,81,81,81,79,73,75|Dakar|75
+Serbia|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|34.5,37.6,45.7,55.2,64.6,69.8,73.4,72.9,64.4,55.2,44.8,36.9,54.5|Belgrade|21
+Seychelles|Free Visitor's Permit on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|162
+Sierra Leone|Visa on arrival|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Rabies|0|N/A|N/A 
+Singapore|Visa not required[|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|81,81,82,82,82,82,82,82,81,81,81,79,81|Singapore|116
+Slovakia|Visa not required[|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|31.3,34.2,41.9,51.8,60.8,66.4,70.3,69.3,60.6,50.7,40.8,33.3,50.9|Bratislava|76
+Slovenia|Visa not required[|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|32.5,35.4,43.7,51.4,60.4,66.4,70.3,69.1,60.8,52.2,42.1,34.2,51.6|Ljubljana|84
+Solomon Islands|Free Visitor's permit on arrival|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Hepatitis B, Yellow Fever|80.1,79.9,79.9,79.7,79.9,79.5,79.0,79.2,79.7,79.7,80.1,80.2,79.7|Honiara|137
+Somalia|Visa on arrival|Measles, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|79.9,80.4,82.4,84.0,82.8,80.1,77.7,78.6,79.7,81.1,81.5,80.4,80.8|Mogadishu|N/A 
+South Africa|Admission refused|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|67.1,66.2,64.4,59.5,54.7,49.3,50.0,54.5,60.6,62.8,64.2,66.2,59.9|Johannesburg|84
+South Sudan|Visa required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Yellow Fever, Cholera, Hepatitis B, Meningitis, Rabies|82.9,85.1,85.8,84.6,82.2,80.4,78.6,79.0,80.2,81.5,81.7,81.9,82.0|Juba|N/A 
+Spain|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|53.2,54.3,57.6,60.4,66.7,73.4,78.3,79.0,73.4,67.1,58.8,54.1,64.8|Barcelona|125
+Sri Lanka|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Japanese Encephalitis, Rabies, Yellow Fever|79.9,80.4,81.9,82.8,82.9,82.2,81.7,81.7,81.5,80.6,80.1,79.9,81.3|Colombo|36
+Sudan|Visa required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies, Yellow Fever|73.8,77.0,83.7,89.4,94.1,93.7,89.8,88.7,90.5,90.3,82.6,76.1,85.8|Khartoum|N/A 
+Suriname|E-tourist card|Measles, Routine vaccines, Hepatitis A, Typhoid, Yellow Fever, Hepatitis B, Malaria, Rabies|0|N/A|N/A 
+Sweden|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|27.0,26.6,32.2,40.3,51.3,60.1,63.0,61.2,53.4,45.5,36.7,30.2,43.9|Stockholm|119
+Switzerland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|32.5,34.3,41.5,47.8,55.9,61.5,65.5,64.4,57.4,49.8,39.9,34.5,48.7|Zürich|206
+Syria|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|43.0,45.9,52.5,61.2,69.4,77.0,81.1,80.6,75.2,66.2,53.8,45.5,62.6|Damascus|N/A 
+Tajikistan|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Malaria|35.8,38.8,48.6,59.7,68.0,77.5,80.8,76.8,68.2,57.7,48.0,40.6,58.5|Dushanbe|N/A 
+Tanzania|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Rabies, Yellow Fever|81.3,81.9,81.3,79.7,77.9,75.6,74.3,74.7,75.7,77.5,79.3,81.1,78.4|Dar es Salaam|72
+Thailand|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Japanese Encephalitis, Malaria, Rabies, Yellow Fever|80.6,82.9,85.1,86.9,85.8,85.1,84.2,83.8,82.9,82.6,82.0,79.7,83.5|Bangkok|67
+East Timor|Visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Malaria|81.9,81.7,81.3,81.3,80.6,80.2,77.9,77.2,77.7,78.8,81.0,81.3,79.9|Dili|N/A 
+Togo|Visa on arrival|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Malaria, Typhoid, Hepatitis B, Meningitis, Rabies|80.8,82.8,83.3,82.8,81.3,79.2,77.5,77.4,78.4,79.9,81.1,80.8,80.4|Lomé|N/A 
+Tonga|Free visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Trinidad and Tobago|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|114
+Tunisia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|52.7,53.6,55.8,60.1,66.7,73.8,79.3,80.2,75.9,68.7,60.6,54.5,65.1|Tunis|N/A 
+Turkey|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|42.3,42.3,44.6,52.0,60.3,68.7,73.2,73.6,67.6,60.1,52.7,46.4,57.0|Istanbul|26
+Turkmenistan|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|38.3,41.9,50.7,63.3,73.9,84.2,88.3,85.3,74.5,61.7,50.4,41.2,62.8|Ashgabat|N/A 
+Tuvalu|Free visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Uganda|eVisa / Visa on arrival|Measles, Yellow Fever, Routine vaccines, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Meningitis, Rabies|72,72,72,70,68,68,68,68,68,70,70,70,68|Kampala|48
+Ukraine|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|25.7,26.6,35.2,48.7,59.9,65.3,68.9,67.5,57.6,47.1,35.4,27.9,47.1|Kiev|29
+United Arab Emirates|Free visa on arrival|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|65.7,66.7,72.1,79.0,85.8,90.0,93.9,93.9,89.8,83.7,75.7,69.1,80.4|Dubai|276
+United Kingdom|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|39.7,40.1,44.4,47.7,53.8,59.2,63.1,62.6,57.7,51.6,45.0,40.5,50.5|London|144
+Uruguay|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|73.4,72.5,69.1,63.0,57.2,52.0,51.6,53.1,56.1,60.8,65.5,70.3,62.1|Montevideo|58
+Uzbekistan|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|35.4,39.0,48.9,59.9,68.9,78.4,82.0,79.2,69.1,57.0,47.3,38.3,58.6|Tashkent|N/A 
+Vanuatu|Visa not required|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Hepatitis B|79.5,79.7,79.3,77.5,75.4,73.4,71.8,71.6,72.9,74.1,76.3,78.3,75.7|Port Vila|N/A  
+Vatican City|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|0|N/A|N/A 
+Venezuela|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies, Yellow Fever|68.4,69.4,71.1,72.9,73.8,72.7,72.0,72.1,72.9,72.3,71.6,69.3,71.6|Caracas|N/A 
+Vietnam|eVisa|Measles, Routine vaccines, Hepatitis A, Typhoid, Japanese Encephalitis, Hepatitis B, Malaria, Rabies|61.5,63.0,68.0,75.0,81.3,84.0,84.6,83.5,81.5,76.8,70.7,64.8,74.5|Hanoi|42
+Yemen|Visa required|Measles, Routine vaccines, Hepatitis A, Typhoid, Cholera, Hepatitis B, Malaria, Rabies|78.3,78.8,81.0,84.0,87.8,90.9,90.9,88.7,88.9,84.0,80.8,78.8,84.4|Aden|N/A 
+Zambia|eVisa / Visa on arrival|Measles, Routine vaccines, Polio, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|70.7,70.7,70.0,67.8,63.3,59.4,58.8,63.1,70.3,74.3,74.1,71.1,67.8|Lusaka|756
+Zimbabwe|eVisa / Visa on arrival|Measles, Routine vaccines, Hepatitis A, Malaria, Typhoid, Cholera, Hepatitis B, Rabies, Yellow Fever|69.8,69.3,68.5,65.8,61.0,56.7,56.1,59.9,65.5,69.4,70.2,69.6,65.1|Harare|N/A 
+Saint Helena|Visitor's Pass required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0|N/A|N/A
+Mayotte|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Malaria, Hepatitis B, Rabies, Yellow Fever|0|N/A|N/A 
+British Indian Ocean Territory|Special permit required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A
+Hong Kong|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid|61.3,62.2,66.4,72.7,78.6,82.2,83.8,83.5,81.9,77.9,71.2,64.2,73.9|Hong Kong|140 
+Taiwan|Measles, Routine vaccines, Hepatitis A, Typhoid|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Japanese Encephalitis, Rabies|61.0,61.7,65.3,71.4,77.4,81.9,85.3,84.6,81.3,76.1,70.7,64.2,73.4|Taipei|86
+Anguilla|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0|N/A|N/A 
+Aruba|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|80.1,80.2,81.0,82.2,83.3,83.7,83.5,84.4,84.6,83.7,82.6,81.0,82.6|Oranjestad|260
+Bermuda|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|64.9,64.4,64.8,67.3,71.6,77.0,81.0,81.7,79.9,75.9,70.9,67.1,72.1|Hamilton|164
+British Virgin Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0|N/A|264
+Cayman Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|78.4,79.0,79.9,81.7,83.3,84.6,85.3,85.5,84.7,83.3,81.5,79.2,82.2|George Town|259
+Curaçao|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|79.9,80.1,81.0,82.0,83.1,83.5,83.3,84.0,84.4,83.5,82.4,81.0,82.4|Willemstad|267
+Greenland|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|18.7,18.0,18,25.2,33.1,39.0,43.7,43.0,38.3,30.7,25.3,20.8,29.5|Nuuk|211
+Montserrat|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|N/A 
+Sint Maarten|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies, Yellow Fever|0|N/A|N/A 
+Turks and Caicos Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Rabies|0|N/A|262 
+Gibraltar|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|0|N/A|N/A 
+Kosovo|Visa not required|Measles, Routine vaccines, Hepatitis A, Hepatitis B, Rabies|0|N/A|N/A 
+American Samoa|Freedom of movement|Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Cook Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+French Polynesia|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Yellow Fever, Hepatitis B|0|N/A|136 
+Guam|Freedom of movement|Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Niue|Visa on arrival|Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Yellow Fever|0|N/A|N/A
+Northern Mariana Islands|Freedom of movement|Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|0|N/A|N/A 
+Pitcairn Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B, Yellow Fever|0|N/A|N/A 
+French Guiana|Visa not required|Measles, Routine vaccines, Yellow Fever, Hepatitis A, Typhoid, Hepatitis B, Malaria, Rabies|79.2,79.3,79.7,80.2,80.1,79.9,79.9,80.6,81.0,81.1,80.6,79.9,80.1|Cayenne|N/A 
+Falkland Islands|Visa not required|Measles, Routine vaccines, Hepatitis A, Typhoid, Hepatitis B|49.1,48.0,46.6,43.0,39.0,36.0,35.4,36.0,39.0,41.5,44.6,46.6,42.1|Stanley|N/A
+
