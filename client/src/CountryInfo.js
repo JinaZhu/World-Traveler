@@ -127,6 +127,18 @@ const CountryInfo = ({ country, isLoading, user }) => {
                     <b>{country.language}</b>
                 </IconStyle>
                 <IconStyle>
+                    <img src="/static/currency.png" alt="logo" height="50" width="50"></img>
+                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Currency</p>
+                    <b>{country.currency}</b>
+                </IconStyle>
+                <IconStyle>
+                    <img src="/static/cost.png" alt="logo" height="50" width="50"></img>
+                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Average Daily Price</p>
+                    <b>${country.country_info.avg_price}</b>
+                </IconStyle>
+            </InfoStyle>
+            <InfoStyle>
+                <IconStyle style={{ width: "150px" }}>
                     <img src="/static/vaccination.png" alt="logo" height="50" width="50"></img>
                     <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Vaccination/s</p>
                     <b>{country.country_info.vaccination}</b>
@@ -135,23 +147,6 @@ const CountryInfo = ({ country, isLoading, user }) => {
                     <img src="/static/visa.png" alt="logo" height="50" width="50"></img>
                     <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Visa Requirement</p>
                     <b>{country.country_info.visa}</b>
-                </IconStyle>
-            </InfoStyle>
-            <InfoStyle>
-                <IconStyle>
-                    <img src="/static/currency.png" alt="logo" height="50" width="50"></img>
-                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Currency</p>
-                    <b>{country.currency}</b>
-                    <p>  </p>
-                    <p>  </p>
-                    <p>  </p>
-                    <p>  </p>
-                    <p>  </p>
-                </IconStyle>
-                <IconStyle>
-                    <img src="/static/cost.png" alt="logo" height="50" width="50"></img>
-                    <p style={{ textDecorationLine: 'underline', fontWeight: 'bold' }}>Average Daily Price</p>
-                    <b>${country.country_info.avg_price}</b>
                     <p>  </p>
                     <p>  </p>
                     <p>  </p>
