@@ -1,4 +1,4 @@
-# World-Traveler
+<kbd>![Adventure Awaits](/static/travelLogo.png)</kbd>
 <kbd>![Adventure Awaits](/static/AA1.gif)</kbd>
 
 ## Description
