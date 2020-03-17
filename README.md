@@ -1,4 +1,4 @@
-<kbd>![Adventure Awaits](/static/travelLogo.png)</kbd>
+<img src="/static/travelLogo.png" width="100">
 <kbd>![Adventure Awaits](/static/AA1.gif)</kbd>
 
 ## Description
