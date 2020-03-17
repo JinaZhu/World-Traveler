@@ -7,6 +7,7 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 
 ## Table of Contents
 * [Technologies](#technologies)
+* [Installation] (#installation)
 * [Features](#features)
 * [Improvements](#improvements)
 * [Author](#author)
@@ -28,4 +29,11 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 * Google Place API
 * Google Geocode API
 
+## <a name="installation"></a>Installation
+<h3>Prerequisites</h3>
+<p>You must have the following installed to run Adventure Awaits:</p>
+* PostgreSQL
+* Python 3.x
+* API key for Google Maps JavaScript and Google Maps Places APIs
+* React
 
