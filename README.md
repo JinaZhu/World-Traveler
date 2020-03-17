@@ -1,4 +1,4 @@
-<img src="/static/travelLogo.png" width="200" style={display: "block", marginLeft: "auto", marginRight: "auto"}/>
+<p align="center"><img src="/static/travelLogo.png" width="200"/></p>
 <kbd>![Adventure Awaits](/static/AA1.gif)</kbd>
 
 ## Description
