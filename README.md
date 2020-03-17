@@ -7,33 +7,42 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 
 ## Table of Contents
 * [Technologies](#technologies)
-* [Installation] (#installation)
+* [Overview](#overview)
 * [Features](#features)
 * [Improvements](#improvements)
 * [Author](#author)
 
 ## <a name="technologies"></a>Technologies
+
+<p>Backend</p>
+
 * Python
-* JavaScript
-* React
 * Flask
-* Styled Component
-* GSAP
-* Chart.js
-* JSON
 * PostgreSQL
 * SQLAlchemy
+
+<p>Frontend</p>
+
+* JavaScript
+* React
 * HTML/CSS
+* Styled Component
 * Reactstrap
+* GSAP
+* Chart.js
+
+<p>APIs</p>
+
 * Google Maps API
 * Google Place API
 * Google Geocode API
 
-## <a name="installation"></a>Installation
-<h3>Prerequisites</h3>
-<p>You must have the following installed to run Adventure Awaits:</p>
-* PostgreSQL
-* Python 3.x
-* API key for Google Maps JavaScript and Google Maps Places APIs
-* React
+## <a name="overview"></a>Overview
+<h3>Users can</h3>
 
+* Randomly select a country
+* Interact with the map and select any location in the world
+* View a country's information after making a selection
+* Sign in/sign out/sign up (create an account!)
+* Log places a user have been
+* Log places a user would like to visit
