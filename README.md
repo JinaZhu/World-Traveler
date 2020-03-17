@@ -1,4 +1,5 @@
 <p align="center"><img src="/static/travelLogo.png" width="200"/></p>
+
 <kbd>![Adventure Awaits](/static/AA1.gif)</kbd>
 
 ## Description
