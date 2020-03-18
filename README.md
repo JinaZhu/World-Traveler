@@ -78,6 +78,7 @@ Adventure Awaits was my first application and it was not easy. Looking back, I l
 3. Flask endpoint: After spending the first two weeks building my project on Flask and Jinja templates, I ended up converting it into an API service for my client. I turned my backend routes into API endpoints, so instead of serving templates, they served data. My data replied heavily on getting back informations from API request. I'm embarrassed to say I didn't know what an API was at the begining of this project. As of now, I interacted with ten APIs in total and only half gave me back accurate information and were used. 
 
 Bonus struggle:
+
 Branches: We only learned about the master branch at bootcamp, so when I was told to learn to create new branches for EVERY SINGLE new feature, I was a little hesitant and thought it was a waste of my time. I was wrong! It came in handle everytime I needed to debug or break something. Looking at my commits and all my branches also reminded me of what I did. 
 
 
