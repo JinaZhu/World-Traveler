@@ -75,7 +75,7 @@ Adventure Awaits was my first application and it was not easy. Looking back, I l
 
 2. Styling: I thought styling was going to be fun. After spending nearly an hour trying to change the background color to learn that I was working with the wrong component, it's more complicated then I thought. I didn't want to just use Reactstrap, so I learn to build things from scratch. I did tutorials and try to convert them to React by using libaries. I wasn't successful with most convertions but I still learned them in Javascript. I really enjoyed learning about animations and will continue to work on that. 
 
-3. Flask endpoint: After spending the first two weeks building my project on Flask and Jinja templates, I ended up converting it as an endpoint for my client. My data replied heavily on getting back informations from API request. I'm embarrassed to say I didn't know what an API was at the begining of this project. As of now, I interacted with ten APIs in total and only half gave me back accurate information and were used. 
+3. Flask endpoint: After spending the first two weeks building my project on Flask and Jinja templates, I ended up converting them as endpoints for my client. My data replied heavily on getting back informations from API request. I'm embarrassed to say I didn't know what an API was at the begining of this project. As of now, I interacted with ten APIs in total and only half gave me back accurate information and were used. 
 
 
 ## <a name="author"></a>Author
