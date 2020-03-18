@@ -3,7 +3,7 @@
 <kbd>![Adventure Awaits](/static/AA1.gif)</kbd>
 
 ## Description
-Adventure Awaits is a full-stack web application that allows anyone to discover somewhere new by providing an insight into a country. 
+Adventure Awaits is a full-stack web application that allows anyone to discover somewhere new by providing an insight into a country. The next time your itching to discover some place new, give it a spin!
 
 ## Table of Contents
 * [Technologies](#technologies)
