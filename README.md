@@ -14,11 +14,11 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 
 ## <a name="technologies"></a>Technologies
 
-<b>Backend:</b>Python, Flask, PostgreSQL, SQLAlchemy
+<b>Backend:</b> Python, Flask, PostgreSQL, SQLAlchemy
 
-<b>Frontend:</b>JavaScript, React, HTML/CSS, Styled Component, Reactstrap, GSAP, Chart.js
+<b>Frontend:</b> JavaScript, React, HTML/CSS, Styled Component, Reactstrap, GSAP, Chart.js
 
-<b>APIs:</b>Google Maps API, Google Place API, Google Geocode API, Trip Advisory, Rest Countries
+<b>APIs:</b> Google Maps API, Google Place API, Google Geocode API, Trip Advisory, Rest Countries
 
 ## <a name="overview"></a>Overview
 <h3>Users can</h3>
