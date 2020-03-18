@@ -10,6 +10,7 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 * [Overview](#overview)
 * [Features](#features)
 * [Future Features](#futurePlans)
+* [Struggles](#struggles)
 * [Author](#author)
 
 ## <a name="technologies"></a>Technologies
@@ -66,6 +67,16 @@ To organize their saves, a user has the option to delete any saves
 * Hover pop-up country information on saved routes
 * Enable users to write comments about a location
 * Like or dislike a location
+
+## <a name="struggles"></a>Struggles
+Adventure Awaits was my first application and it was not easy. Looking back, I learned so much in the past month. I am proud to say if I were to rebuild this app, I can do it in a week, and a month from now, I hope I can say, "I can do it in a few days." Through my many struggles, here are my top three...hope you learn from them as much as I did!
+
+1. React: "It's going to be a steep learning curve." I 100% agree, but what isn't in the beginning? I had no idea what was going on for the first two days. I googled everything and took suggestions from my mentors and crossed my fingers it did what I wanted it to do. Day three and four weren't any easier. I relied less help from my mentors and more help on google. I decided to use function components to avoid "this" in class components. I ended learning both. Almost all online suggestions and documentation examples are written in class components. That was only the begining. There are also useState, useRef, useEffect and endless amount of libraries. I won't go into details for all of them, but I will never forget the five seconds, $75 infinity loop from useEffect. The first four days were TOUGH, and I wanted to give up but I'm glad I didn't. I learned so much about DOM manipulation, state management, and interacting with API endpoints. I am nowhere near an expert, but I do have the knowledge to continue learning more about React. 
+
+2. Styling: I thought styling was going to be fun. After spending nearly an hour trying to change the background color to learn that I was working with the wrong component, it's more complicated then I thought. I didn't want to just use Reactstrap, so I learn to build things from scratch. I did tutorials and try to convert them to React by using libaries. I wasn't successful with most convertions but I still learned them in Javascript. I really enjoyed learning about animations and will continue to work on that. 
+
+3. Flask endpoint: After spending the first two weeks building my project on Flask and Jinja templates, I ended up converting it as an endpoint for my client. My data replied heavily on getting back informations from API request. I'm embarrassed to say I didn't know what an API was at the begining of this project. As of now, I interacted with ten APIs in total and only half gave me back accurate information and were used. 
+
 
 ## <a name="author"></a>Author
 
