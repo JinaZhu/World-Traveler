@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
-from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
@@ -9,7 +8,6 @@ from random import choice
 from model import connect_to_db, db, Country, User, Save
 import googlemaps
 import json
-import requests
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -262,7 +260,6 @@ def delete_saved():
     """ delete saved countries """
 
     save_id = request.form["saveId"]
-    print('*********', save_id)
 
     Save.query.filter_by(
         save_id=save_id).delete()
@@ -270,6 +267,24 @@ def delete_saved():
     db.session.commit()
 
     return save_id
+
+
+def find_flight():
+    """ use skyscanner to find fights"""
+
+    url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-09-01"
+
+    querystring = {"inboundpartialdate": "2019-12-01"}
+
+    headers = {
+        'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+    }
+
+    response = requests.request(
+        "GET", url, headers=headers, params=querystring)
+
+    print(response.text)
 
 
 if __name__ == "__main__":
