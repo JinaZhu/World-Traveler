@@ -3,10 +3,10 @@ import React from "react";
 function FightForm() {
   return (
     <form>
-      <input type="text">To</input>
-      <input type="text">From</input>
-      <input type="date"></input>
-      <button type="submit">Find</button>
+      <p>
+        Notify me when prices dropped below<input type="text">Amount</input>
+      </p>
+      <button type="submit"></button>
     </form>
   );
 }
