@@ -198,6 +198,7 @@ def user_likes_page():
     visited = request.form["visited"]
     url = request.form["imgUrl"]
     user_id = session.get("user_id")
+    price = request.form["price"]
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
@@ -212,7 +213,7 @@ def user_likes_page():
 
     if not existing_save:
         save_countries = Save(
-            user_id=user_id, country_name=country, photo_url=url, visited_country=visited)
+            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price)
 
         db.session.add(save_countries)
         db.session.commit()
@@ -269,22 +270,22 @@ def delete_saved():
     return save_id
 
 
-def find_flight():
-    """ use skyscanner to find fights"""
+# def find_flight():
+#     """ use skyscanner to find fights"""
 
-    url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-09-01"
+#     url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-09-01"
 
-    querystring = {"inboundpartialdate": "2019-12-01"}
+#     querystring = {"inboundpartialdate": "2019-12-01"}
 
-    headers = {
-        'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
-    }
+#     headers = {
+#         'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+#         'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+#     }
 
-    response = requests.request(
-        "GET", url, headers=headers, params=querystring)
+#     response = requests.request(
+#         "GET", url, headers=headers, params=querystring)
 
-    print(response.text)
+#     print(response.text)
 
 
 if __name__ == "__main__":
