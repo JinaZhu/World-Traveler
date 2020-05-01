@@ -67,6 +67,8 @@ class Save(db.Model):
     visited_country = db.Column(db.String)
     photo_url = db.Column(db.String)
     price = db.Column(db.Integer)
+    whereFrom = db.Column(db.String)
+    whereTo = db.Column(db.String)
 
     user = db.relationship("User",
                            backref=db.backref("saves", order_by=save_id))
