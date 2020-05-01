@@ -199,6 +199,7 @@ def user_likes_page():
     url = request.form["imgUrl"]
     user_id = session.get("user_id")
     price = request.form["price"]
+    whereTo = request.form["whereTo"]
 
     current_user = User.query.filter_by(user_id=user_id).first()
 

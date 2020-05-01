@@ -17,6 +17,7 @@ class User(db.Model):
     lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    location = db.Column(db.String(), nullable=False)
 
     def __repr__(self):
         """provide helpful representation when printed."""
