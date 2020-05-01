@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, request, flash, redirect, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
@@ -136,9 +137,10 @@ def register_process():
     last_name = request.form["lastName"]
     email = request.form["email"]
     password = request.form["password"]
+    location = request.form["location"]
 
     new_user = User(fname=first_name, lname=last_name,
-                    email=email, password=password)
+                    email=email, password=password, location=location)
 
     db.session.add(new_user)
     db.session.commit()
@@ -203,6 +205,10 @@ def user_likes_page():
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
+    whereFrom = current_user.location
+
+    print('current_user', current_user)
+
     # if not user_id:
     #     return ("No user logged in.")
 
@@ -214,7 +220,7 @@ def user_likes_page():
 
     if not existing_save:
         save_countries = Save(
-            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price)
+            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price, whereTo=whereTo, whereFrom=whereFrom)
 
         db.session.add(save_countries)
         db.session.commit()
