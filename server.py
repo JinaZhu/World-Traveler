@@ -9,6 +9,7 @@ from random import choice
 from model import connect_to_db, db, Country, User, Save
 import googlemaps
 import json
+import requests
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -206,11 +207,7 @@ def user_likes_page():
     current_user = User.query.filter_by(user_id=user_id).first()
 
     whereFrom = current_user.location
-
-    print('current_user', current_user)
-
-    # if not user_id:
-    #     return ("No user logged in.")
+    print('whereFrom', whereFrom)
 
     if not current_user:
         return ("Please login or register!")
