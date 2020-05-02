@@ -10,6 +10,7 @@ from model import connect_to_db, db, Country, User, Save
 import googlemaps
 import json
 import requests
+import datetime
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -129,6 +130,23 @@ def display_countries():
     return jsonify(country_information)
 
 
+def get_city_code(city):
+    url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/"
+
+    querystring = {"query": city}
+
+    headers = {
+        'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+    }
+
+    response = requests.request(
+        "GET", url, headers=headers, params=querystring)
+
+    response_to_dict = json.loads(response.text)
+    return response_to_dict['Places'][0]['PlaceId']
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register_process():
     """Process registration."""
@@ -138,7 +156,7 @@ def register_process():
     last_name = request.form["lastName"]
     email = request.form["email"]
     password = request.form["password"]
-    location = request.form["location"]
+    location = get_city_code(request.form["location"])
     phone = request.form["phone"]
 
     new_user = User(fname=first_name, lname=last_name,
@@ -210,6 +228,9 @@ def user_likes_page():
 
     whereFrom = current_user.location
 
+    if whereTo != "":
+        whereTo = get_city_code(whereTo)
+
     if price == "":
         price = 0
 
@@ -278,22 +299,55 @@ def delete_saved():
     return save_id
 
 
-# def find_flight():
-#     """ use skyscanner to find fights"""
+# @app.route('./checkFlight', method=["POST"])
+def check_flight():
+    """check get all location for flight prices in database"""
 
-#     url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2019-09-01"
+    allCities = []
+    print(allCities)
 
-#     querystring = {"inboundpartialdate": "2019-12-01"}
+    notifyYesEntries = Save.query.filter_by(notify='yes').all()
 
-#     headers = {
-#         'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-#         'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
-#     }
+    for entry in notifyYesEntries:
+        allCities.append([entry.user_id, entry.whereFrom,
+                          entry.whereTo, entry.price])
 
-#     response = requests.request(
-#         "GET", url, headers=headers, params=querystring)
+    x = datetime.datetime.now()
+    year = x.year
+    month = x.month
 
-#     print(response.text)
+    rightPrice = {}
+    print(rightPrice)
+
+    for city in allCities:
+        url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/{city[1]}/{city[2]}/{year}-0{month}-"
+
+        querystring = {"inboundpartialdate": "2019-12-01"}
+
+        headers = {
+            'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+        }
+
+        response = requests.request(
+            "GET", url, headers=headers, params=querystring)
+        data = json.loads(response.text)
+        fights = data['quotes']
+
+        for fight in fights:
+            if fight['MinPrice'] <= city[3]:
+                if rightPrice[city[0]]:
+                    rightPrice[city[0]].append(
+                        [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']])
+                else:
+                    rightPrice[city[0]] = [
+                        [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']]]
+
+    return rightPrice
+
+
+# @app.route('./checkFlight', method=["POST"])
+# def check_flight():
 
 
 if __name__ == "__main__":

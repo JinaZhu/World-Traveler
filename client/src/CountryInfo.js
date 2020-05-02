@@ -55,6 +55,9 @@ const CountryInfo = ({ country, isLoading, user }) => {
       country: country.country_info.countryName, // country exists at this point, so no need to handle when country is undefined
       imgUrl: country.place_photos[0],
       visited: "yes",
+      whereTo: "",
+      price: "",
+      notify: "no",
     });
     xhr.done((data) => {
       window.alert(data);
