@@ -11,6 +11,7 @@ import googlemaps
 import json
 import requests
 import datetime
+from twilio.rest import Client
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -247,6 +248,8 @@ def user_likes_page():
         db.session.add(save_countries)
         db.session.commit()
 
+    check_flight()
+
     return('Country stored!')
 
 
@@ -304,7 +307,6 @@ def check_flight():
     """check get all location for flight prices in database"""
 
     allCities = []
-    print(allCities)
 
     notifyYesEntries = Save.query.filter_by(notify='yes').all()
 
@@ -312,15 +314,17 @@ def check_flight():
         allCities.append([entry.user_id, entry.whereFrom,
                           entry.whereTo, entry.price])
 
+    print('allCities', allCities)
+
     x = datetime.datetime.now()
     year = x.year
-    month = x.month
+    month = x.month + 1
+    day = x.day
 
     rightPrice = {}
-    print(rightPrice)
 
     for city in allCities:
-        url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/{city[1]}/{city[2]}/{year}-0{month}-"
+        url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/{city[1]}/{city[2]}/{year}-0{month}-0{day}"
 
         querystring = {"inboundpartialdate": "2019-12-01"}
 
@@ -332,23 +336,47 @@ def check_flight():
         response = requests.request(
             "GET", url, headers=headers, params=querystring)
         data = json.loads(response.text)
-        fights = data['quotes']
+        fights = data['Quotes']
+        print('fights', fights)
+        print('user', city[0])
 
         for fight in fights:
             if fight['MinPrice'] <= city[3]:
-                if rightPrice[city[0]]:
+                if city[0] in rightPrice:
                     rightPrice[city[0]].append(
-                        [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']])
+                        [city[1], city[2], city[3], fight['MinPrice'], fight['QuoteDateTime']])
                 else:
                     rightPrice[city[0]] = [
                         [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']]]
-
     return rightPrice
+
+
+def contactUser(dict):
+    """send message to user if flight meet user's requirement"""
+
+    for key in dict:
+        user = User.query.filter_by(user_id=key).first()
+
+        user_phone_number = user.phoneNumber
+
+        message_body = f"Hello {user.fname}! We found {len(dict[key])} flight/s that match your max price: "
+
+        for item in key:
+            message_body += f"{item[0]} to {item[1]} for ${item[2]} on {item[3]}, "
+
+        account_sid = 'AC56409261f00829cdc6fe91fda355ecc2'
+        auth_token = 'ce75618e08443b4e2c17983aa611e565'
+        client = Client(account_sid, auth_token)
+
+        message = client.messages.create(
+            from_='+19382010511',
+            body=message_body,
+            to=f"+1{user_phone_number}"
+        )
 
 
 # @app.route('./checkFlight', method=["POST"])
 # def check_flight():
-
 
 if __name__ == "__main__":
     app.debug = True
