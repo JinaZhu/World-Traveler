@@ -248,7 +248,8 @@ def user_likes_page():
         db.session.add(save_countries)
         db.session.commit()
 
-    check_flight()
+    right_prices = check_flight()
+    contactUser(right_prices)
 
     return('Country stored!')
 
@@ -337,14 +338,12 @@ def check_flight():
             "GET", url, headers=headers, params=querystring)
         data = json.loads(response.text)
         fights = data['Quotes']
-        print('fights', fights)
-        print('user', city[0])
 
         for fight in fights:
             if fight['MinPrice'] <= city[3]:
                 if city[0] in rightPrice:
                     rightPrice[city[0]].append(
-                        [city[1], city[2], city[3], fight['MinPrice'], fight['QuoteDateTime']])
+                        [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']])
                 else:
                     rightPrice[city[0]] = [
                         [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']]]
@@ -355,13 +354,14 @@ def contactUser(dict):
     """send message to user if flight meet user's requirement"""
 
     for key in dict:
+        print(dict)
         user = User.query.filter_by(user_id=key).first()
 
         user_phone_number = user.phoneNumber
 
         message_body = f"Hello {user.fname}! We found {len(dict[key])} flight/s that match your max price: "
 
-        for item in key:
+        for item in dict[key]:
             message_body += f"{item[0]} to {item[1]} for ${item[2]} on {item[3]}, "
 
         account_sid = 'AC56409261f00829cdc6fe91fda355ecc2'
@@ -373,6 +373,10 @@ def contactUser(dict):
             body=message_body,
             to=f"+1{user_phone_number}"
         )
+
+        print('message', message.sid)
+
+    return 'done!'
 
 
 # @app.route('./checkFlight', method=["POST"])
