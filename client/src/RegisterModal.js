@@ -15,6 +15,7 @@ function RegisterModal(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [location, setLocation] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleSubmit = (e) => {
     const xhr = $.post("/register", {
@@ -23,6 +24,7 @@ function RegisterModal(props) {
       email,
       password,
       location,
+      phone,
     });
 
     xhr.done((data) => {
@@ -74,6 +76,13 @@ function RegisterModal(props) {
               name="location"
               className="form-control"
               onChange={(e) => setLocation(e.target.value)}
+            ></input>
+            Phone Number:{" "}
+            <input
+              type="text"
+              name="phone"
+              className="form-control"
+              onChange={(e) => setPhone(e.target.value)}
             ></input>
           </form>
         </ModalBody>

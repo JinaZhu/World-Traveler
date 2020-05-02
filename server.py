@@ -139,9 +139,10 @@ def register_process():
     email = request.form["email"]
     password = request.form["password"]
     location = request.form["location"]
+    phone = request.form["phone"]
 
     new_user = User(fname=first_name, lname=last_name,
-                    email=email, password=password, location=location)
+                    email=email, password=password, location=location, phoneNumber=phone)
 
     db.session.add(new_user)
     db.session.commit()
@@ -203,11 +204,14 @@ def user_likes_page():
     user_id = session.get("user_id")
     price = request.form["price"]
     whereTo = request.form["whereTo"]
+    notify = request.form["notify"]
 
     current_user = User.query.filter_by(user_id=user_id).first()
 
     whereFrom = current_user.location
-    print('whereFrom', whereFrom)
+
+    if price == "":
+        price = 0
 
     if not current_user:
         return ("Please login or register!")
@@ -217,7 +221,7 @@ def user_likes_page():
 
     if not existing_save:
         save_countries = Save(
-            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price, whereTo=whereTo, whereFrom=whereFrom)
+            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price, whereTo=whereTo, whereFrom=whereFrom, notify=notify)
 
         db.session.add(save_countries)
         db.session.commit()
