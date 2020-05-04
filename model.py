@@ -17,6 +17,8 @@ class User(db.Model):
     lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    location = db.Column(db.String(), nullable=False)
+    phoneNumber = db.Column(db.String())
 
     def __repr__(self):
         """provide helpful representation when printed."""
@@ -64,8 +66,12 @@ class Save(db.Model):
                         db.ForeignKey('users.user_id'))
     country_name = db.Column(db.String,
                              db.ForeignKey('countries.country_name'))
-    visited_country = db.Column(db.String)
+    visited_country = db.Column(db.String, )
     photo_url = db.Column(db.String)
+    price = db.Column(db.Integer)
+    whereFrom = db.Column(db.String)
+    whereTo = db.Column(db.String)
+    notify = db.Column(db.String)
 
     user = db.relationship("User",
                            backref=db.backref("saves", order_by=save_id))
