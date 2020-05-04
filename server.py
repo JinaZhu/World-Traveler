@@ -249,7 +249,7 @@ def user_likes_page():
         db.session.commit()
 
     right_prices = check_flight()
-    contactUser(right_prices)
+    contact_user(right_prices)
 
     return('Country stored!')
 
@@ -307,27 +307,28 @@ def delete_saved():
 def check_flight():
     """check get all location for flight prices in database"""
 
-    allCities = []
+    all_cities = []
 
+    # query through my database and check all save countries with a notify yes
     notifyYesEntries = Save.query.filter_by(notify='yes').all()
 
+    # iterating through all the result, I am extacting only the inforamtion I need
     for entry in notifyYesEntries:
-        allCities.append([entry.user_id, entry.whereFrom,
-                          entry.whereTo, entry.price])
+        all_cities.append([entry.user_id, entry.whereFrom,
+                           entry.whereTo, entry.price])
 
-    print('allCities', allCities)
+    # Using the date of a month from now, I am using Skyscanner to search flights for that entire month
+    current_date = datetime.datetime.now()
+    year = current_date.year
+    month = current_date.month + 1
+    day = current_date.day
 
-    x = datetime.datetime.now()
-    year = x.year
-    month = x.month + 1
-    day = x.day
+    right_price = {}
 
-    rightPrice = {}
-
-    for city in allCities:
+    for city in all_cities:
         url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/{city[1]}/{city[2]}/{year}-0{month}-0{day}"
 
-        querystring = {"inboundpartialdate": "2019-12-01"}
+        querystring = {"inboundpartialdate": f"{year}-{month-1}-{day}"}
 
         headers = {
             'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -339,26 +340,31 @@ def check_flight():
         data = json.loads(response.text)
         fights = data['Quotes']
 
+        # after getting I get back all the fights, I am checking the ticket price to see if it's below the user's price
+        # if so, I am adding to the right_price dict
         for fight in fights:
             if fight['MinPrice'] <= city[3]:
-                if city[0] in rightPrice:
-                    rightPrice[city[0]].append(
+                if city[0] in right_price:
+                    right_price[city[0]].append(
                         [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']])
                 else:
-                    rightPrice[city[0]] = [
+                    right_price[city[0]] = [
                         [city[1], city[2], fight['MinPrice'], fight['QuoteDateTime']]]
-    return rightPrice
+    return right_price
 
 
-def contactUser(dict):
+def contact_user(dict):
     """send message to user if flight meet user's requirement"""
 
+    # iterating through my dict and querying through my database to location the user's information base on their id
+    # which is stored as a key
     for key in dict:
-        print(dict)
         user = User.query.filter_by(user_id=key).first()
 
         user_phone_number = user.phoneNumber
 
+        # after I have access to the user's information, I am creating a customize message to inform them about all
+        # the fights that meet their max price and send the message using the Twilio API
         message_body = f"Hello {user.fname}! We found {len(dict[key])} flight/s that match your max price: "
 
         for item in dict[key]:
