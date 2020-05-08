@@ -25,6 +25,8 @@ app.secret_key = "ABC"
 
 app.jinja_env.undefined = StrictUndefined
 
+twilio_token = os.getEnv("TWILIO_TOKEN")
+
 
 @app.route('/api/countriesInfo')
 def display_countries():
@@ -371,7 +373,7 @@ def contact_user(dict):
             message_body += f"{item[0]} to {item[1]} for ${item[2]} on {item[3]}, "
 
         account_sid = 'AC56409261f00829cdc6fe91fda355ecc2'
-        auth_token = 'ce75618e08443b4e2c17983aa611e565'
+        auth_token = twilio_token
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
