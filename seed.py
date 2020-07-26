@@ -1,9 +1,7 @@
 from sqlalchemy import func
-
 from model import User
 from model import Save
 from model import Country
-
 from model import connect_to_db, db
 from server import app
 
@@ -23,13 +21,9 @@ def load_countries():
                           avg_cost=cost)
 
         db.session.add(country)
-
     db.session.commit()
 
 
 if __name__ == "__main__":
     connect_to_db(app)
     load_countries()
-
-    # country_filename = "seed_data/u.country"
-    # load_countries(country_filename)
