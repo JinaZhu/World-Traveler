@@ -301,3 +301,10 @@ export const SaveBox = styled.div`
   margin: 10px;
   height: 170px;
 `;
+
+export const LoadingImg = styled.img`
+  display: block,
+  marginLeft: 45%,
+  marginRight: auto,
+  marginTop: 5%,
+`;

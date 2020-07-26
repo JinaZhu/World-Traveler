@@ -7,7 +7,6 @@ import { SaveContainer, SaveBox } from "./styled";
 const SaveButton = ({ countryName, imageUrl }) => {
   const [whereTo, setWhereTo] = useState("");
   const [price, setPrice] = useState("");
-  const [notify, setNotify] = useState("");
 
   const handleCountrySaveWithNotify = (e) => {
     const xhr = $.post("/save", {

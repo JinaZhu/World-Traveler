@@ -24,6 +24,7 @@ import {
   DetailTitleP,
   DetailDataP,
   DetailRow,
+  LoadingImg,
 } from "./styled";
 import TempChart from "./TempChart";
 import SaveButton from "./SaveButton";
@@ -35,14 +36,8 @@ const CountryInfo = ({ country, isLoading, user }) => {
 
   if (isLoading) {
     return (
-      <img
-        style={{
-          display: "block",
-          marginLeft: "45%",
-          marginRight: "auto",
-          marginTop: "5%",
-        }}
-        alt="loading..."
+      <LoadingImg
+        alt="loading Image"
         src="/static/paperplane.gif"
         width="150"
         height="150"
