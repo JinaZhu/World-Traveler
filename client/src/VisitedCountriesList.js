@@ -107,7 +107,7 @@ const VisitedCountriesList = (props) => {
         style={{ opacity: 0.3 }}
         src="/static/ocean.png"
         alt="logo"
-        height="200"
+        height="100vh"
         width="1500"
       />
     </PolaroidLayout>

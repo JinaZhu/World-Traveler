@@ -4,11 +4,12 @@
 
 ## Description
 
-Adventure Awaits is a full-stack web application that allows anyone to discover somewhere new by providing an insight into a country. It's my first application, so it's not perfect. There are tons of room for improvement, but no major changes will be made to remind me of how I started. I learn a lot building it and use it as a reference to continue learning and building other applications. I hope it will help you as much as it helped me!
+Adventure Awaits is a full-stack web application that allows anyone to discover somewhere new by providing an insight into a country. It's my first multi-feature application and I've learned a lot since building it. These days I embraced stronger patterns, so I know it has a lot of room for improvement, but no major changes will be made. I find it useful to reference back to this application because it represents a snapshot of my understanding of programming back in February. I consistantly look back at it as a reminder of how far I've come. I hope it will help you as much as it helped me!
 
 ## Table of Contents
 
 - [Technologies](#technologies)
+- [Installation](#install)
 - [Overview](#overview)
 - [Features](#features)
 - [Future Features](#futurePlans)
@@ -22,6 +23,58 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 <b>Frontend:</b> JavaScript, React, HTML/CSS, Styled Component, Reactstrap, GSAP, Chart.js
 
 <b>APIs:</b> Google Maps API, Google Place API, Google Geocode API, Trip Advisory, Rest Countries
+
+## <a name="install"></a>Installation
+
+To run Adventure Awaits, you'll need 2 API keys:
+
+1. [Google](https://developers.google.com/maps/documentation/javascript/get-api-key)
+2. [RapidAPI](https://rapidapi.com/)
+
+Clone World-Traveler repository
+
+```
+$ git clone https://github.com/JinaZhu/World-Traveler.git
+```
+
+Install dependencies
+
+```
+$ pip3 install -r requirements.txt
+```
+
+Create a file `.env` to store your API keys
+
+```
+GOOGLE_API="YOUR_KEY"
+CITY_RAPID_API="YOUR_KEY"
+```
+
+Create database
+
+```
+$ createdb countries
+```
+
+Run model.py interactively in the terminal, and create database tables of user, country, save:
+
+```
+$ python3 -i model.py
+>>> db.create_all()
+>>> quit()
+```
+
+Run `seed.py` to load all countries information into database
+
+```
+$ python3 seed.py
+```
+
+Run the app
+
+```
+$ python3 server.py
+```
 
 ## <a name="overview"></a>Overview
 

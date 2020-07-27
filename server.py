@@ -11,14 +11,11 @@ from flask import Flask, render_template, request, flash, redirect, session, jso
 from flask_debugtoolbar import DebugToolbarExtension
 from random import choice
 from model import connect_to_db, db, Country, User, Save
-from twilio.rest import Client
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
 google_map_api_key = os.getenv("GOOGLE_API")
-cities_rapid_api_key = os.getenv("CITY_RAPID_API")
-city_code_api_key = os.getenv("CITY_CODE_API")
-flight_api_key = os.getenv("FLIGHT_API")
+rapid_api_key = os.getenv("RAPID_API")
 twilio_token = os.getenv("TWILIO_TOKEN")
 gmaps = googlemaps.Client(key=google_map_api_key)
 
@@ -100,7 +97,7 @@ def display_countries():
     cities_querystring = {"page": "1", "per_page": "7", "format": "json"}
     cities_headers = {
         'x-rapidapi-host': "countries-cities.p.rapidapi.com",
-        'x-rapidapi-key': cities_rapid_api_key
+        'x-rapidapi-key': rapid_api_key
     }
 
     cities_response = requests.request(
@@ -131,7 +128,7 @@ def get_city_code(city):
     querystring = {"query": city}
     headers = {
         'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        'x-rapidapi-key': city_code_api_key
+        'x-rapidapi-key': rapid_api_key
     }
 
     response = requests.request(
@@ -323,7 +320,7 @@ def check_flight():
 
         headers = {
             'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            'x-rapidapi-key': flight_api_key
+            'x-rapidapi-key': rapid_api_key
         }
 
         response = requests.request(
@@ -377,4 +374,4 @@ def contact_user(dict):
 if __name__ == "__main__":
     app.debug = True
     connect_to_db(app)
-    app.run(host="0.0.0.0")
+    app.run()

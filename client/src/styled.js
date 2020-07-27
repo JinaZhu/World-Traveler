@@ -203,6 +203,7 @@ export const PolaroidLayout = styled.div`
     #e7baa0,
     white
   );
+  height: 100vh;
 `;
 
 export const NavAlign = styled(Nav)`
