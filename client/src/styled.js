@@ -304,8 +304,12 @@ export const SaveBox = styled.div`
 `;
 
 export const LoadingImg = styled.img`
-  display: block,
-  marginLeft: 45%,
-  marginRight: auto,
-  marginTop: 5%,
+  display: flex;
+  margin: auto;
+`;
+
+export const AlignImage = styled.img`
+    display: flex,
+    align-items: center;
+    justify-content: center; 
 `;
