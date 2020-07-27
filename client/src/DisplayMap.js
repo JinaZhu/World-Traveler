@@ -3,8 +3,9 @@ import { Map, GoogleApiWrapper } from "google-maps-react";
 import NodeGeocoder from "node-geocoder";
 import $ from "jquery";
 import MapStyles from "./MapStyles";
+import config from "./config";
 
-const apiKey = "AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw";
+const apiKey = config.googleAPIKey;
 const options = {
   provider: "google",
   apiKey: apiKey,
@@ -46,9 +47,6 @@ class DisplayMap extends Component {
     map.setOptions({
       styles: MapStyles,
     });
-  }
-  componentDidMount() {
-    console.log("I mounted!", this.props.google);
   }
   handleMapClick(mapProps, map, clickEvent) {
     const { setCountry } = this.props;

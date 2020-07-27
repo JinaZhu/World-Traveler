@@ -26,10 +26,12 @@ Adventure Awaits is a full-stack web application that allows anyone to discover 
 
 ## <a name="install"></a>Installation
 
-To run Adventure Awaits, you'll need 2 API keys:
+To run Adventure Awaits, obtain 2 API keys:
 
 1. [Google](https://developers.google.com/maps/documentation/javascript/get-api-key)
 2. [RapidAPI](https://rapidapi.com/)
+
+### Steps to get the Flask backend running:
 
 Clone World-Traveler repository
 
@@ -43,7 +45,7 @@ Install dependencies
 $ pip3 install -r requirements.txt
 ```
 
-Create a file `.env` to store your API keys
+Create a file `.env` to store your backend API keys
 
 ```
 GOOGLE_API="YOUR_KEY"
@@ -56,7 +58,7 @@ Create database
 $ createdb countries
 ```
 
-Run model.py interactively in the terminal, and create database tables of user, country, save:
+Run model.py interactively in the terminal, and create database tables of user, country, and save:
 
 ```
 $ python3 -i model.py
@@ -74,6 +76,33 @@ Run the app
 
 ```
 $ python3 server.py
+```
+
+### Steps to get the React frontend running:
+
+Enter client folder
+
+```
+cd client
+```
+
+Create a file `.env` to store your frontend API keys
+
+```
+REACT_APP_GOOGLE_API=YOUR_KEY
+*** no quotes ***
+```
+
+Install dependencies
+
+```
+npm install
+```
+
+Run the app
+
+```
+npm run start
 ```
 
 ## <a name="overview"></a>Overview
