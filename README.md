@@ -39,13 +39,15 @@ Clone World-Traveler repository
 $ git clone https://github.com/JinaZhu/World-Traveler.git
 ```
 
-Install dependencies
+Install backend dependencies
+
+**Make sure you are in the root project directory**
 
 ```
 $ pip3 install -r requirements.txt
 ```
 
-Create a file `.env` to store your backend API keys
+Create a file `.env` to store your backend API keys in your root project directory
 
 ```
 GOOGLE_API="YOUR_KEY"
@@ -72,7 +74,7 @@ Run `seed.py` to load all countries information into database
 $ python3 seed.py
 ```
 
-Run the app
+Run the backend app
 
 ```
 $ python3 server.py
@@ -86,20 +88,21 @@ Enter client folder
 cd client
 ```
 
-Create a file `.env` to store your frontend API keys
+Create a seperate file `.env` to store your frontend API keys in your client folder 
+
+**Don't put quotes around the key**
 
 ```
 REACT_APP_GOOGLE_API=YOUR_KEY
-*** no quotes ***
 ```
 
-Install dependencies
+Install the frontend dependencies
 
 ```
 npm install
 ```
 
-Run the app
+Run the frontend app
 
 ```
 npm run start
