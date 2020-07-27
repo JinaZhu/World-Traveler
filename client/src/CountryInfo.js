@@ -25,6 +25,7 @@ import {
   DetailDataP,
   DetailRow,
   LoadingImg,
+  AlignImage,
 } from "./styled";
 import TempChart from "./TempChart";
 import SaveButton from "./SaveButton";
