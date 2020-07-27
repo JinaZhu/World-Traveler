@@ -1,79 +1,68 @@
 import os
-from dotenv import load_dotenv
-from pathlib import Path
-from jinja2 import StrictUndefined
-
-from flask import Flask, render_template, request, flash, redirect, session, jsonify
-from flask_debugtoolbar import DebugToolbarExtension
-from random import choice
-from model import connect_to_db, db, Country, User, Save
 import googlemaps
 import json
 import requests
 import datetime
-from twilio.rest import Client
+
+from dotenv import load_dotenv
+from pathlib import Path
+from jinja2 import StrictUndefined
+from flask import Flask, render_template, request, flash, redirect, session, jsonify
+from flask_debugtoolbar import DebugToolbarExtension
+from random import choice
+from model import connect_to_db, db, Country, User, Save
 
 env_path = Path(".") / '.env'
 load_dotenv(dotenv_path=env_path)
 google_map_api_key = os.getenv("GOOGLE_API")
-cities_rapid_api = os.getenv("CITY_RAPID_API")
+rapid_api_key = os.getenv("RAPID_API")
+twilio_token = os.getenv("TWILIO_TOKEN")
 gmaps = googlemaps.Client(key=google_map_api_key)
 
 app = Flask(__name__)
-
 app.secret_key = "ABC"
-
 app.jinja_env.undefined = StrictUndefined
-
-twilio_token = os.getEnv("TWILIO_TOKEN")
 
 
 @app.route('/api/countriesInfo')
 def display_countries():
     """select random country and get country info from APIs and datatbases"""
 
-    # get info from database
-
-    all_db_countries = []
-
-    all_db = [
+    # get all countries in db
+    db_countries = [
         {
             "countryName": country.country_name,
         }
         for country in Country.query.all()
     ]
+    # store country names in a list
+    country_list = []
+    for country in db_countries:
+        country_list.append(country['countryName'])
 
-    for country in all_db:
-        all_db_countries.append(country['countryName'])
-
-    clicked_country = request.args.get('selectedCountry')
-
-    selected_country = ''
-
-    if clicked_country is None:
-        selected_country = choice(all_db_countries)
+    selected_country = request.args.get('selectedCountry')
+    country_to_display = ''
+    if selected_country is None:
+        country_to_display = choice(country_list)
     else:
-        selected_country = clicked_country
+        country_to_display = selected_country
 
-    selected_country_db = Country.query.filter_by(
-        country_name=selected_country).first()
+    country_to_display_db = Country.query.filter_by(
+        country_name=country_to_display).first()
 
-    selected_country_db_info = {
-        "id": selected_country_db.country_id,
-        "countryName": selected_country_db.country_name,
-        "visa": selected_country_db.visa,
-        "vaccination": selected_country_db.vaccination,
-        "temperatures": selected_country_db.avg_temp,
-        "city_temp": selected_country_db.temp_city,
-        "avg_price": selected_country_db.avg_cost
+    country_to_display_db_info = {
+        "id": country_to_display_db.country_id,
+        "countryName": country_to_display_db.country_name,
+        "visa": country_to_display_db.visa,
+        "vaccination": country_to_display_db.vaccination,
+        "temperatures": country_to_display_db.avg_temp,
+        "city_temp": country_to_display_db.temp_city,
+        "avg_price": country_to_display_db.avg_cost
     }
 
     # get info from APIs
-    # country = choice(selected_country)  # select a random country
-    country_name = selected_country  # get random the country name
-
     # get country place_id from geocode
-    geocode_result = gmaps.geocode(country_name)
+    geocode_result = gmaps.geocode(country_to_display)
     # from geocode store the place_id
     country_id = geocode_result[0]['place_id']
 
@@ -92,41 +81,42 @@ def display_countries():
     # get currency and language from restcountries
     get_currency_language = requests.get(
         f'https://restcountries.eu/rest/v2/alpha/{short_name}')
-    get_currency_language_json = get_currency_language.json()
-    get_currency = get_currency_language_json['currencies'][0]['name']
-    get_language = get_currency_language_json['languages'][0]['name']
+    currency_language_json = get_currency_language.json()
+    currency = currency_language_json['currencies'][0]['name']
+    language = currency_language_json['languages'][0]['name']
 
     # api file from travel advisory
     travel_advisor_response = requests.get(
         "https://www.travel-advisory.info/api")
     travel_advisor_json = travel_advisor_response.json()
     country_safety_score = travel_advisor_json['data'][short_name]['advisory']['score']
-    learn_more_advisory = travel_advisor_json['data'][short_name]['advisory']['source']
+    learn_more = travel_advisor_json['data'][short_name]['advisory']['source']
 
     # popular cities api
     cities_url = f'https://countries-cities.p.rapidapi.com/location/country/{short_name}/city/list'
     cities_querystring = {"page": "1", "per_page": "7", "format": "json"}
     cities_headers = {
         'x-rapidapi-host': "countries-cities.p.rapidapi.com",
-        'x-rapidapi-key': cities_rapid_api
+        'x-rapidapi-key': rapid_api_key
     }
+
     cities_response = requests.request(
         "GET", cities_url, headers=cities_headers, params=cities_querystring)
-    cities_text_response = cities_response.text
-    covert_text_to_dict = json.loads(cities_text_response)
-    cities_information = covert_text_to_dict['cities']
+    cities_text = cities_response.text
+    text_to_dict = json.loads(cities_text)
+    cities_information = text_to_dict['cities']
     popular_cities = []
     for city in cities_information:
         popular_cities.append(city['name'])
 
     # store all the data info
     country_information = {
-        'country_info': selected_country_db_info,
-        'currency': get_currency,
-        'language': get_language,
+        'country_info': country_to_display_db_info,
+        'currency': currency,
+        'language': language,
         'place_photos': place_photos_list,
         'advisor_score': country_safety_score,
-        'learn_more_advisory': learn_more_advisory,
+        'learn_more': learn_more,
         'popular_cities': popular_cities
     }
 
@@ -135,12 +125,10 @@ def display_countries():
 
 def get_city_code(city):
     url = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/"
-
     querystring = {"query": city}
-
     headers = {
         'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-        'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+        'x-rapidapi-key': rapid_api_key
     }
 
     response = requests.request(
@@ -153,7 +141,6 @@ def get_city_code(city):
 @app.route('/register', methods=['GET', 'POST'])
 def register_process():
     """Process registration."""
-    print('request', request)
 
     first_name = request.form["firstName"]
     last_name = request.form["lastName"]
@@ -241,11 +228,11 @@ def user_likes_page():
         return ("Please login or register!")
 
     existing_save = Save.query.filter_by(
-        user_id=user_id, country_name=country).first()
+        user_id=user_id, country_to_display=country).first()
 
     if not existing_save:
         save_countries = Save(
-            user_id=user_id, country_name=country, photo_url=url, visited_country=visited, price=price, whereTo=whereTo, whereFrom=whereFrom, notify=notify)
+            user_id=user_id, country_to_display=country, photo_url=url, visited_country=visited, price=price, whereTo=whereTo, whereFrom=whereFrom, notify=notify)
 
         db.session.add(save_countries)
         db.session.commit()
@@ -266,7 +253,7 @@ def user_likes():
     save_countries_info = []
 
     for country in saved_countries:
-        save_countries_info.append({'country_name': country.country_name,
+        save_countries_info.append({'country_to_display': country.country_to_display,
                                     'country_photo': country.photo_url,
                                     'save_id': country.save_id})
 
@@ -284,7 +271,7 @@ def user_saves():
     visited_countries_info = []
 
     for country in visited_countries:
-        visited_countries_info.append({'country_name': country.country_name,
+        visited_countries_info.append({'country_to_display': country.country_to_display,
                                        'country_photo': country.photo_url,
                                        'save_id': country.save_id})
 
@@ -296,16 +283,15 @@ def delete_saved():
     """ delete saved countries """
 
     save_id = request.form["saveId"]
-
     Save.query.filter_by(
         save_id=save_id).delete()
-
     db.session.commit()
 
     return save_id
 
-
 # @app.route('./checkFlight', method=["POST"])
+
+
 def check_flight():
     """check get all location for flight prices in database"""
 
@@ -334,7 +320,7 @@ def check_flight():
 
         headers = {
             'x-rapidapi-host': "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-            'x-rapidapi-key': "71ff2faeb7msh2dcf62e4f6d316fp1dd22fjsn0f800f62adb8"
+            'x-rapidapi-key': rapid_api_key
         }
 
         response = requests.request(
@@ -382,22 +368,10 @@ def contact_user(dict):
             to=f"+1{user_phone_number}"
         )
 
-        print('message', message.sid)
-
     return 'done!'
 
-
-# @app.route('./checkFlight', method=["POST"])
-# def check_flight():
 
 if __name__ == "__main__":
     app.debug = True
     connect_to_db(app)
-    app.run(host="0.0.0.0")
-
-    # do not debug for demo
-    # app.debug = True
-
-    # connect_to_db(app)
-
-    # DebugToolbarExtension(app)
+    app.run()

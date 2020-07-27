@@ -4,12 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./App.css";
 import { DeleteButton } from "./styled";
 
-//friendly reminders:
-//any javascript goes inside {}
-// you can declare and pass in a function
-
-function RegisterModal(props) {
-  const { isOpen, toggle } = props;
+function RegisterModal({ isOpen, toggle }) {
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
   const [email, setEmail] = useState("");

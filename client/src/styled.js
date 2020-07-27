@@ -203,6 +203,7 @@ export const PolaroidLayout = styled.div`
     #e7baa0,
     white
   );
+  height: 100vh;
 `;
 
 export const NavAlign = styled(Nav)`
@@ -300,4 +301,11 @@ export const SaveBox = styled.div`
   padding: 5%;
   margin: 10px;
   height: 170px;
+`;
+
+export const LoadingImg = styled.img`
+  display: block,
+  marginLeft: 45%,
+  marginRight: auto,
+  marginTop: 5%,
 `;

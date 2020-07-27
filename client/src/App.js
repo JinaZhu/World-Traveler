@@ -1,44 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom"
-import $ from "jquery"
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import $ from "jquery";
 
-import './App.css';
-
-import Home from "./Home"
-import SavedCountriesList from './SavedCountriesList'
-import NavBar from './Navbar'
-import VisitedCountriesList from './VisitedCountriesList'
-import { Wrapper } from './styled'
-
-
+import "./App.css";
+import Home from "./Home";
+import SavedCountriesList from "./SavedCountriesList";
+import NavBar from "./Navbar";
+import VisitedCountriesList from "./VisitedCountriesList";
+import { Wrapper } from "./styled";
 //friendly reminders:
 //any javascript goes inside {}
-// you can declare and pass in a function 
-
-
 function App() {
-  const [user, setUser] = useState()
-
+  const [user, setUser] = useState();
 
   function checkIsLoggedIn() {
-    const xhr = $.get('/isLoggedIn')
+    const xhr = $.get("/isLoggedIn");
 
     xhr.done((data) => {
-      setUser(data)
-    })
+      setUser(data);
+    });
     xhr.fail((error) => {
-      console.log('error', error)
-    })
+      console.log("error", error);
+    });
   }
 
   useEffect(() => {
-    checkIsLoggedIn()
-  }, [])
-
+    checkIsLoggedIn();
+  }, []);
 
   return (
     <Wrapper>
@@ -57,7 +45,7 @@ function App() {
         </Switch>
       </Router>
     </Wrapper>
-  )
+  );
 }
 
 export default App;

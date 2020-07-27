@@ -24,9 +24,11 @@ import {
   DetailTitleP,
   DetailDataP,
   DetailRow,
+  LoadingImg,
 } from "./styled";
 import TempChart from "./TempChart";
 import SaveButton from "./SaveButton";
+import config from "./config";
 
 const CountryInfo = ({ country, isLoading, user }) => {
   if (!isLoading && !country) {
@@ -35,14 +37,8 @@ const CountryInfo = ({ country, isLoading, user }) => {
 
   if (isLoading) {
     return (
-      <img
-        style={{
-          display: "block",
-          marginLeft: "45%",
-          marginRight: "auto",
-          marginTop: "5%",
-        }}
-        alt="loading..."
+      <LoadingImg
+        alt="loading Image"
         src="/static/paperplane.gif"
         width="150"
         height="150"
@@ -172,7 +168,7 @@ const CountryInfo = ({ country, isLoading, user }) => {
             <FilteredPhoto
               key={index}
               alt="country"
-              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=AIzaSyAGIgU3ILBZtHca1RACPDe30eGGMQAMtHw`}
+              src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=${config.googleAPIKey}`}
               width="200"
               height="200"
             />
